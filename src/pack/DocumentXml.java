@@ -44,7 +44,7 @@ public class DocumentXml {
         // object that encapsulates a DOM parser   
         return builder.parse(file); //nous retourne le fichier en type document
         // Il faut donc que la variable qui la reçoit
-        // soit de type document
+        // soit de 
     }
 
     //Retourne la liste de toutes les nodes qui correspondent au nom passé en paramètre
