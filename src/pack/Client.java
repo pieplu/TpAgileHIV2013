@@ -23,7 +23,6 @@ public class Client {
     private char ContractType;
     
  public Client(){
-    
     DefaultClient();
     nbTotalDeClient ++;
 }    
@@ -31,8 +30,6 @@ public class Client {
     
     
 public void DefaultClient(){
-
-    
     ClientID = DEFAULT_ID;
     ContractType =DEFAULT_CONTRACT;    
 }
