@@ -36,15 +36,10 @@ public class Contrat {
     private static double contratA(double montant, int numSoin) {
         double montantRembourser = 0;
         switch (standardisationNumSoin(numSoin)) {
-            case 0:
-            case 100:
-            case 200:
-            case 500:
+            case 0:case 100:case 200:case 500:
                 montantRembourser = calculRemboursement(montant,0.25);
                 break;
-            case 300:
-            case 400:
-            case 700:
+            case 300:case 400:case 700:
                 montantRembourser = 0;
                 break;
             case 600:
@@ -61,8 +56,7 @@ public class Contrat {
             case 0:
                 montantRembourser = calculRemboursement(montant,0.5,40);
                 break;
-            case 100:
-            case 500:
+            case 100:case 500:
                 montantRembourser = calculRemboursement(montant,0.5,50);
                 break;
             case 200:
@@ -97,12 +91,10 @@ public class Contrat {
             case 0:
                 montantRembourser = calculRemboursement(montant,1,85);
                 break;
-            case 100:
-            case 500:
+            case 100:case 500:
                 montantRembourser = calculRemboursement(montant,1,75);
                 break;
-            case 200:
-            case 600:
+            case 200:case 600:
                 montantRembourser = calculRemboursement(montant,1,100);
                 break;
             case 300:
