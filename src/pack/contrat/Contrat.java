@@ -10,7 +10,7 @@ package pack.contrat;
  */
 public class Contrat {
 
-    private static int standardisationNumSoin(int numSoin) {
+    static int standardisationNumSoin(int numSoin) {
         int modificationNumSoin = numSoin;
         if (numSoin >= 300 && numSoin <= 399) {
             modificationNumSoin = 300;
@@ -18,7 +18,7 @@ public class Contrat {
         return modificationNumSoin;
     }
     
-    private static double calculRemboursement(double montant, double multiple, double maxMontant){
+    static double calculRemboursement(double montant, double multiple, double maxMontant){
         double montantRembourser;
         montantRembourser = montant * multiple;
                 if (montantRembourser > maxMontant) {
@@ -28,29 +28,11 @@ public class Contrat {
         return montantRembourser;
     }
     
-    private static double calculRemboursement(double montant, double multiple){
-//System.out.println(montant);
+    static double calculRemboursement(double montant, double multiple){
         return montant * multiple;
     }
 
-    private static double contratA(double montant, int numSoin) {
-        double montantRembourser = 0;
-        switch (standardisationNumSoin(numSoin)) {
-            case 0:case 100:case 200:case 500:
-                montantRembourser = calculRemboursement(montant,0.25);
-                break;
-            case 300:case 400:case 700:
-                montantRembourser = 0;
-                break;
-            case 600:
-                montantRembourser = montant * 0.4;
-                break;
-        }
-
-        return montantRembourser;
-    }
-
-    private static double contratB(double montant, int numSoin) {
+    static double contratB(double montant, int numSoin) {
         double montantRembourser = 0;
         switch (standardisationNumSoin(numSoin)) {
             case 0:
@@ -79,13 +61,13 @@ public class Contrat {
         return montantRembourser;
     }
 
-    private static double contratC(double montant, int numSoin) {
+    static double contratC(double montant, int numSoin) {
         double montantRembourser = montant * 0.9;
 
         return montantRembourser;
     }
 
-    private static double contratD(double montant, int numSoin) {
+    static double contratD(double montant, int numSoin) {
         double montantRembourser = 0;
         switch (standardisationNumSoin(numSoin)) {
             case 0:
@@ -111,10 +93,10 @@ public class Contrat {
         return montantRembourser;
     }
 
-    public static double remboursement(String typeContrat, double montant, int numSoin) {
+    static double remboursement(String typeContrat, double montant, int numSoin) {
         double montantRembourser = 0;
         if (typeContrat.equals("A")) {
-            montantRembourser = contratA(montant, numSoin);
+            montantRembourser = ContraA.contratA(montant, numSoin);
         }
         if (typeContrat.equals("B")) {
             montantRembourser = contratB(montant, numSoin);
