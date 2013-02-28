@@ -56,7 +56,7 @@ public class Validation {
       return true;
     }
 
-    /*
+    
     public static boolean isContractLetterValid(String contractLetter) {
         //\u0000 est la valeur d'un char non initialiser
         if (contractLetter == null) {
@@ -121,6 +121,12 @@ public class Validation {
         return dateInt;
     }
 
+    public static boolean isTheCharADigit(char a){
+        
+        return true;
+    }
+    
+    
     public static boolean isDateFormValid(String date) {
 
         if (date.length() == VALID_NUMBER_OF_DIGITS_FOR_DATE) {
@@ -253,5 +259,5 @@ public class Validation {
         }
         return test;
     }
-    */
+    
 }
