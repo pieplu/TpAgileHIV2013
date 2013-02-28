@@ -59,6 +59,11 @@ public class Validation {
         }
       return true;
     }
+    
+    
+    
+    
+    
 
     /**
      * Determines if a client's type of insurance is valid in form. 
@@ -88,7 +93,6 @@ public class Validation {
      * 
      *        false otherwise
      */
-    //IL FAUT QUE TU CHECK SI Y'A AU MOINS 5 caracteres dans ton string, sinon OutOfBound
     public static boolean isAmountFormValid(String costForTheService) {
             return( (isMinimumLengthForAmountValid (costForTheService)) &&
                     (containsDollarSignAtTheEnd(costForTheService)) && 
@@ -98,10 +102,10 @@ public class Validation {
                    ); 
     }
     /**
-     * Determines if the String in parameters ends with a dollar sign ($)
+     * Determines if the amount in parameters has a length of at least MINIMUM_LENGTH_FOR_AMOUNT
      * 
-     * @param amountInDollars is the String that must verified
-     * @return true it it ends with the dollar sign ($), false otherwise
+     * @param amount that must verified
+     * @return true the amount in parameters has a length of at least MINIMUM_LENGTH_FOR_AMOUNT, false otherwise
      * 
      */
     public static boolean isMinimumLengthForAmountValid (String amount){
@@ -123,6 +127,12 @@ public class Validation {
         return amountInDollars.charAt(amountInDollars.length()-4) == '.';
     }
     
+    
+    
+    
+    
+    
+    //DEMANDER A ALEXIS
     public static boolean monthValide(String monthFrom) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         dateFormat.setLenient(false);
@@ -136,25 +146,30 @@ public class Validation {
         }
         return bool;
     }
-
+    
+    //DEMANDER A ALEXIS
     public static int transformTwoCharInInt(int pos1, int pos2, String date) {
         String nb = "" + date.charAt(pos1) + date.charAt(pos2);
         int dateInt = Integer.parseInt(nb);
         return dateInt;
     }
 
+    
+    
+    
+    
     public static boolean isDateFormValid(String date) {
 
         if (date.length() == VALID_LENGTH_FOR_DATE) {
             if ((date.charAt(4) == '-') && (date.charAt(7) == '-')) {
                 for (int i = 0; i <= 3; i++) {
-                    if (!isTheCharADigit(date.charAt(i))) {
+                    if (!Character.isDigit(date.charAt(i))) {
                         return false;
                     }
                 }
 
                 for (int i = 5; i <= 6; i++) {
-                    if (!isTheCharADigit(date.charAt(i))) {
+                    if (!Character.isDigit(date.charAt(i))) {
                         return false;
                     }
                     if ((date.charAt(5) != '0') && (date.charAt(5) != '1')) {
@@ -165,7 +180,7 @@ public class Validation {
 
                 }
                 for (int i = 8; i <= 9; i++) {
-                    if (!isTheCharADigit(date.charAt(i))) {
+                    if (!Character.isDigit(date.charAt(i))) {
                         return false;
                     }
                     if (transformTwoCharInInt(8, 9, date) > 31) {
@@ -202,7 +217,7 @@ public class Validation {
 
                 for (int i = 0; i <= 3; i++) {
 
-                    if (!isTheCharADigit(month.charAt(i))) {
+                    if (!Character.isDigit(month.charAt(i))) {
 
                         return false;
                     }
@@ -210,7 +225,7 @@ public class Validation {
 
                 for (int i = 5; i < month.length(); i++) {
 
-                    if (!isTheCharADigit(month.charAt(i))) {
+                    if (!Character.isDigit(month.charAt(i))) {
 
                         return false;
                     }
