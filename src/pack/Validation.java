@@ -13,24 +13,28 @@ import java.util.Date;
  * @author Mathieu Latour
  */
 public class Validation {
+    
+   
 
     //DEVRONT ETRE STATIC SI DANS UNE AUTRE CLASSE QUE MAIN
-    final static int VALID_NUMBER_OF_DIGITS_FOR_CLIENT_ID = 6;
-    final static int VALID_NUMBER_OF_DIGITS_FOR_ACTUAL_MONTH = 7;
-    final static int VALID_NUMBER_OF_DIGITS_FOR_DATE = 10;
+    final static int VALID_LENGTH_FOR_CLIENT_ID = 6;
+    final static int VALID_LENGTH_FOR_ACTUAL_MONTH = 7;
+    final static int VALID_LENGTH_FOR_DATE = 10;
+    final static int MINIMUM_LENGTH_FOR_AMOUNT = 5;
+    final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D"};
     static String serviceList[] = new String[]{"0", "100", "200", "300",
         "400", "500", "600", "700"};
 
 
     /**
-     * Determines if a client identification number is valid in form. 
+     * Determines if a client's identification number is valid in form. 
      * To be valid,an ID must be made of exactly of VALID_NUMBER_OF_DIGITS_FOR_CLIENT_ID.
      * 
      * @param clientID The client's identification number (ID)
      * @return true if the ID is valid in form, false otherwise
      */
     public static boolean isClientNumberValid(String clientID) {
-      return ( (isClientNumberOfDigitsValid(clientID)) && (isTheStringMadeOfDigitOnly(clientID)) );
+      return ( (isClientNumberLengthValid(clientID)) && (isTheStringMadeOfDigitOnly(clientID)) );
     }
     /**
      * 
@@ -38,8 +42,8 @@ public class Validation {
      * @return true if the ID matches the VALID_NUMBER_OF_DIGITS_FOR_CLIENT_ID,
      *        false otherwise
      */
-    public static boolean isClientNumberOfDigitsValid (String clientID){
-        return (clientID.length() == VALID_NUMBER_OF_DIGITS_FOR_CLIENT_ID);
+    public static boolean isClientNumberLengthValid (String clientID){
+        return (clientID.length() == VALID_LENGTH_FOR_CLIENT_ID);
     }
     
     /**
@@ -56,52 +60,70 @@ public class Validation {
       return true;
     }
 
-    
+    /**
+     * Determines if a client's type of insurance is valid in form. 
+     * To be valid, the contract letter must be within the array of
+     * possible letters (see constant ArrayOfValidContractLetters)
+     * IMPORTANT: DOIT FAIRE DES TESTS
+     * @param contractLetter The client's type of insurance represented by a letter 
+     * @return true if the contract letter is valid in form, false otherwise
+     */
     public static boolean isContractLetterValid(String contractLetter) {
-        //\u0000 est la valeur d'un char non initialiser
-        if (contractLetter == null) {
-            //System.out.println("Ce client n'a pas de type de contrat");
-            return false;
+        for (int i = 0; i < ArrayOfValidContractLetters.length; i++){
+            if (contractLetter.equals(ArrayOfValidContractLetters[i])){
+                return true;
+            }   
         }
-
-
-        if ((contractLetter.equals("A")) || (contractLetter.equals("B"))
-                || (contractLetter.equals("C")) || (contractLetter.equals("D"))) {
-
-            return true;
-
-        } else {
-            //Ou mieux encore, mettre la methode qui creer un XML pour les cas defect.
-            //Si c'est le cas, la methode retourne void
-            return false;
-        }
-    }
-
-    public static boolean isAmountFormValid(String amount) {
-        if (amount.charAt((amount.length() - 1)) == '$') {
-
-            if (Character.isDigit(amount.charAt((amount.length() - 2)))) {
-
-                if ((Character.isDigit(amount.charAt((amount.length() - 3))))) {
-
-                    if (amount.charAt((amount.length() - 4)) == '.') {
-
-                        for (int i = 0; i < (amount.length() - 4); i++) {
-                            if (Character.isDigit(amount.charAt(i))) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        //System.out.println("Le montant est vraiment pas valide");
         return false;
-
     }
-
+    
+    /**
+     * 
+     * @param costForTheService The price the client paid for a service  
+     * @return true if the form follows those standards :
+     * - String must have a minimum length of 5
+     * - Ends with a $.
+     * - Has two digits for the cents followed by a dot (.XX$).
+     * - Every part of the String is a digit except for the dot.
+     * 
+     *        false otherwise
+     */
+    //IL FAUT QUE TU CHECK SI Y'A AU MOINS 5 caracteres dans ton string, sinon OutOfBound
+    public static boolean isAmountFormValid(String costForTheService) {
+            return( (isMinimumLengthForAmountValid (costForTheService)) &&
+                    (containsDollarSignAtTheEnd(costForTheService)) && 
+                    (containsDotForCents(costForTheService)) &&
+                    (isTheStringMadeOfDigitOnly(costForTheService.substring(costForTheService.length()-2,costForTheService.length()-3))) &&
+                    (isTheStringMadeOfDigitOnly(costForTheService.substring(0,costForTheService.length()-5)))   
+                   ); 
+    }
+    /**
+     * Determines if the String in parameters ends with a dollar sign ($)
+     * 
+     * @param amountInDollars is the String that must verified
+     * @return true it it ends with the dollar sign ($), false otherwise
+     * 
+     */
+    public static boolean isMinimumLengthForAmountValid (String amount){
+        return amount.length() >= MINIMUM_LENGTH_FOR_AMOUNT;
+    }
+    /**
+     * Determines if the String in parameters ends with a dollar sign ($)
+     * 
+     * @param amountInDollars is the String that must verified
+     * @return true it it ends with the dollar sign ($), false otherwise
+     * 
+     */
+    public static boolean containsDollarSignAtTheEnd (String amountInDollars){
+        return amountInDollars.charAt(amountInDollars.length()-1) == '$';
+    }
+    
+    // Doit vérifier si y'a au moins 4 caracts.
+    public static boolean containsDotForCents (String amountInDollars){      
+        return amountInDollars.charAt(amountInDollars.length()-4) == '.';
+    }
+    
     public static boolean monthValide(String monthFrom) {
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         dateFormat.setLenient(false);
         Date date = null;
@@ -121,15 +143,9 @@ public class Validation {
         return dateInt;
     }
 
-    public static boolean isTheCharADigit(char a){
-        
-        return true;
-    }
-    
-    
     public static boolean isDateFormValid(String date) {
 
-        if (date.length() == VALID_NUMBER_OF_DIGITS_FOR_DATE) {
+        if (date.length() == VALID_LENGTH_FOR_DATE) {
             if ((date.charAt(4) == '-') && (date.charAt(7) == '-')) {
                 for (int i = 0; i <= 3; i++) {
                     if (!isTheCharADigit(date.charAt(i))) {
@@ -181,7 +197,7 @@ public class Validation {
 
     public static boolean isActualMonthFormValid(String month) {
 
-        if (month.length() == VALID_NUMBER_OF_DIGITS_FOR_ACTUAL_MONTH) {
+        if (month.length() == VALID_LENGTH_FOR_ACTUAL_MONTH) {
             if ((month.charAt(4) == '-')) {
 
                 for (int i = 0; i <= 3; i++) {
