@@ -27,7 +27,7 @@ public class Contrat {
         return montant * multiple;
     }
 
-    public static double remboursement(String typeContrat, double montant, int numSoin) {
+    public static double remboursementParTypeContratMontantNumSoin(String typeContrat, double montant, int numSoin) {
         if (typeContrat.equals("A")) {
             montantRembourser = ContraA.selectionSoinContratA();
         }
