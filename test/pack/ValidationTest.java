@@ -222,7 +222,30 @@ public class ValidationTest {
         assertFalse (Validation.isDateMonthDigitNotGreaterThanTen("2013-22"));
     }
     
+    @Test
+    public void reclamationMonthCorrespondsToActualMonth (){
+    assertTrue (Validation.isReclamationMonthEqualActualMonth("2012-11","2012-11"));
+    }
     
+    @Test
+    public void reclamationMonthDoesNotCorrespondToActualMonth (){
+    assertFalse (Validation.isReclamationMonthEqualActualMonth("2012-12","2012-11"));
+    }
+    
+    @Test
+    public void serviceNumberIsValid (){
+    assertTrue (Validation.isServiceNumberValid("100"));
+    }
+    
+    @Test
+    public void serviceNumberIsValid2 (){
+    assertTrue (Validation.isServiceNumberValid("350"));
+    }
+    
+     @Test
+    public void serviceNumberIsInvalid (){
+    assertFalse (Validation.isServiceNumberValid("1"));
+    }
     
 }
     
