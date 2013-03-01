@@ -109,5 +109,6 @@ public class Contrat {
         }
        // System.out.println(montantRembourser);
         return montantRembourser;
+        //test
     }
 }
