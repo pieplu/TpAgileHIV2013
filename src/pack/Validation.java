@@ -19,7 +19,7 @@ public class Validation {
     //DEVRONT ETRE STATIC SI DANS UNE AUTRE CLASSE QUE MAIN
     final static int VALID_LENGTH_FOR_CLIENT_ID = 6;
     final static int VALID_LENGTH_FOR_ACTUAL_MONTH = 7;
-    final static int VALID_LENGTH_FOR_DATE = 10;
+    final static int VALID_LENGTH_FOR_DATE = 7;
     final static int MINIMUM_LENGTH_FOR_AMOUNT = 5;
     final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D"};
     static String serviceList[] = new String[]{"0", "100", "200", "300",
@@ -27,7 +27,22 @@ public class Validation {
 
 
     public static boolean isTheCharacterADigit(char theCharacter){
-        return isTheCharacterADigit(theCharacter);
+        return Character.isDigit(theCharacter);
+    }
+    
+        /**
+     * 
+     * @param string A string
+     * @return true if all the characters of the string are digits,false otherwise.
+     */
+    public static boolean isTheStringMadeOfDigitOnly(String onlyDigits) {
+        System.out.println(onlyDigits);
+      for (int i = 0; i < onlyDigits.length(); i++) {
+            if ( !(isTheCharacterADigit(onlyDigits.charAt(i)) )  ) {
+                return false;
+            }
+        }
+      return true;
     }
     
     /**
@@ -50,19 +65,7 @@ public class Validation {
         return (clientID.length() == VALID_LENGTH_FOR_CLIENT_ID);
     }
     
-    /**
-     * 
-     * @param string A string
-     * @return true if all the characters of the string are digits,false otherwise.
-     */
-    public static boolean isTheStringMadeOfDigitOnly(String string) {
-      for (int i = 0; i < string.length(); i++) {
-            if ( !(isTheCharacterADigit(string.charAt(i)) )  ) {
-                return false;
-            }
-        }
-      return true;
-    }
+
     
     
     
@@ -85,7 +88,7 @@ public class Validation {
         }
         return false;
     }
-    
+    // XXXXXXX .XX$
     /**
      * 
      * @param costForTheService The price the client paid for a service  
@@ -97,12 +100,12 @@ public class Validation {
      * 
      *        false otherwise
      */
-    public static boolean isAmountFormValid(String costForTheService) {
-            return( (isMinimumLengthForAmountValid (costForTheService)) &&
-                    (containsDollarSignAtTheEnd(costForTheService)) && 
-                    (containsDotForCents(costForTheService)) &&
-                    (isTheStringMadeOfDigitOnly(costForTheService.substring(costForTheService.length()-2,costForTheService.length()-3))) &&
-                    (isTheStringMadeOfDigitOnly(costForTheService.substring(0,costForTheService.length()-5)))   
+    public static boolean isAmountFormValid(String amount) {
+            return( (isMinimumLengthForAmountValid (amount)) &&
+                    (containsDollarSignAtTheEnd(amount)) && 
+                    (containsDotForCents(amount)) &&
+                    (isTheStringMadeOfDigitOnly(amount.substring(amount.length()-3,amount.length()-1))) &&
+                    (isTheStringMadeOfDigitOnly(amount.substring(0,amount.length()-4)))   
                    ); 
     }
     /**
@@ -164,51 +167,36 @@ public class Validation {
     
     public static boolean isDateFormValid(String date) {
        return (isDateLengthValid(date)&&
-               
-               )
+               isDateWithDigitsOnly(date, 0, 3) &&
+               isDateWithDigitsOnly(date, 5, 6) &&
+               isDateWithDashes(date) &&
+               isDateMonthDigitNotGreaterThanTen(date)              
+               );
     }
     
     public static boolean isDateLengthValid (String date){
         return date.length() == VALID_LENGTH_FOR_DATE;
      }
     
-    public static boolean isDateWithDashes(String date){
-        
-    }
-            if ((date.charAt(4) == '-') && (date.charAt(7) == '-')) {
-                for (int i = 0; i <= 3; i++) {
+    //FORMAT: XXXX-XX, where X must be within 0 or 9 only
+    public static boolean isDateWithDigitsOnly (String date, int indexStart, int indexEnd){
+        boolean isValid = true;
+        for (int i = indexStart; i <= indexEnd; i++) {
                     if (!isTheCharacterADigit(date.charAt(i))) {
-                        return false;
+                        isValid = false;
                     }
-                }
-
-                for (int i = 5; i <= 6; i++) {
-                    if (!isTheCharacterADigit(date.charAt(i))) {
-                        return false;
-                    }
-                    if ((date.charAt(5) != '0') && (date.charAt(5) != '1')) {
-
-                        //     System.out.println("Not supposed to be here");
-                        return false;
-                    }
-
-                }
-                for (int i = 8; i <= 9; i++) {
-                    if (!isTheCharacterADigit(date.charAt(i))) {
-                        return false;
-                    }
-                    if (transformTwoCharInInt(8, 9, date) > 31) {
-                        return false;
-                    }
-
-                }
-            }
-        } else {
-            return false;
         }
-        return true;
+        return isValid;
     }
-
+    
+    public static boolean isDateWithDashes(String date){
+        return (date.charAt(4) == '-');
+    }
+    
+    public static boolean isDateMonthDigitNotGreaterThanTen (String date){
+        return date.charAt(5) == '0' || date.charAt(5) == '1';
+    }
+/*
     public static boolean dateValide(String dateFrom) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -304,6 +292,6 @@ public class Validation {
         }
         return test;
     }
-    
+    */
     
 }
