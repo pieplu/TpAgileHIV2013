@@ -4,6 +4,7 @@
  */
 package pack;
 
+import pack.contrat.Contrat;
 import org.w3c.dom.*;
 import java.io.File;
 import java.io.*;
@@ -57,14 +58,14 @@ public class TP1AGILE {
 
             DocumentXml document = new DocumentXml();
 
-            NodeList formulaire = DocumentXml.getNodesByName("reclamations");
+            NodeList formulaire = document.getNodesByName("reclamations");
             String clientID = document.obtainNodeContent(formulaire.item(0), "client");
             String contratType = document.obtainNodeContent(formulaire.item(0), "contrat");
             String mois = document.obtainNodeContent(formulaire.item(0), "mois");
 
             ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
 
-            NodeList reclamationDuXML = DocumentXml.getNodesByName("reclamation");
+            NodeList reclamationDuXML = document.getNodesByName("reclamation");
             for (int i = 0; i < reclamationDuXML.getLength(); i++) {
                 listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, document));
             }
@@ -105,7 +106,7 @@ public class TP1AGILE {
                 String s = listeDesReclamationsDuClient.get(i).getMontant().substring(0, listeDesReclamationsDuClient.get(i).getMontant().length() - 1);
                 double montantAjuster = Double.parseDouble(s);
                 int numSoin = Integer.parseInt(listeDesReclamationsDuClient.get(i).getSoin());
-                String montant = Contrat.remboursement(contratType, montantAjuster, numSoin)+"";
+                String montant = Contrat.remboursementParTypeContratMontantNumSoin(contratType, montantAjuster, numSoin)+"";
                 if (montant.charAt(montant.length()-2) == '.'){
                     montant = montant + "0$";
                 } else{
