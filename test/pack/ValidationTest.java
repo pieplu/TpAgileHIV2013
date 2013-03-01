@@ -77,6 +77,9 @@ public class ValidationTest {
     
     
     
+    
+    
+    
     @Test
     public void testContractLetterIsValid(){
         assertTrue (Validation.isContractLetterValid("A"));
@@ -90,6 +93,12 @@ public class ValidationTest {
         assertFalse (Validation.isContractLetterValid("M"));
     }
     
+    
+    
+    
+    
+    
+    
     @Test
     public void containsDollarSignAtTheEnd(){
         assertTrue (Validation.containsDollarSignAtTheEnd("0.0000000000000$"));
@@ -100,6 +109,7 @@ public class ValidationTest {
         assertFalse (Validation.containsDollarSignAtTheEnd("0.0000000000000"));
     }
     
+    
     @Test
     public void containsDotForCents(){
         assertTrue (Validation.containsDollarSignAtTheEnd("1.25$"));
@@ -107,17 +117,24 @@ public class ValidationTest {
     
     @Test
     public void containsNoDotForCents(){
-        assertFalse (Validation.containsDollarSignAtTheEnd("1025$"));
+        assertFalse (Validation.containsDotForCents("1025$"));
     }
+    
     
     @Test
     public void amountFormIsValid(){
         assertTrue (Validation.isAmountFormValid("1000.25$"));
     }
+
     
     @Test
     public void amountFormIsInvalidMissingDot(){
         assertFalse (Validation.isAmountFormValid("1025$"));
+    }
+    
+    @Test 
+    public void amountMinimumLengthForAmountValid(){
+        assertTrue (Validation.isMinimumLengthForAmountValid("1000.25$"));
     }
     
     @Test 
@@ -135,10 +152,78 @@ public class ValidationTest {
         assertFalse (Validation.isAmountFormValid("1025.0$"));
     }
     
+    
+    
     @Test
     public void amountFormIsInvalidOneDigitIsAChar(){
         assertFalse (Validation.isAmountFormValid("10a5.0$"));
     }
+    
+    
+    
+    
+    @Test
+    public void dateFormatValid (){
+        assertTrue (Validation.isDateFormValid("2013-01"));
+    }
+    
+    @Test
+    public void dateFormatInvalid (){
+        assertFalse (Validation.isDateFormValid("2013-01-"));
+    }
+    
+    
+    @Test
+    public void dateLengthValid (){
+        assertTrue (Validation.isDateLengthValid("2013-01"));
+    }
+    
+    @Test
+    public void dateLengthInvalid (){
+        assertFalse (Validation.isDateLengthValid("20131-01"));
+    }
+    
+   
+    @Test
+    public void dateWithoutDashesValid (){
+        assertTrue (Validation.isDateWithDashes("2013-01"));
+    }
+    
+    @Test
+    public void dateWithoutDashesInvalid (){
+        assertFalse (Validation.isDateWithDashes("2013.01"));
+    }
+    
+    
+    
+    @Test
+    public void isDateWithDigitsOnlyValid () {
+        assertTrue (Validation.isDateWithDigitsOnly("2013-01", 0,3));
+    }
+    
+    @Test
+    public void isDateWithDigitsOnlyInvalid1 () {
+        assertFalse (Validation.isDateWithDigitsOnly("2a13-01", 0,3));
+    }
+    
+    @Test
+    public void isDateWithDigitsOnlyInvalid2 () {
+        assertFalse (Validation.isDateWithDigitsOnly("2013-a1", 5,6));
+    }
+    
+    
+    @Test
+    public void dateMonthDigitNotGreaterThanTenValid (){
+        assertTrue (Validation.isDateMonthDigitNotGreaterThanTen("2013-12"));
+    }
+    
+    @Test
+    public void dateMonthDigitNotGreaterThanTenInvalid (){
+        assertFalse (Validation.isDateMonthDigitNotGreaterThanTen("2013-22"));
+    }
+    
+    
+    
 }
     
     
