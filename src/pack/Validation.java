@@ -26,6 +26,10 @@ public class Validation {
         "400", "500", "600", "700"};
 
 
+    public static boolean isTheCharacterADigit(char theCharacter){
+        return isTheCharacterADigit(theCharacter);
+    }
+    
     /**
      * Determines if a client's identification number is valid in form. 
      * To be valid,an ID must be made of exactly of VALID_NUMBER_OF_DIGITS_FOR_CLIENT_ID.
@@ -53,7 +57,7 @@ public class Validation {
      */
     public static boolean isTheStringMadeOfDigitOnly(String string) {
       for (int i = 0; i < string.length(); i++) {
-            if ( !(Character.isDigit(string.charAt(i)) )  ) {
+            if ( !(isTheCharacterADigit(string.charAt(i)) )  ) {
                 return false;
             }
         }
@@ -159,17 +163,27 @@ public class Validation {
     
     
     public static boolean isDateFormValid(String date) {
-
-        if (date.length() == VALID_LENGTH_FOR_DATE) {
+       return (isDateLengthValid(date)&&
+               
+               )
+    }
+    
+    public static boolean isDateLengthValid (String date){
+        return date.length() == VALID_LENGTH_FOR_DATE;
+     }
+    
+    public static boolean isDateWithDashes(String date){
+        
+    }
             if ((date.charAt(4) == '-') && (date.charAt(7) == '-')) {
                 for (int i = 0; i <= 3; i++) {
-                    if (!Character.isDigit(date.charAt(i))) {
+                    if (!isTheCharacterADigit(date.charAt(i))) {
                         return false;
                     }
                 }
 
                 for (int i = 5; i <= 6; i++) {
-                    if (!Character.isDigit(date.charAt(i))) {
+                    if (!isTheCharacterADigit(date.charAt(i))) {
                         return false;
                     }
                     if ((date.charAt(5) != '0') && (date.charAt(5) != '1')) {
@@ -180,7 +194,7 @@ public class Validation {
 
                 }
                 for (int i = 8; i <= 9; i++) {
-                    if (!Character.isDigit(date.charAt(i))) {
+                    if (!isTheCharacterADigit(date.charAt(i))) {
                         return false;
                     }
                     if (transformTwoCharInInt(8, 9, date) > 31) {
@@ -217,7 +231,7 @@ public class Validation {
 
                 for (int i = 0; i <= 3; i++) {
 
-                    if (!Character.isDigit(month.charAt(i))) {
+                    if (!isTheCharacterADigit(month.charAt(i))) {
 
                         return false;
                     }
@@ -225,7 +239,7 @@ public class Validation {
 
                 for (int i = 5; i < month.length(); i++) {
 
-                    if (!Character.isDigit(month.charAt(i))) {
+                    if (!isTheCharacterADigit(month.charAt(i))) {
 
                         return false;
                     }
