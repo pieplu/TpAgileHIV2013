@@ -27,7 +27,21 @@ import org.xml.sax.SAXException;
  */
 public class DocumentXml {
 
-    //File fichierXML = new File("C:/Users/Mathieu Latour/Desktop/INPUT.xml");
+    public static void enregistrerSousDocumentXml(String nomFichier, Document doc) throws Exception {
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        Source source = new DOMSource(doc);
+        Result result = new StreamResult(new File(nomFichier));
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+        transformer.transform(source, result);
+    }
+
+    public static DocumentBuilder docInstanceBuilder() throws ParserConfigurationException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = factory.newDocumentBuilder();
+        return docBuilder;
+    }
+
     private Document document;
     File file = new File("src\\pack\\" + TP1AGILE.lefichier + ".xml");
 

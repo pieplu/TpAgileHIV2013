@@ -24,26 +24,13 @@ import sun.org.mozilla.javascript.internal.regexp.*;
 public class TP1AGILE {
 
     public static String lefichier = "";
-    
-    public static void enregistrerSous(String nomFichier, Document doc) throws Exception {
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        Source source = new DOMSource(doc);
-        Result result = new StreamResult(new File(nomFichier));
-
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-
-        transformer.transform(source, result);
-    }
 
     public static void main(String[] args) throws Exception {
 
         lefichier = args [0];
         
         if (ExecutionValidation.exexValid() == false) {
-            DocumentBuilderFactory factoryError = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilderError = factoryError.newDocumentBuilder();
-            Document nouveauError = docBuilderError.newDocument();
+            Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
 
             Element remboursementsEcritError = nouveauError.createElement("remboursements");
             nouveauError.appendChild(remboursementsEcritError);
@@ -53,7 +40,7 @@ public class TP1AGILE {
             Text textMessageError = nouveauError.createTextNode("Données invalides");
             messageError.appendChild(textMessageError);
             
-            enregistrerSous("src\\pack\\result.xml", nouveauError);
+            DocumentXml.enregistrerSousDocumentXml("src\\pack\\result.xml", nouveauError);
         } else {
 
             DocumentXml document = new DocumentXml();
@@ -69,10 +56,7 @@ public class TP1AGILE {
             for (int i = 0; i < reclamationDuXML.getLength(); i++) {
                 listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, document));
             }
-
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder = factory.newDocumentBuilder();
-            Document nouveauDocument = docBuilder.newDocument();
+            Document nouveauDocument = DocumentXml.docInstanceBuilder().newDocument();
 
             Element remboursementsEcrit = nouveauDocument.createElement("remboursements");
             nouveauDocument.appendChild(remboursementsEcrit);
@@ -119,7 +103,7 @@ public class TP1AGILE {
             }
 
 
-            enregistrerSous("src\\pack\\result.xml", nouveauDocument);
+            DocumentXml.enregistrerSousDocumentXml("src\\pack\\result.xml", nouveauDocument);
             System.out.println("Le fichier entree est : src\\pack\\" + args[0]+ ".xml");
             System.out.println("Le fichier a ete enregistre : src\\pack\\result.xml");
             
