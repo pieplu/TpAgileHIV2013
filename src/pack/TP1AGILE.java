@@ -28,8 +28,9 @@ public class TP1AGILE {
     public static void main(String[] args) throws Exception {
 
         lefichier = args [0];
+        ExecutionValidation validation = new ExecutionValidation();
         
-        if (ExecutionValidation.exexValid() == false) {
+        if (validation.exexValid() == false) {
             Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
 
             Element remboursementsEcritError = nouveauError.createElement("remboursements");
