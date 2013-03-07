@@ -132,6 +132,12 @@ public class Validation {
     }
 
     //DEMANDER A ALEXIS
+    /**
+     * methode qui tchek la date avec annee et mois
+     * tant qu'elle existe grace au classes date et simpleDateFormat
+     * leve une exception si la date donné ne peut pas "rentrer" dedant
+     * genre jour ou mois inexistant
+     */
     public static boolean monthValide(String monthFrom) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         dateFormat.setLenient(false);
@@ -144,13 +150,6 @@ public class Validation {
             bool = false;
         }
         return bool;
-    }
-
-    //DEMANDER A ALEXIS
-    public static int transformTwoCharInInt(int pos1, int pos2, String date) {
-        String nb = "" + date.charAt(pos1) + date.charAt(pos2);
-        int dateInt = Integer.parseInt(nb);
-        return dateInt;
     }
 
     public static boolean isDateFormValid(String date) {
@@ -185,6 +184,13 @@ public class Validation {
     }
 
     //DEMANDER A ALEXIS
+    /**
+     * methode qui tchek la date avec les jours
+     * tant qu'elle existe grace au classes date et simpleDateFormat
+     * leve une exception si la date donné ne peut pas "rentrer" dedant
+     * genre jour ou mois inexistant
+     */
+    
     public static boolean dateValide(String dateFrom) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
