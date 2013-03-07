@@ -131,7 +131,7 @@ public class Validation {
         return amountInDollars.charAt(amountInDollars.length() - 4) == '.';
     }
 
-    //DEMANDER A ALEXIS
+    
     /**
      * methode qui tchek la date avec annee et mois
      * tant qu'elle existe grace au classes date et simpleDateFormat
@@ -183,7 +183,7 @@ public class Validation {
         return date.charAt(5) == '0' || date.charAt(5) == '1';
     }
 
-    //DEMANDER A ALEXIS
+    
     /**
      * methode qui tchek la date avec les jours
      * tant qu'elle existe grace au classes date et simpleDateFormat
