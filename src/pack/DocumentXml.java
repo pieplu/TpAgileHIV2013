@@ -43,7 +43,7 @@ public class DocumentXml {
     }
 
     private Document document;
-    File file = new File("src\\pack\\" + TP1AGILE.lefichier + ".xml");
+    File file = new File("src/pack/" + TP1AGILE.lefichier + ".xml");
 
     public DocumentXml() throws Exception, SAXException, IOException {
         this.document = interpretationDuXML(file);

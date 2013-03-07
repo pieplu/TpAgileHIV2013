@@ -41,7 +41,7 @@ public class TP1AGILE {
             Text textMessageError = nouveauError.createTextNode("Données invalides");
             messageError.appendChild(textMessageError);
             
-            DocumentXml.enregistrerSousDocumentXml("src\\pack\\result.xml", nouveauError);
+            DocumentXml.enregistrerSousDocumentXml("src/pack/result.xml", nouveauError);
         } else {
 
             DocumentXml document = new DocumentXml();
@@ -104,9 +104,9 @@ public class TP1AGILE {
             }
 
 
-            DocumentXml.enregistrerSousDocumentXml("src\\pack\\result.xml", nouveauDocument);
-            System.out.println("Le fichier entree est : src\\pack\\" + args[0]+ ".xml");
-            System.out.println("Le fichier a ete enregistre : src\\pack\\result.xml");
+            DocumentXml.enregistrerSousDocumentXml("src/pack/result.xml", nouveauDocument);
+            System.out.println("Le fichier entree est : src/pack/" + args[0]+ ".xml");
+            System.out.println("Le fichier a ete enregistre : src/pack/result.xml");
             
         }
     }
