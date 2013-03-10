@@ -4,6 +4,8 @@
  */
 package pack.validation;
 
+import pack.validation.ServiceNumber;
+
 /**
  *
  * @author Mathieu Latour
@@ -24,4 +26,6 @@ public class ServiceNumberTest {
     public void serviceNumberIsInvalid() {
         assertFalse(ServiceNumber.isServiceNumberValid("1"));
     }
+
+    
 }

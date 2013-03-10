@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pack;
+package pack.validation;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -10,6 +10,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import pack.DocumentXml;
 
 /**
  *

@@ -4,6 +4,8 @@
  */
 package pack.validation;
 
+import pack.validation.ClientID;
+
 /**
  *
  * @author hj991118

@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 package pack.validation;
+import pack.validation.Amount;
+import pack.validation.Validation;
 
 /**
  *
@@ -42,26 +44,26 @@ public class AmountTest {
 
     @Test
     public void amountMinimumLengthForAmountValid() {
-        assertTrue(Validation.isMinimumLengthForAmountValid("1000.25$"));
+        assertTrue(Amount.isMinimumLengthForAmountValid("1000.25$"));
     }
 
     @Test
     public void amountFormIsInvalidLengthIsTooSmall() {
-        assertFalse(Validation.isAmountFormValid(".00$"));
+        assertFalse(Amount.isAmountFormValid(".00$"));
     }
 
     @Test
     public void amountFormIsInvalidMissingDollarSign() {
-        assertFalse(Validation.isAmountFormValid("1025.00"));
+        assertFalse(Amount.isAmountFormValid("1025.00"));
     }
 
     @Test
     public void amountFormIsInvalidMissingOneDigitForCents() {
-        assertFalse(Validation.isAmountFormValid("1025.0$"));
+        assertFalse(Amount.isAmountFormValid("1025.0$"));
     }
 
     @Test
     public void amountFormIsInvalidOneDigitIsAChar() {
-        assertFalse(Validation.isAmountFormValid("10a5.0$"));
+        assertFalse(Amount.isAmountFormValid("10a5.0$"));
     }
 }
