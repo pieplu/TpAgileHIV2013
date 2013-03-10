@@ -4,6 +4,7 @@
  */
 package pack;
 
+import pack.validation.Validation;
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
 
@@ -34,7 +35,7 @@ public class ExecutionValidation {
         for (int i = 0; i < reclamationDuXML.getLength(); i++) {
             listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, document));
         }
-
+        
         if (Validation.isClientNumberValid(clientID)) {
             //System.out.println("Ça fonctionne");
             //METHODE POUR FICHIER DEFECT.
@@ -70,7 +71,7 @@ public class ExecutionValidation {
                 testValid = false;
             }
             
-            if (Validation.dateValide((listeDesReclamationsDuClient.get(i).getDate()))){
+            if (Validation.dateFormatYearMonthDay((listeDesReclamationsDuClient.get(i).getDate()))){
             //    System.out.println("La date est valide");
                 
             }else{
@@ -79,7 +80,7 @@ public class ExecutionValidation {
                 testValid = false;
             }
             
-             if (Validation.monthValide(mois)){
+             if (Validation.dateFormatYearMonth(mois)){
             //    System.out.println("La date est valide");
                 
             }else{
