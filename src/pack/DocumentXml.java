@@ -44,11 +44,9 @@ public class DocumentXml {
 
     private Document document;
    
-
- 
     
-    public DocumentXml(String nom) throws Exception, SAXException, IOException{
-        File file = new File("src/pack/" + nom + ".xml");
+    public DocumentXml(String cheminAcces) throws Exception, SAXException, IOException{
+        File file = new File(cheminAcces);
         this.document = interpretationDuXML(file);
         
     }

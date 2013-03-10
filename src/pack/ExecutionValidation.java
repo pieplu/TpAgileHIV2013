@@ -18,22 +18,21 @@ public class ExecutionValidation {
     /**
      * @param args the command line arguments
      */
-    public boolean exexValid() throws Exception {
+    public boolean exexValid(DocumentXml fichierAValider) throws Exception {
 
         boolean testValid = true;
 
-        DocumentXml document = new DocumentXml();
         //Entrer Ã  la main le tag parent qui contient ce que vous cherchez
-        NodeList formulaire = document.getNodesByName("reclamations");
-        String clientID = document.obtainNodeContent(formulaire.item(0), "client");
-        String contratType = document.obtainNodeContent(formulaire.item(0), "contrat");
-        String mois = document.obtainNodeContent(formulaire.item(0), "mois");
+        NodeList formulaire = fichierAValider.getNodesByName("reclamations");
+        String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "client");
+        String contratType = fichierAValider.obtainNodeContent(formulaire.item(0), "contrat");
+        String mois = fichierAValider.obtainNodeContent(formulaire.item(0), "mois");
 
         ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
 
-        NodeList reclamationDuXML = document.getNodesByName("reclamation");
+        NodeList reclamationDuXML = fichierAValider.getNodesByName("reclamation");
         for (int i = 0; i < reclamationDuXML.getLength(); i++) {
-            listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, document));
+            listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, fichierAValider));
         }
         
         if (Validation.isClientNumberValid(clientID)) {
