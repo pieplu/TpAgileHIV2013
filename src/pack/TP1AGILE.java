@@ -4,18 +4,10 @@
  */
 package pack;
 
-import pack.contrat.Contrat;
-import org.w3c.dom.*;
-import java.io.File;
-import java.io.*;
 import java.util.ArrayList;
-import org.w3c.dom.Text;
-import org.w3c.dom.Element;
-import javax.xml.parsers.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.*;
-import sun.org.mozilla.javascript.internal.regexp.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.*;
+import pack.contrat.Contrat;
 
 /**
  *
