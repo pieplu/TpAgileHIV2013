@@ -8,6 +8,7 @@ import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import pack.contrat.Contrat;
+import pack.validation.ContractLetter;
 
 /**
  *
@@ -32,7 +33,7 @@ public class ElementXml {
         ammountWithoutDollarSign.replace("," , ".");
         double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);
         int numSoin = Integer.parseInt(listeDesReclamationsDuClient.get(countNumber).getSoin());
-        String montant = Contrat.remboursementParTypeContratMontantNumSoin("", montantAjuster, numSoin)+"";
+        String montant = Contrat.remboursementParTypeContratMontantNumSoin(ContractLetter.getContractLetter(), montantAjuster, numSoin)+"";
         if (montant.charAt(montant.length()-2) == '.'){
             montant = montant + "0$";
         } else{
