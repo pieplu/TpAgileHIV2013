@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pack;
+package pack.validation;
 
 import pack.validation.Validation;
 import static org.junit.Assert.*;
@@ -246,6 +246,34 @@ public class ValidationTest {
      @Test
     public void serviceNumberIsInvalid (){
     assertFalse (Validation.isServiceNumberValid("1"));
+    }
+
+    /**
+     * Test of isTheStringMadeOfDigitOnly method, of class Validation.
+     */
+    @Test
+    public void testIsTheStringMadeOfDigitOnly() {
+        System.out.println("isTheStringMadeOfDigitOnly");
+        String onlyDigits = "";
+        boolean expResult = false;
+        boolean result = Validation.isTheStringMadeOfDigitOnly(onlyDigits);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of isTheCharacterADigit method, of class Validation.
+     */
+    @Test
+    public void testIsTheCharacterADigit() {
+        System.out.println("isTheCharacterADigit");
+        char theCharacter = ' ';
+        boolean expResult = false;
+        boolean result = Validation.isTheCharacterADigit(theCharacter);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
