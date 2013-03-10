@@ -1,21 +1,17 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * @author Dominique Ménard
+ * equipe11
  */
 package pack;
 
 import java.util.ArrayList;
-import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.*;
-import pack.contrat.Contrat;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
+import pack.validation.ContractLetter;
 
-/**
- *
- * @author Dominique Ménard
- */
 public class TP1AGILE {
-
-    
 
     public static void main(String[] args) throws Exception {
         
@@ -29,7 +25,7 @@ public class TP1AGILE {
         } else {
 
             NodeList formulaire = document.getNodesByName("reclamations");
-            String contratType = document.obtainNodeContent(formulaire.item(0), "contrat");
+            String contratType = ContractLetter.getContractLetter();
 
             ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
 
@@ -65,14 +61,11 @@ public class TP1AGILE {
                    
                 Text textMontant = nouveauDocument.createTextNode(montant);
                 montantEcrit.appendChild(textMontant);
-
             }
-
 
             DocumentXml.enregistrerSousDocumentXml(args[1], nouveauDocument);
             System.out.println("Le fichier entree est : " + args[0]);
             System.out.println("Le fichier a ete enregistre : " + args[1]);
-            
         }
     }
 }
