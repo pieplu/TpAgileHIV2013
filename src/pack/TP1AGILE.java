@@ -26,8 +26,10 @@ public class TP1AGILE {
     
 
     public static void main(String[] args) throws Exception {
-
+        
         DocumentXml document = new DocumentXml(args[0]);
+        
+        
         ExecutionValidation fichierAValider = new ExecutionValidation();
         
         if (!fichierAValider.exexValid(document)) {
@@ -87,11 +89,12 @@ public class TP1AGILE {
             }
 
 
-            DocumentXml.enregistrerSousDocumentXml("src/pack/result.xml", nouveauDocument);
-            System.out.println("Le fichier entree est : src/pack/" + args[0]+ ".xml");
-            System.out.println("Le fichier a ete enregistre : src/pack/result.xml");
+            DocumentXml.enregistrerSousDocumentXml(args[1], nouveauDocument);
+            System.out.println("Le fichier entree est : " + args[0]);
+            System.out.println("Le fichier a ete enregistre : " + args[1]);
             
         }
+        
     }
 
     private static void erreur() throws Exception, ParserConfigurationException, DOMException {

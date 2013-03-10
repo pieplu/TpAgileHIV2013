@@ -23,10 +23,9 @@ public class Date {
     public static boolean dateFormatYearMonth(String monthFrom) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         dateFormat.setLenient(false);
-        java.util.Date date = null;
         boolean bool = true;
         try {
-            date = dateFormat.parse(monthFrom);
+            java.util.Date date = dateFormat.parse(monthFrom);
         } catch (ParseException e) {
             bool = false;
         }
