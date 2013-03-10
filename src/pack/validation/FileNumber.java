@@ -13,7 +13,7 @@ import pack.ExecutionValidation;
 public class FileNumber {
 
     final static int VALID_LENGTH_FOR_FILE_NUMBER = 7;
-    private static String ClientID = "";
+  
     public static boolean isFileNumberValid(String FileNumber) {
         if ( ((isFileNumberLengthValid(FileNumber))  && 
                 ContractLetter.isContractLetterValid(FileNumber.substring(0,1)) &&
