@@ -31,17 +31,7 @@ public class TP1AGILE {
         ExecutionValidation validation = new ExecutionValidation();
         
         if (validation.exexValid() == false) {
-            Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
-
-            Element remboursementsEcritError = nouveauError.createElement("remboursements");
-            nouveauError.appendChild(remboursementsEcritError);
-
-            Element messageError = nouveauError.createElement("message");
-            remboursementsEcritError.appendChild(messageError);
-            Text textMessageError = nouveauError.createTextNode("Données invalides");
-            messageError.appendChild(textMessageError);
-            
-            DocumentXml.enregistrerSousDocumentXml("src/pack/result.xml", nouveauError);
+            erreur();
         } else {
 
             DocumentXml document = new DocumentXml();
@@ -109,5 +99,19 @@ public class TP1AGILE {
             System.out.println("Le fichier a ete enregistre : src/pack/result.xml");
             
         }
+    }
+
+    private static void erreur() throws Exception, ParserConfigurationException, DOMException {
+        Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
+
+        Element remboursementsEcritError = nouveauError.createElement("remboursements");
+        nouveauError.appendChild(remboursementsEcritError);
+
+        Element messageError = nouveauError.createElement("message");
+        remboursementsEcritError.appendChild(messageError);
+        Text textMessageError = nouveauError.createTextNode("Données invalides");
+        messageError.appendChild(textMessageError);
+        
+        DocumentXml.enregistrerSousDocumentXml("src/pack/result.xml", nouveauError);
     }
 }
