@@ -21,6 +21,11 @@ public class FileNumberTest {
     public void testFileNumberIsValid() {
         assertTrue(FileNumber.isFileNumberValid("A123456"));
     }
+   
+   @Test
+    public void testFileNumberOfDigitsIsValid() {
+        assertTrue(FileNumber.isFileNumberValid("A123456"));
+    }
 
     @Test
     public void testFileNumberIsInvalidAllChars() {
@@ -46,10 +51,6 @@ public class FileNumberTest {
         assertNull(FileNumber.isFileNumberValid(null));
     }
 
-    @Test
-    public void testFileNumberOfDigitsIsValid() {
-        assertTrue(FileNumber.isFileNumberValid("A123456"));
-    }
 
     @Test
     public void testFileNumberOfDigitsIsInvalid() {
@@ -61,3 +62,4 @@ public class FileNumberTest {
         assertNull(FileNumber.isFileNumberValid(null));
     }
 }
+
