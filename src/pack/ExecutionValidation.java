@@ -24,15 +24,10 @@ public class ExecutionValidation {
         return ErrorMessage;
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public boolean exexValid(DocumentXml fichierAValider) throws Exception {
-
         boolean testValid = true;
         
-         
-        //Entrer Ã  la main le tag parent qui contient ce que vous cherchez
         NodeList formulaire = fichierAValider.getNodesByName("reclamations");
         String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "client");
         String contratType = fichierAValider.obtainNodeContent(formulaire.item(0), "contrat");

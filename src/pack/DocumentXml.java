@@ -40,11 +40,8 @@ public class DocumentXml {
    
     
     public DocumentXml(String cheminAcces) throws Exception, SAXException, IOException{
-        try{
         File file = new File(cheminAcces);
-        this.document = interpretationDuXML(file);
-        }catch(Exception e){
-        System.out.println("yop");}
+        this.document = interpretationDuXML(file); 
     }
     
     private Document interpretationDuXML(File file) throws Exception {
