@@ -35,9 +35,7 @@ public class TP1AGILE {
         } else {
 
             NodeList formulaire = document.getNodesByName("reclamations");
-            String clientID = document.obtainNodeContent(formulaire.item(0), "client");
             String contratType = document.obtainNodeContent(formulaire.item(0), "contrat");
-            String mois = document.obtainNodeContent(formulaire.item(0), "mois");
 
             ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
 
@@ -47,17 +45,14 @@ public class TP1AGILE {
             }
             Document nouveauDocument = DocumentXml.docInstanceBuilder().newDocument();
 
-            Element remboursementsEcrit = nouveauDocument.createElement("remboursements");
-            nouveauDocument.appendChild(remboursementsEcrit);
-
-            Element clientEcrit = nouveauDocument.createElement("client");
-            remboursementsEcrit.appendChild(clientEcrit);
-            Text textClient = nouveauDocument.createTextNode(clientID);
+            Element remboursementsEcrit = ElementXml.creationElementXmlRoot(nouveauDocument, "remboursements");
+            Element clientEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "client", remboursementsEcrit);
+            Text textClient = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "client"));
             clientEcrit.appendChild(textClient);
 
             Element moisEcrit = nouveauDocument.createElement("mois");
             remboursementsEcrit.appendChild(moisEcrit);
-            Text textMois = nouveauDocument.createTextNode(mois);
+            Text textMois = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "mois"));
             moisEcrit.appendChild(textMois);
 
             for (int i = 0; i < listeDesReclamationsDuClient.size(); i++) {
