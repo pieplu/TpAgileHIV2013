@@ -11,7 +11,7 @@ package pack.validation;
 public class ServiceNumber {
     
     
-    static String serviceList[] = new String[]{"0", "100", "200", "300",
+    static String serviceList[] = new String[]{"0", "100", "150", "175", "200", "300",
         "400", "500", "600", "700"};
     
     public static boolean isServiceNumberValid(String serviceNumber) {

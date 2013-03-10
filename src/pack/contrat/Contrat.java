@@ -39,6 +39,9 @@ public class Contrat {
         }
         if (typeContrat.equals("D")) {
             montantRembourser = ContratD.selectionSoinContratD();
+        }     
+        if (typeContrat.equals("E")) {
+            montantRembourser = ContratE.selectionSoinContratE();
         }
         return montantRembourser;
     }

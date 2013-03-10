@@ -6,11 +6,10 @@ package pack.contrat;
 
 /**
  *
- * @author Dominique Menard
+ * @author Mathieu Latour
  */
-public class ContratD extends Contrat{
-    
-    static double selectionSoinContratD() {
+public class ContratE extends Contrat {
+     static double selectionSoinContratE() {
         if(numSoin==0){calculRemboursementContratDnumSoin0 ();}
         if(numSoin==100){calculRemboursementContratDnumSoin100 ();}
         if(numSoin==150){calculRemboursementContratDnumSoin150 ();}
@@ -25,43 +24,43 @@ public class ContratD extends Contrat{
     }
     
     static double calculRemboursementContratDnumSoin0 (){
-        return montantRembourser = calculRemboursement(1,85);
+        return montantRembourser = calculRemboursement(0.15);
     }
     
     static double calculRemboursementContratDnumSoin100 (){
-        return montantRembourser = calculRemboursement(1,75);
+        return montantRembourser = calculRemboursement(0.25);
     }
     
     static double calculRemboursementContratDnumSoin150 (){
-        return montantRembourser = calculRemboursement(1,150);
+        return montantRembourser = calculRemboursement(0.15);
     }
     
     static double calculRemboursementContratDnumSoin175 (){
-        return montantRembourser = calculRemboursement(0.95);
+        return montantRembourser = calculRemboursement(0.25,20);
     }
     
     static double calculRemboursementContratDnumSoin200 (){
-        return montantRembourser = calculRemboursement(1,100);
+        return montantRembourser = calculRemboursement(0.12);
     }
     
     static double calculRemboursementContratDnumSoin300 (){
-        return montantRembourser = montant;
+        return montantRembourser = calculRemboursement(0.60);
     }
     
     static double calculRemboursementContratDnumSoin400 (){
-        return montantRembourser = calculRemboursement(1,65);
+        return montantRembourser = calculRemboursement(0.25,15);
     }
     
     static double calculRemboursementContratDnumSoin500 (){
-        return montantRembourser = calculRemboursement(1);
+        return montantRembourser = calculRemboursement(0.30,20);
     }
     
     static double calculRemboursementContratDnumSoin600 (){
-        return montantRembourser = calculRemboursement(1,100);
+        return montantRembourser = calculRemboursement(0.15);
     }
     
     static double calculRemboursementContratDnumSoin700 (){
-        return montantRembourser = calculRemboursement(1,90);
+        return montantRembourser = calculRemboursement(0.22);
     }
     
 }

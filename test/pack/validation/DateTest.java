@@ -33,12 +33,12 @@ public class DateTest {
     }
 
     @Test
-    public void reclamationMonthCorrespondsToActualMonth() {
+    public void reclamationMonthCorrespondsToDate() {
         assertTrue(Date.isDateValid("2012-11", "2012-11"));
     }
 
     @Test
-    public void reclamationMonthDoesNotCorrespondToActualMonth() {
+    public void reclamationMonthDoesNotCorrespondToDate() {
         assertFalse(Date.isDateValid("2012-12", "2012-11"));
     }
 }

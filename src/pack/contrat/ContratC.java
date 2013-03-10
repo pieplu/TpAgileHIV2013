@@ -6,12 +6,29 @@ package pack.contrat;
 
 /**
  *
- * @author Killdom
+ * @author Dominique Menard
  */
-public class ContratC extends Contrat{
-    
+public class ContratC extends Contrat {
+
     static double selectionSoinContratC() {
-        return montantRembourser = montant * 0.9;
+        if (numSoin == 100) {calculRemboursementContratDnumSoin100();}
+        if (numSoin == 150) {calculRemboursementContratDnumSoin150();}
+        if(numSoin==600)    {calculRemboursementContratDnumSoin600 ();}
+        else {
+            return montantRembourser = montant * 0.9;
+        }
+        return montantRembourser;
+    }
+
+    static double calculRemboursementContratDnumSoin100() {
+        return montantRembourser = calculRemboursement(0.95);
+    }
+
+    static double calculRemboursementContratDnumSoin150() {
+        return montantRembourser = calculRemboursement(0.85);
     }
     
+    static double calculRemboursementContratDnumSoin600 (){
+        return montantRembourser = calculRemboursement(0.75);
+    }
 }
