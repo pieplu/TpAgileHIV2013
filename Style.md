@@ -1,4 +1,8 @@
 ÉLÉMENT DE STYLE :
 
+INDENTATION:
+Respect des règles d'indentation de JAVA définie par Oracle
 
-Respect des règles d'indentation de JAVA
+
+LANGUE:
+Utilisation de l'Anglais
