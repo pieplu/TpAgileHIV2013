@@ -4,6 +4,12 @@
  */
 package pack.validation;
 
+import org.junit.*;
+import static org.junit.Assert.*;
+import java.util.*;
+
+import pack.validation.ContractLetter;
+
 /**
  *
  * @author hj991118
