@@ -9,6 +9,12 @@ package pack.validation;
  * @author utilisateur
  */
 public class ContractLetter {
+    private static String contractLetter = "";
+
+    public static String getContractLetter() {
+        return contractLetter;
+    }
+    
     
     final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D", "E"};
     
