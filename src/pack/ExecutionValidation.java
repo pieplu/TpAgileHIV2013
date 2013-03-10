@@ -43,7 +43,7 @@ public class ExecutionValidation {
 
         boolean documentIsValid = true;
         
-        if (pack.validation.ClientID.isClientNumberValid(clientID)
+        if (pack.validation.FileNumber.isFileNumberValid(clientID)
                 && pack.validation.ContractLetter.isContractLetterValid(contratType)) {
             
             for (int i = 0; i < listeDesReclamationsDuClient.size() && documentIsValid; i++) {
