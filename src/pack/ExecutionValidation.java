@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
  * @Mathieu Latour
  */
 public class ExecutionValidation {
-    
+
     private static String ErrorMessage = "";
 
     public static void setErrorMessage(String ErrorMessage) {
@@ -42,20 +42,19 @@ public class ExecutionValidation {
 
 
         boolean documentIsValid = true;
+        
         if (pack.validation.ClientID.isClientNumberValid(clientID)
                 && pack.validation.ContractLetter.isContractLetterValid(contratType)) {
-
+            
             for (int i = 0; i < listeDesReclamationsDuClient.size() && documentIsValid; i++) {
-                if (!pack.validation.Date.isDateValid(mois, listeDesReclamationsDuClient.get(i).getDate())
-                        || !pack.validation.ServiceNumber.isServiceNumberValid(listeDesReclamationsDuClient.get(i).getSoin())
-                        || !pack.validation.Amount.isAmountFormValid(listeDesReclamationsDuClient.get(i).getMontant())) {
-                    documentIsValid = false;
-                }
+                
+                documentIsValid = pack.validation.Date.isDateValid(mois, listeDesReclamationsDuClient.get(i).getDate()) &&
+                                  pack.validation.ServiceNumber.isServiceNumberValid(listeDesReclamationsDuClient.get(i).getSoin()) && 
+                                  pack.validation.Amount.isAmountFormValid(listeDesReclamationsDuClient.get(i).getMontant());
             }
         } else {
             documentIsValid = false;
         }
         return documentIsValid;
-
     }
 }

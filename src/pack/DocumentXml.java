@@ -20,6 +20,8 @@ import org.xml.sax.SAXException;
  * @author Killdom
  */
 public class DocumentXml {
+    
+    private Document document;
 
     public static void enregistrerSousDocumentXml(String nomFichier, Document doc) throws Exception {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
@@ -35,9 +37,6 @@ public class DocumentXml {
         DocumentBuilder docBuilder = factory.newDocumentBuilder();
         return docBuilder;
     }
-
-    private Document document;
-   
     
     public DocumentXml(String cheminAcces) throws Exception, SAXException, IOException{
         File file = new File(cheminAcces);
@@ -67,13 +66,11 @@ public class DocumentXml {
     
     public static void createErrorFile(String argument1) throws Exception, ParserConfigurationException, DOMException {
         Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
+        
+        Element remboursementsEcritError = ElementXml.creationElementXmlRoot(nouveauError, "remboursements");
 
-        Element remboursementsEcritError = nouveauError.createElement("remboursements");
-        nouveauError.appendChild(remboursementsEcritError);
-
-        Element messageError = nouveauError.createElement("message");
-        remboursementsEcritError.appendChild(messageError);
-        Text textMessageError = nouveauError.createTextNode("Données invalides");
+        Element messageError = ElementXml.creationElementXmlChild(nouveauError, "message", remboursementsEcritError);
+        Text textMessageError = nouveauError.createTextNode(ExecutionValidation.getErrorMessage());
         messageError.appendChild(textMessageError);
         
         DocumentXml.enregistrerSousDocumentXml(argument1, nouveauError);
