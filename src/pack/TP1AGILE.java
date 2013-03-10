@@ -23,18 +23,18 @@ import sun.org.mozilla.javascript.internal.regexp.*;
  */
 public class TP1AGILE {
 
-    public static String lefichier = "";
+    
 
     public static void main(String[] args) throws Exception {
 
-        lefichier = args [0];
+        
         ExecutionValidation validation = new ExecutionValidation();
         
         if (validation.exexValid() == false) {
             erreur();
         } else {
 
-            DocumentXml document = new DocumentXml();
+            DocumentXml document = new DocumentXml(args [0]);
 
             NodeList formulaire = document.getNodesByName("reclamations");
             String clientID = document.obtainNodeContent(formulaire.item(0), "client");
