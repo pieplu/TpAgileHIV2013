@@ -51,8 +51,7 @@ public class TP1AGILE {
             for (int i = 0; i < listeDesReclamationsDuClient.size(); i++) {
                 Element remboursementEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "remboursement", remboursementsEcrit);
 
-                Element soinEcrit = nouveauDocument.createElement("soin");
-                remboursementEcrit.appendChild(soinEcrit);
+                Element soinEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "soin", remboursementEcrit);
                 Text textSoin = nouveauDocument.createTextNode(listeDesReclamationsDuClient.get(i).getSoin());
                 soinEcrit.appendChild(textSoin);
 
