@@ -29,7 +29,7 @@ public class ExecutionValidation {
         boolean testValid = true;
         
         NodeList formulaire = fichierAValider.getNodesByName("reclamations");
-        String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "client");
+        String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "dossier");
         String contratType = fichierAValider.obtainNodeContent(formulaire.item(0), "contrat");
         String mois = fichierAValider.obtainNodeContent(formulaire.item(0), "mois");
 
