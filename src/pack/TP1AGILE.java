@@ -27,14 +27,12 @@ public class TP1AGILE {
 
     public static void main(String[] args) throws Exception {
 
+        DocumentXml document = new DocumentXml(args[0]);
+        ExecutionValidation fichierAValider = new ExecutionValidation();
         
-        ExecutionValidation validation = new ExecutionValidation();
-        
-        if (validation.exexValid() == false) {
+        if (!fichierAValider.exexValid(document)) {
             erreur();
         } else {
-
-            DocumentXml document = new DocumentXml(args [0]);
 
             NodeList formulaire = document.getNodesByName("reclamations");
             String clientID = document.obtainNodeContent(formulaire.item(0), "client");
