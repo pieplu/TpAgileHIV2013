@@ -9,6 +9,59 @@ package pack.validation;
  * @author hj991118
  */
 public class AmountTest {
-    
-   
+
+    @Test
+    public void containsDollarSignAtTheEnd() {
+        assertTrue(Amount.containsDollarSignAtTheEnd("0.0000000000000$"));
+    }
+
+    @Test
+    public void containsNoDollarSignAtTheEnd() {
+        assertFalse(Amount.containsDollarSignAtTheEnd("0.0000000000000"));
+    }
+
+    @Test
+    public void containsDotForCents() {
+        assertTrue(Amount.containsDollarSignAtTheEnd("1.25$"));
+    }
+
+    @Test
+    public void containsNoDotForCents() {
+        assertFalse(Amount.containsDotForCents("1025$"));
+    }
+
+    @Test
+    public void amountFormIsValid() {
+        assertTrue(Amount.isAmountFormValid("1000.25$"));
+    }
+
+    @Test
+    public void amountFormIsInvalidMissingDot() {
+        assertFalse(Amount.isAmountFormValid("1025$"));
+    }
+
+    @Test
+    public void amountMinimumLengthForAmountValid() {
+        assertTrue(Validation.isMinimumLengthForAmountValid("1000.25$"));
+    }
+
+    @Test
+    public void amountFormIsInvalidLengthIsTooSmall() {
+        assertFalse(Validation.isAmountFormValid(".00$"));
+    }
+
+    @Test
+    public void amountFormIsInvalidMissingDollarSign() {
+        assertFalse(Validation.isAmountFormValid("1025.00"));
+    }
+
+    @Test
+    public void amountFormIsInvalidMissingOneDigitForCents() {
+        assertFalse(Validation.isAmountFormValid("1025.0$"));
+    }
+
+    @Test
+    public void amountFormIsInvalidOneDigitIsAChar() {
+        assertFalse(Validation.isAmountFormValid("10a5.0$"));
+    }
 }
