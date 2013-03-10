@@ -12,9 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 /**
@@ -68,5 +66,19 @@ public class DocumentXml {
             }
         }
         return content;
+    }
+    
+    public static void createErrorFile(String argument1) throws Exception, ParserConfigurationException, DOMException {
+        Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
+
+        Element remboursementsEcritError = nouveauError.createElement("remboursements");
+        nouveauError.appendChild(remboursementsEcritError);
+
+        Element messageError = nouveauError.createElement("message");
+        remboursementsEcritError.appendChild(messageError);
+        Text textMessageError = nouveauError.createTextNode("Données invalides");
+        messageError.appendChild(textMessageError);
+        
+        DocumentXml.enregistrerSousDocumentXml(argument1, nouveauError);
     }
 }

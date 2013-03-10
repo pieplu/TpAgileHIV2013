@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 package pack;
+import org.w3c.dom.DOMException;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.*;
 
 /**
  *

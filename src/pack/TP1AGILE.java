@@ -25,7 +25,7 @@ public class TP1AGILE {
         ExecutionValidation fichierAValider = new ExecutionValidation();
         
         if (!fichierAValider.exexValid(document)) {
-            erreur();
+            DocumentXml.createErrorFile(args[1]);
         } else {
 
             NodeList formulaire = document.getNodesByName("reclamations");
@@ -86,20 +86,5 @@ public class TP1AGILE {
             System.out.println("Le fichier a ete enregistre : " + args[1]);
             
         }
-        
-    }
-
-    private static void erreur() throws Exception, ParserConfigurationException, DOMException {
-        Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
-
-        Element remboursementsEcritError = nouveauError.createElement("remboursements");
-        nouveauError.appendChild(remboursementsEcritError);
-
-        Element messageError = nouveauError.createElement("message");
-        remboursementsEcritError.appendChild(messageError);
-        Text textMessageError = nouveauError.createTextNode("Données invalides");
-        messageError.appendChild(textMessageError);
-        
-        DocumentXml.enregistrerSousDocumentXml("src/pack/result.xml", nouveauError);
     }
 }
