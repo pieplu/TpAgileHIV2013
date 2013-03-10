@@ -18,7 +18,6 @@ public class Validation {
 
     
     public static boolean isTheStringMadeOfDigitOnly(String onlyDigits) {
-        System.out.println(onlyDigits);
         for (int i = 0; i < onlyDigits.length(); i++) {
             if (!(isTheCharacterADigit(onlyDigits.charAt(i)))) {
                 return false;

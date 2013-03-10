@@ -44,14 +44,12 @@ public class TP1AGILE {
             Text textClient = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "client"));
             clientEcrit.appendChild(textClient);
 
-            Element moisEcrit = nouveauDocument.createElement("mois");
-            remboursementsEcrit.appendChild(moisEcrit);
+            Element moisEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "mois", remboursementsEcrit);
             Text textMois = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "mois"));
             moisEcrit.appendChild(textMois);
 
             for (int i = 0; i < listeDesReclamationsDuClient.size(); i++) {
-                Element remboursementEcrit = nouveauDocument.createElement("remboursement");
-                remboursementsEcrit.appendChild(remboursementEcrit);
+                Element remboursementEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "remboursement", remboursementsEcrit);
 
                 Element soinEcrit = nouveauDocument.createElement("soin");
                 remboursementEcrit.appendChild(soinEcrit);
