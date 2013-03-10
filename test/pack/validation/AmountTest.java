@@ -38,13 +38,18 @@ public class AmountTest {
     }
 
     @Test
-    public void amountFormIsValid() {
+    public void amountFormatIsValid() {
         assertTrue(Amount.isAmountFormValid("1000.25$"));
     }
 
     @Test
-    public void amountFormIsInvalidMissingDot() {
+    public void amountFormatIsInvalidMissingDot() {
         assertFalse(Amount.isAmountFormValid("1025$"));
+    }
+    
+    @Test
+    public void amountFormatWithComma() {
+        assertTrue(Amount.isAmountFormValid("1025,01$"));
     }
 
     @Test
@@ -53,22 +58,22 @@ public class AmountTest {
     }
 
     @Test
-    public void amountFormIsInvalidLengthIsTooSmall() {
+    public void amountFormatIsInvalidLengthIsTooSmall() {
         assertFalse(Amount.isAmountFormValid(".00$"));
     }
 
     @Test
-    public void amountFormIsInvalidMissingDollarSign() {
+    public void amountFormatIsInvalidMissingDollarSign() {
         assertFalse(Amount.isAmountFormValid("1025.00"));
     }
 
     @Test
-    public void amountFormIsInvalidMissingOneDigitForCents() {
+    public void amountFormatIsInvalidMissingOneDigitForCents() {
         assertFalse(Amount.isAmountFormValid("1025.0$"));
     }
 
     @Test
-    public void amountFormIsInvalidOneDigitIsAChar() {
+    public void amountFormatIsInvalidOneDigitIsAChar() {
         assertFalse(Amount.isAmountFormValid("10a5.0$"));
     }
 }

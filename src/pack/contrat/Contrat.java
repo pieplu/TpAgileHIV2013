@@ -29,7 +29,7 @@ public class Contrat {
 
     public static double remboursementParTypeContratMontantNumSoin(String typeContrat, double montant, int numSoin) {
         if (typeContrat.equals("A")) {
-            montantRembourser = ContraA.selectionSoinContratA();
+            montantRembourser = ContratA.selectionSoinContratA();
         }
         if (typeContrat.equals("B")) {
             montantRembourser = ContratB.selectionSoinContratB();

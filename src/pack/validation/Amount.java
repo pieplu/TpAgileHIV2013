@@ -33,7 +33,8 @@ public class Amount {
 
     
     public static boolean containsDotForCents(String amountInDollars) {
-        return amountInDollars.charAt(amountInDollars.length() - 4) == '.';
+        return amountInDollars.charAt(amountInDollars.length() - 4) == '.' ||
+               amountInDollars.charAt(amountInDollars.length() - 4) == ',' ;
     }
 
     

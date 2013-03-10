@@ -16,13 +16,7 @@ import pack.validation.Validation;
  */
 public class ValidationTest {
 
-    public ValidationTest() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
+   
     @Test
     public void testTheStringIsMadeOfDigitOnly() {
         assertTrue(Validation.isTheStringMadeOfDigitOnly("1234587651"));

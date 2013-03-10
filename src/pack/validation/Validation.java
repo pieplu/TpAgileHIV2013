@@ -13,6 +13,8 @@ import java.util.Date;
  * @author Mathieu Latour
  */
 public class Validation {
+    
+    
 
     
     public static boolean isTheStringMadeOfDigitOnly(String onlyDigits) {

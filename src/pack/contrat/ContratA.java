@@ -8,7 +8,7 @@ package pack.contrat;
  *
  * @author Killdom
  */
-public class ContraA extends Contrat{
+public class ContratA extends Contrat{
     
     static double selectionSoinContratA() {
         if(numSoin==0){calculRemboursementContratAnumSoin0 ();}

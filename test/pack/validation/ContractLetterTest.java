@@ -22,6 +22,7 @@ public class ContractLetterTest {
         assertTrue(ContractLetter.isContractLetterValid("B"));
         assertTrue(ContractLetter.isContractLetterValid("C"));
         assertTrue(ContractLetter.isContractLetterValid("D"));
+        assertTrue(ContractLetter.isContractLetterValid("E"));
     }
 
     @Test
