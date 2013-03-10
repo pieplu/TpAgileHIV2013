@@ -10,7 +10,7 @@ package pack.validation;
  */
 public class ContractLetter {
     
-    final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D"};
+    final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D", "E"};
     
     public static boolean isContractLetterValid(String contractLetter) {
         for (int i = 0; i < ArrayOfValidContractLetters.length; i++) {

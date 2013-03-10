@@ -4,6 +4,8 @@
  */
 package pack.validation;
 
+import pack.ExecutionValidation;
+
 /**
  *
  * @author utilisateur
@@ -15,7 +17,12 @@ public class ServiceNumber {
         "400", "500", "600", "700"};
     
     public static boolean isServiceNumberValid(String serviceNumber) {
-        return (arrayServiceList(serviceNumber));
+        if ( (arrayServiceList(serviceNumber)) ) {
+            return true;
+        }else{
+            ExecutionValidation.setErrorMessage("Erreur: Un numero de service est invalide.");
+            return false;
+        }
     }
 
     public static boolean arrayServiceList(String serviceNumber) {

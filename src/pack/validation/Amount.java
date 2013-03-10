@@ -4,21 +4,37 @@
  */
 package pack.validation;
 
+import pack.ExecutionValidation;
+
 /**
  *
  * @author utilisateur
  */
 public class Amount {
     
+   
     final static int MINIMUM_LENGTH_FOR_AMOUNT = 5;
 
    
     public static boolean isAmountFormValid(String amount) {
-        return ((isMinimumLengthForAmountValid(amount))
+        if( ((isMinimumLengthForAmountValid(amount))
                 && (containsDollarSignAtTheEnd(amount))
                 && (containsDotForCents(amount))
                 && (Validation.isTheStringMadeOfDigitOnly(amount.substring(amount.length() - 3, amount.length() - 1)))
-                && (Validation.isTheStringMadeOfDigitOnly(amount.substring(0, amount.length() - 4))));
+                && (Validation.isTheStringMadeOfDigitOnly(amount.substring(0, amount.length() - 4))))){
+            return true;
+        }else{
+            ExecutionValidation.setErrorMessage("Erreur: Un montant n'est pas valide.");
+            return false;
+        }
+    }
+    
+    public static void getErrorMessage(){
+        
+    }
+    
+    public static void setErrorMessage(){
+        
     }
 
     

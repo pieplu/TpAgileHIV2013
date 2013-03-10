@@ -6,6 +6,7 @@ package pack.validation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import pack.ExecutionValidation;
 
 /**
  *
@@ -14,9 +15,14 @@ import java.text.SimpleDateFormat;
 public class Date {
     
      public static boolean isDateValid (String reclamationMonth, String date){
-        return (dateFormatYearMonth(reclamationMonth) &&
+         if ( (dateFormatYearMonth(reclamationMonth) &&
                 dateFormatYearMonthDay(date) &&
-                reclamationMonth.equals(date.substring(0,7)));
+                reclamationMonth.equals(date.substring(0,7)))){
+             return true;
+         }else{
+             ExecutionValidation.setErrorMessage("Une date n'est pas valide.");
+             return false;
+         }
     }
     
     //FORMAT: YYYY-MM, 

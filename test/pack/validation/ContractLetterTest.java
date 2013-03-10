@@ -17,14 +17,30 @@ import pack.validation.ContractLetter;
 public class ContractLetterTest {
 
     @Test
-    public void testContractLetterIsValid() {
+    public void testContractLetterIsValidA() {
         assertTrue(ContractLetter.isContractLetterValid("A"));
+    }
+    
+    @Test
+    public void testContractLetterIsValidB() {
         assertTrue(ContractLetter.isContractLetterValid("B"));
+    }
+    
+    @Test
+    public void testContractLetterIsValidC() {
         assertTrue(ContractLetter.isContractLetterValid("C"));
+    }
+    
+    @Test
+    public void testContractLetterIsValidD() {
         assertTrue(ContractLetter.isContractLetterValid("D"));
+    }
+    
+    @Test
+    public void testContractLetterIsValidE() {
         assertTrue(ContractLetter.isContractLetterValid("E"));
     }
-
+    
     @Test
     public void testContractLetterIsInvalid() {
         assertFalse(ContractLetter.isContractLetterValid("M"));

@@ -19,26 +19,26 @@ public class DateTest {
 
     @Test
     public void dateFormatValid() {
-        assertTrue(Date.isDateValid("2013-01", "2013-01"));
+        assertTrue(Date.isDateValid("2013-01", "2013-01-01"));
     }
 
     @Test
     public void dateFormatInvalid() {
-        assertFalse(Date.isDateValid("2013-01-", "2013-01"));
+        assertFalse(Date.isDateValid("2013-01-", "2013-01-01"));
     }
 
     @Test
     public void dateFormatInvalid2() {
-        assertFalse(Date.isDateValid("201a-01", "2013-01"));
+        assertFalse(Date.isDateValid("201a-01", "2013-01-01"));
     }
 
     @Test
     public void reclamationMonthCorrespondsToDate() {
-        assertTrue(Date.isDateValid("2012-11", "2012-11"));
+        assertTrue(Date.isDateValid("2012-11","2012-11-01"));
     }
 
     @Test
     public void reclamationMonthDoesNotCorrespondToDate() {
-        assertFalse(Date.isDateValid("2012-12", "2012-11"));
+        assertFalse(Date.isDateValid("2012-12", "2012-11-21"));
     }
 }

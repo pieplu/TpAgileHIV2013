@@ -13,6 +13,16 @@ import org.w3c.dom.NodeList;
  * @Mathieu Latour
  */
 public class ExecutionValidation {
+    
+    private static String ErrorMessage = "";
+
+    public static void setErrorMessage(String ErrorMessage) {
+        ExecutionValidation.ErrorMessage = ErrorMessage;
+    }
+
+    public static String getErrorMessage() {
+        return ErrorMessage;
+    }
 
     /**
      * @param args the command line arguments
@@ -20,7 +30,8 @@ public class ExecutionValidation {
     public boolean exexValid(DocumentXml fichierAValider) throws Exception {
 
         boolean testValid = true;
-
+        
+         
         //Entrer Ã  la main le tag parent qui contient ce que vous cherchez
         NodeList formulaire = fichierAValider.getNodesByName("reclamations");
         String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "client");
