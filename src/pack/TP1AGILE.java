@@ -40,9 +40,10 @@ public class TP1AGILE {
             Document nouveauDocument = DocumentXml.docInstanceBuilder().newDocument();
 
             Element remboursementsEcrit = ElementXml.creationElementXmlRoot(nouveauDocument, "remboursements");
-            Element clientEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "client", remboursementsEcrit);
-            Text textClient = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "client"));
-            clientEcrit.appendChild(textClient);
+            
+            Element writtenDossierElement = ElementXml.creationElementXmlChild(nouveauDocument, "dossier", remboursementsEcrit);
+            Text textDossier = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "dossier"));
+            writtenDossierElement.appendChild(textDossier);
 
             Element moisEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "mois", remboursementsEcrit);
             Text textMois = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "mois"));
@@ -60,15 +61,7 @@ public class TP1AGILE {
                 dateEcrit.appendChild(textDate);
 
                 Element montantEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "montant", remboursementEcrit);
-                String s = listeDesReclamationsDuClient.get(i).getMontant().substring(0, listeDesReclamationsDuClient.get(i).getMontant().length() - 1);
-                double montantAjuster = Double.parseDouble(s);
-                int numSoin = Integer.parseInt(listeDesReclamationsDuClient.get(i).getSoin());
-                String montant = Contrat.remboursementParTypeContratMontantNumSoin(contratType, montantAjuster, numSoin)+"";
-                if (montant.charAt(montant.length()-2) == '.'){
-                    montant = montant + "0$";
-                } else{
-                    montant = montant +"$";
-                }
+                String montant = ElementXml.calculateAmountToReinburseInString(listeDesReclamationsDuClient, i);
                    
                 Text textMontant = nouveauDocument.createTextNode(montant);
                 montantEcrit.appendChild(textMontant);

@@ -16,7 +16,7 @@ public class ContratA extends Contrat{
         if(numSoin==150){calculRemboursementContratDnumSoin150 ();}
         if(numSoin==175){calculRemboursementContratDnumSoin175 ();}
         if(numSoin==200){calculRemboursementContratAnumSoin200 ();}
-        if(numSoin==300){calculRemboursementContratAnumSoin300 ();}
+        if(numSoin>=300 && numSoin<=399){calculRemboursementContratAnumSoin300 ();}
         if(numSoin==400){calculRemboursementContratAnumSoin400 ();}
         if(numSoin==500){calculRemboursementContratAnumSoin500 ();}
         if(numSoin==600){calculRemboursementContratAnumSoin600 ();}

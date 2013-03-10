@@ -3,9 +3,11 @@
  * and open the template in the editor.
  */
 package pack;
+import java.util.ArrayList;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import pack.contrat.Contrat;
 
 /**
  *
@@ -23,6 +25,20 @@ public class ElementXml {
         Element createdElement = documentXml.createElement(elementName);
         parentName.appendChild(createdElement);
         return createdElement;
+    }
+    
+    public static String calculateAmountToReinburseInString(ArrayList<ReclamationObject> listeDesReclamationsDuClient, int countNumber) throws NumberFormatException {
+        String ammountWithoutDollarSign = listeDesReclamationsDuClient.get(countNumber).getMontant().substring(0, listeDesReclamationsDuClient.get(countNumber).getMontant().length() - 1);
+        ammountWithoutDollarSign.replace("," , ".");
+        double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);
+        int numSoin = Integer.parseInt(listeDesReclamationsDuClient.get(countNumber).getSoin());
+        String montant = Contrat.remboursementParTypeContratMontantNumSoin("", montantAjuster, numSoin)+"";
+        if (montant.charAt(montant.length()-2) == '.'){
+            montant = montant + "0$";
+        } else{
+            montant = montant +"$";
+        }
+        return montant;
     }
     
 }
