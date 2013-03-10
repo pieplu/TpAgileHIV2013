@@ -55,13 +55,11 @@ public class TP1AGILE {
                 Text textSoin = nouveauDocument.createTextNode(listeDesReclamationsDuClient.get(i).getSoin());
                 soinEcrit.appendChild(textSoin);
 
-                Element dateEcrit = nouveauDocument.createElement("date");
-                remboursementEcrit.appendChild(dateEcrit);
+                Element dateEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "date", remboursementEcrit);
                 Text textDate = nouveauDocument.createTextNode(listeDesReclamationsDuClient.get(i).getDate());
                 dateEcrit.appendChild(textDate);
 
-                Element montantEcrit = nouveauDocument.createElement("montant");
-                remboursementEcrit.appendChild(montantEcrit);
+                Element montantEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "montant", remboursementEcrit);
                 String s = listeDesReclamationsDuClient.get(i).getMontant().substring(0, listeDesReclamationsDuClient.get(i).getMontant().length() - 1);
                 double montantAjuster = Double.parseDouble(s);
                 int numSoin = Integer.parseInt(listeDesReclamationsDuClient.get(i).getSoin());
