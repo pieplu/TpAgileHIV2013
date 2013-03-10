@@ -4,6 +4,7 @@
  */
 package pack;
 
+import pack.validation.Validation;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,56 +24,56 @@ public class ValidationTest {
 
     @Test
     public void testClientNumberIsValid() {
-        assertTrue (Validation.isClientNumberValid("123456"));
+        assertTrue (ClientID.isClientNumberValid("123456"));
     }
     
     @Test
     public void testClientNumberIsInvalidAllChars() {
-        assertFalse (Validation.isClientNumberValid("abcdef"));
+        assertFalse (ClientID.isClientNumberValid("abcdef"));
     }
     
     @Test
     public void testClientNumberIsInvalidHas1Char() {
-        assertFalse (Validation.isClientNumberValid("12345a"));
+        assertFalse (ClientID.isClientNumberValid("12345a"));
     }
     
     @Test
     public void testClientNumberIsInvalidNumberFormatInvalid() {
-        assertFalse (Validation.isClientNumberValid("123"));
+        assertFalse (ClientID.isClientNumberValid("123"));
     }
     
     public void testClientNumberIsNegative() {
-        assertFalse (Validation.isClientNumberValid("-12345"));
+        assertFalse (ClientID.isClientNumberValid("-12345"));
     }
     
     @Test (expected=NullPointerException.class)
     public void testClientNumberINull() {
-        assertNull(Validation.isClientNumberValid(null));
+        assertNull(ClientID.isClientNumberValid(null));
     }
 
     @Test
     public void testClientNumberOfDigitsIsValid() {
-        assertTrue(Validation.isClientNumberValid("123456"));
+        assertTrue(ClientID.isClientNumberValid("123456"));
     }
     
     @Test
     public void testClientNumberOfDigitsIsInvalid() {
-        assertFalse(Validation.isClientNumberValid("12345"));
+        assertFalse(ClientID.isClientNumberValid("12345"));
     }
     
     @Test (expected=NullPointerException.class)
     public void testClientNumberOfDigitsIsNull() {
-        assertNull(Validation.isClientNumberValid(null));
+        assertNull(ClientID.isClientNumberValid(null));
     }
    
     @Test
     public void testTheStringIsMadeOfDigitOnly() {
-        assertTrue (Validation.isTheStringMadeOfDigitOnly("1234587651"));
+        assertTrue (ClientID.isTheStringMadeOfDigitOnly("1234587651"));
     }
     
     @Test
     public void testTheStringIsNotMadeOfDigitOnly() {
-        assertFalse (Validation.isTheStringMadeOfDigitOnly("a12345"));
+        assertFalse (ClientID.isTheStringMadeOfDigitOnly("a12345"));
     }
     
     
