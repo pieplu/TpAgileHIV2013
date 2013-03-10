@@ -30,7 +30,6 @@ public class ExecutionValidation {
         
         NodeList formulaire = fichierAValider.getNodesByName("reclamations");
         String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "dossier");
-        String contratType = fichierAValider.obtainNodeContent(formulaire.item(0), "contrat");
         String mois = fichierAValider.obtainNodeContent(formulaire.item(0), "mois");
 
         ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
@@ -43,8 +42,7 @@ public class ExecutionValidation {
 
         boolean documentIsValid = true;
         
-        if (pack.validation.FileNumber.isFileNumberValid(clientID)
-                && pack.validation.ContractLetter.isContractLetterValid(contratType)) {
+        if (pack.validation.FileNumber.isFileNumberValid(clientID)) {
             
             for (int i = 0; i < listeDesReclamationsDuClient.size() && documentIsValid; i++) {
                 
