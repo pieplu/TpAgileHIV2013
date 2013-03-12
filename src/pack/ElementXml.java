@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import pack.contrat.Contract;
+import pack.contract.Contract;
 import pack.validation.ContractLetter;
 
 /**
