@@ -25,11 +25,11 @@ public class ContratA extends Contrat{
     }
     
     static double calculRemboursementContratAnumSoin0 (){
-        return montantRembourser = Contrat.calculRemboursement(montant,0.25);
+        return montantRembourser = Contrat.calculRemboursement(0.25);
     }
     
     static double calculRemboursementContratAnumSoin100 (){
-        return montantRembourser = Contrat.calculRemboursement(montant,0.35);
+        return montantRembourser = Contrat.calculRemboursement(0.35);
     }
     
     static double calculRemboursementContratDnumSoin150 (){
@@ -41,7 +41,7 @@ public class ContratA extends Contrat{
     }
     
     static double calculRemboursementContratAnumSoin200 (){
-        return montantRembourser = Contrat.calculRemboursement(montant,0.25);
+        return montantRembourser = Contrat.calculRemboursement(0.25);
     }
     
     static double calculRemboursementContratAnumSoin300 (){
@@ -53,7 +53,7 @@ public class ContratA extends Contrat{
     }
     
     static double calculRemboursementContratAnumSoin500 (){
-        return montantRembourser = Contrat.calculRemboursement(montant,0.25);
+        return montantRembourser = Contrat.calculRemboursement(0.25);
     }
     
     static double calculRemboursementContratAnumSoin600 (){

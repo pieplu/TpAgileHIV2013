@@ -36,7 +36,7 @@ public class ElementXml {
         String montant = Contrat.remboursementParTypeContratMontantNumSoin(ContractLetter.getContractLetter(), montantAjuster, numSoin)+"";
         if (montant.charAt(montant.length()-2) == '.'){
             montant = montant + "0$";
-        } else{
+        } else {
             montant = montant +"$";
         }
         return montant;
