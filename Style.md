@@ -18,7 +18,7 @@ L'essentiel est de suivre une méthodologie qui découle de la programmation Agi
 
 ## Indentation
 
-Respect des règles d'indentation de JAVA définie par Oracle
+Respect des règles d'indentation de JAVA définie par Oracle.
 Le "beautifier" par défaut de Netbeans 7.1 peut être utilisé.
 
 * **Exceptions:**
