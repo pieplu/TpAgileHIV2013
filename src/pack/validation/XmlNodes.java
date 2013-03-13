@@ -11,12 +11,12 @@ import pack.ValidationExecution;
  *
  * @author utilisateur
  */
-public class IsAXmlNodeMissing {
+public class XmlNodes {
     
      static final String LIST_OF_XML_TAGS[] = new String[]{"reclamations","dossier","mois","soin","date","montant"};
      static public final String TAG_ROOT = "reclamation";
      
-     public static boolean isTagValid (DocumentXml tagToVerify,String expectedTagName) {
+     public static boolean isEssentialTagValid (DocumentXml tagToVerify,String expectedTagName) {
         try{
          tagToVerify.getNodesByName(expectedTagName);
         }catch(NullPointerException e){
@@ -27,9 +27,10 @@ public class IsAXmlNodeMissing {
         
     }
      
-    public static boolean isChildTagMissing (){
-        
-        return true;
+    public static boolean areNodeChildrenValid(){
+
+    
+    return true;
     }
     
 }

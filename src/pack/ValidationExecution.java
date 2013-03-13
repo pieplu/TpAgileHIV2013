@@ -7,7 +7,7 @@ package pack;
 import pack.validation.Validation;
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
-import pack.validation.IsAXmlNodeMissing;
+import pack.validation.XmlNodes;
 
 /**
  *
@@ -32,19 +32,19 @@ public class ValidationExecution {
         String FileNumber;
         String month;
 
-        if (IsAXmlNodeMissing.isTagValid(fileToValidate, "reclamations")) {
+        if (XmlNodes.isEssentialTagValid(fileToValidate, "reclamations")) {
             XmlForm = fileToValidate.getNodesByName("reclamations");
         } else {
             return false;
         }
 
-        if (IsAXmlNodeMissing.isTagValid(fileToValidate, "dossier")) {
+        if (XmlNodes.isEssentialTagValid(fileToValidate, "dossier")) {
             FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
         } else {
             return false;
         }
 
-        if (IsAXmlNodeMissing.isTagValid(fileToValidate, "mois")) {
+        if (XmlNodes.isEssentialTagValid(fileToValidate, "mois")) {
             month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
         } else {
             return false;
@@ -52,8 +52,6 @@ public class ValidationExecution {
 
 
         ArrayList<IndividualReclamationXmlNode> ListOfAllReclamations = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation", fileToValidate);
-
-        ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",fileToValidate);
 
 
         boolean documentIsValid = true;
