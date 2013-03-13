@@ -4,7 +4,7 @@
  */
 package pack.validation;
 
-import pack.ExecutionValidation;
+import pack.ValidationExecution;
 
 /**
  *
@@ -20,7 +20,7 @@ public class FileNumber {
                (Validation.isTheStringMadeOfDigitOnly(FileNumber.substring(1)))) ){
             return true;
         }else{
-            ExecutionValidation.setErrorMessage("Erreur: Le numero de dossier est invalide.");
+            ValidationExecution.setErrorMessage("Erreur: Le numero de dossier est invalide.");
             return false;
         }
     }

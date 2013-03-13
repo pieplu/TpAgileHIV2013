@@ -6,7 +6,7 @@ package pack.validation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import pack.ExecutionValidation;
+import pack.ValidationExecution;
 
 /**
  *
@@ -20,7 +20,7 @@ public class Date {
                 reclamationMonth.equals(date.substring(0,7)))){
              return true;
          }else{
-             ExecutionValidation.setErrorMessage("Une date n'est pas valide.");
+             ValidationExecution.setErrorMessage("Une date n'est pas valide.");
              return false;
          }
     }

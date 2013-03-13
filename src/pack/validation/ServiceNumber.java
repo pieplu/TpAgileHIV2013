@@ -4,7 +4,7 @@
  */
 package pack.validation;
 
-import pack.ExecutionValidation;
+import pack.ValidationExecution;
 
 /**
  *
@@ -20,7 +20,7 @@ public class ServiceNumber {
         if ( (arrayServiceList(serviceNumber)) ) {
             return true;
         }else{
-            ExecutionValidation.setErrorMessage("Erreur: Un numero de service est invalide.");
+            ValidationExecution.setErrorMessage("Erreur: Un numero de service est invalide.");
             return false;
         }
     }

@@ -4,7 +4,7 @@
  */
 package pack.validation;
 
-import pack.ExecutionValidation;
+import pack.ValidationExecution;
 
 /**
  *
@@ -24,7 +24,7 @@ public class Amount {
                 && (Validation.isTheStringMadeOfDigitOnly(amount.substring(0, amount.length() - 4))))){
             return true;
         }else{
-            ExecutionValidation.setErrorMessage("Erreur: Un montant n'est pas valide.");
+            ValidationExecution.setErrorMessage("Erreur: Un montant n'est pas valide.");
             return false;
         }
     }

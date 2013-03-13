@@ -17,22 +17,15 @@ public class TP1AGILE {
         
         DocumentXml document = new DocumentXml(args[0]);
         
-        
-        ExecutionValidation fichierAValider = new ExecutionValidation();
-        
-        if (!fichierAValider.exexValid(document)) {
+        if (!ValidationExecution.exexValid(document)) {
             DocumentXml.createErrorFile(args[1]);
         } else {
 
             NodeList formulaire = document.getNodesByName("reclamations");
             String contratType = ContractLetter.getContractLetter();
-
-            ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = new ArrayList <IndividualReclamationXmlNode> ();
-
-            NodeList reclamationDuXML = document.getNodesByName("reclamation");
-            for (int i = 0; i < reclamationDuXML.getLength(); i++) {
-                listeDesReclamationsDuClient.add(new IndividualReclamationXmlNode(reclamationDuXML, i, document));
-            }
+            
+            ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",document);
+            
             Document nouveauDocument = DocumentXml.docInstanceBuilder().newDocument();
 
             Element remboursementsEcrit = ElementXml.creationElementXmlRoot(nouveauDocument, "remboursements");

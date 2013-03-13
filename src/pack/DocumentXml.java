@@ -6,6 +6,7 @@ package pack;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -65,14 +66,25 @@ public class DocumentXml {
     }
     
     public static void createErrorFile(String argument1) throws Exception, ParserConfigurationException, DOMException {
-        Document nouveauError = DocumentXml.docInstanceBuilder().newDocument();
+        Document newError = DocumentXml.docInstanceBuilder().newDocument();
         
-        Element remboursementsEcritError = ElementXml.creationElementXmlRoot(nouveauError, "remboursements");
+        Element remboursementsWrittenError = ElementXml.creationElementXmlRoot(newError, "remboursements");
 
-        Element messageError = ElementXml.creationElementXmlChild(nouveauError, "message", remboursementsEcritError);
-        Text textMessageError = nouveauError.createTextNode(ExecutionValidation.getErrorMessage());
+        Element messageError = ElementXml.creationElementXmlChild(newError, "message", remboursementsWrittenError);
+        Text textMessageError = newError.createTextNode(ValidationExecution.getErrorMessage());
         messageError.appendChild(textMessageError);
         
-        DocumentXml.saveXmlDocument(argument1, nouveauError);
+        DocumentXml.saveXmlDocument(argument1, newError);
+    }
+    
+    public static ArrayList<IndividualReclamationXmlNode> createListOfIndividualReclamationXmlNode(String nodeName, DocumentXml document){
+        ArrayList<IndividualReclamationXmlNode> individualReclamationXmlNodeList = new ArrayList <IndividualReclamationXmlNode> ();
+
+        NodeList reclamationDuXML = document.getNodesByName(nodeName);
+        for (int i = 0; i < reclamationDuXML.getLength(); i++) {
+            individualReclamationXmlNodeList.add(new IndividualReclamationXmlNode(reclamationDuXML, i, document));
+        }
+        
+        return individualReclamationXmlNodeList;
     }
 }

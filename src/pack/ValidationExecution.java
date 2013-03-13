@@ -12,33 +12,26 @@ import org.w3c.dom.NodeList;
  *
  * @Mathieu Latour
  */
-public class ExecutionValidation {
+public class ValidationExecution {
 
     private static String ErrorMessage = "";
 
     public static void setErrorMessage(String ErrorMessage) {
-        ExecutionValidation.ErrorMessage = ErrorMessage;
+        ValidationExecution.ErrorMessage = ErrorMessage;
     }
 
     public static String getErrorMessage() {
         return ErrorMessage;
     }
-
     
-    public boolean exexValid(DocumentXml fichierAValider) throws Exception {
+    public static boolean exexValid(DocumentXml fichierAValider) throws Exception {
         boolean testValid = true;
         
         NodeList formulaire = fichierAValider.getNodesByName("reclamations");
         String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "dossier");
         String mois = fichierAValider.obtainNodeContent(formulaire.item(0), "mois");
 
-        ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = new ArrayList <IndividualReclamationXmlNode> ();
-
-        NodeList reclamationDuXML = fichierAValider.getNodesByName("reclamation");
-        for (int i = 0; i < reclamationDuXML.getLength(); i++) {
-            listeDesReclamationsDuClient.add(new IndividualReclamationXmlNode(reclamationDuXML, i, fichierAValider));
-        }
-
+        ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",fichierAValider);
 
         boolean documentIsValid = true;
         
