@@ -33,19 +33,19 @@ public class Contract {
     public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
         setBasicContractInformation (montant, numSoin);
         if (typeContrat.equals("A")) {
-            ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat();
+            ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("B")) {
-            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContrat();
+            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("C")) {
-            ammountToReimburseInXmlElementRemboursement = ContractC.selectNumSoinContrat();
+            ammountToReimburseInXmlElementRemboursement = ContractC.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("D")) {
-            ammountToReimburseInXmlElementRemboursement = ContractD.selectNumSoinContrat();
+            ammountToReimburseInXmlElementRemboursement = ContractD.selectNumSoinContrat(numSoin);
         }     
         if (typeContrat.equals("E")) {
-            ammountToReimburseInXmlElementRemboursement = ContractE.selectNumSoinContrat();
+            ammountToReimburseInXmlElementRemboursement = ContractE.selectNumSoinContrat(numSoin);
         }
         return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburseInXmlElementRemboursement);
     }

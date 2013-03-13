@@ -12,18 +12,19 @@ public class ContractTemplate extends Contract{
     
    
     
- static double selectNumSoinContrat() {
-        if(getNumSoin()==0){reimbursementCalculationForContractNumSoin0 ();}
-        if(getNumSoin()==100){reimbursementCalculationForContractNumSoin100 ();}
-        if(getNumSoin()==150){reimbursementCalculationForContractNumSoin150 ();}
-        if(getNumSoin()==175){reimbursementCalculationForContractNumSoin175 ();}
-        if(getNumSoin()==200){reimbursementCalculationForContractNumSoin200 ();}
-        if(getNumSoin()>=300 && getNumSoin()<=399){reimbursementCalculationForContractNumSoin300 ();}
-        if(getNumSoin()==400){reimbursementCalculationForContractNumSoin400 ();}
-        if(getNumSoin()==500){reimbursementCalculationForContractNumSoin500 ();}
-        if(getNumSoin()==600){reimbursementCalculationForContractNumSoin600 ();}
-        if(getNumSoin()==700){reimbursementCalculationForContractNumSoin700 ();}
-        return ammountToReimburseInXmlElementRemboursement;
+ static double selectNumSoinContrat(int numSoin) {
+        double result = 0;
+        if(numSoin==0){result = reimbursementCalculationForContractNumSoin0 ();}
+        if(numSoin==100){result = reimbursementCalculationForContractNumSoin100 ();}
+        if(numSoin==150){result = reimbursementCalculationForContractNumSoin150 ();}
+        if(numSoin==175){result = reimbursementCalculationForContractNumSoin175 ();}
+        if(numSoin==200){result = reimbursementCalculationForContractNumSoin200 ();}
+        if(numSoin>=300 && numSoin<=399){result = reimbursementCalculationForContractNumSoin300 ();}
+        if(numSoin==400){result = reimbursementCalculationForContractNumSoin400 ();}
+        if(numSoin==500){result = reimbursementCalculationForContractNumSoin500 ();}
+        if(numSoin==600){result = reimbursementCalculationForContractNumSoin600 ();}
+        if(numSoin==700){result = reimbursementCalculationForContractNumSoin700 ();}
+        return result;
     }
  
  
