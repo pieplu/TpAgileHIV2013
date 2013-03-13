@@ -13,7 +13,7 @@ public class Contract {
     static double ammountToReimburse = 0;
     
     
-    public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
+    public static double reimburseCalculation(String typeContrat, double montant, int numSoin) {
         setAmmount(montant);
         if (typeContrat.equals("A")) {
             ContractA InstenceOfContact = new ContractA();
