@@ -16,7 +16,7 @@ public class TP1AGILE {
     private static Document outputXmlFile;
     
     public static DocumentXml loadXmlDocumentFromArg0(String[] args) throws Exception {
-        DocumentXml document = new DocumentXml(args[0]);
+        document = new DocumentXml(args[0]);
         return document;
     }
     
