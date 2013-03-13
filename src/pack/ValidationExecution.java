@@ -6,6 +6,7 @@ package pack;
 
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
+import pack.validation.XmlNodes;
 
 /**
  *
@@ -25,30 +26,8 @@ public class ValidationExecution {
 
     public static boolean exexValid(DocumentXml fileToValidate) throws Exception {
         boolean testValid = true;
-
-        try {
-
-            NodeList XmlForm = fileToValidate.getNodesByName("reclamations");
-            String FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
-            String month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
-
-
-
-            ArrayList<IndividualReclamationXmlNode> ListOfAllReclamations = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation", fileToValidate);
-
-
-            boolean documentIsValid = true;
-
-            if (pack.validation.FileNumber.isFileNumberValid(FileNumber)) {
-
-                for (int i = 0; i < ListOfAllReclamations.size() && documentIsValid; i++) {
-
-                    documentIsValid = pack.validation.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
-                            && pack.validation.ServiceNumber.isServiceNumberValid(ListOfAllReclamations.get(i).getSoin())
-                            && pack.validation.Amount.isAmountFormValid(ListOfAllReclamations.get(i).getMontant());
-                }
-            }
-        } catch (NullPointerException e) {
+        XmlNodes testIfAllNodesAreThere = new XmlNodes(fileToValidate);
+        if(!testIfAllNodesAreThere.verifyIfXmlFormIsValid()){
             return false;
         }
 

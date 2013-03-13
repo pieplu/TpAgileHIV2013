@@ -61,6 +61,19 @@ public class DocumentXml {
             if (list.item(i).getNodeName().equals(NodeName)) {
                 content = list.item(i).getTextContent();
             }
+
+        }
+        return content;
+    }
+    
+    public String obtainNodeName(Node parent, String NodeName) {
+        String content = null;
+        NodeList list = parent.getChildNodes();
+        for (int i = 0; i < list.getLength(); i++) {
+            if (list.item(i).getNodeName().equals(NodeName)) {
+                content = list.item(i).getNodeName();
+            }
+
         }
         return content;
     }
