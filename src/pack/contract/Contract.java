@@ -10,39 +10,39 @@ package pack.contract;
 public class Contract {
     
     static double ammountInXmlFile; 
-    static double ammountToReimburseInXmlElementRemboursement = 0;
+    static double ammountToReimburse = 0;
     
     
     public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
         setAmmount(montant);
         if (typeContrat.equals("A")) {
             ContractA yop = new ContractA();
-            ammountToReimburseInXmlElementRemboursement = yop.selectNumSoinContrat(numSoin);
+            ammountToReimburse = yop.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("B")) {
-            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContrat(numSoin);
+            ammountToReimburse = ContractB.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("C")) {
-            ammountToReimburseInXmlElementRemboursement = ContractC.selectNumSoinContrat(numSoin);
+            ammountToReimburse = ContractC.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("D")) {
-            ammountToReimburseInXmlElementRemboursement = ContractD.selectNumSoinContrat(numSoin);
+            ammountToReimburse = ContractD.selectNumSoinContrat(numSoin);
         }     
         if (typeContrat.equals("E")) {
-            ammountToReimburseInXmlElementRemboursement = ContractE.selectNumSoinContrat(numSoin);
+            ammountToReimburse = ContractE.selectNumSoinContrat(numSoin);
         }
-        return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburseInXmlElementRemboursement);
+        return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburse);
     }
     
     /**
      * PAS ENCORE ANALYSÉ
     */
     static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
-        ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
-                if (ammountToReimburseInXmlElementRemboursement > maxAmmountToReimburse) {
-                    ammountToReimburseInXmlElementRemboursement = maxAmmountToReimburse;
+        ammountToReimburse = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
+                if (ammountToReimburse > maxAmmountToReimburse) {
+                    ammountToReimburse = maxAmmountToReimburse;
                 }
-        return ammountToReimburseInXmlElementRemboursement;
+        return ammountToReimburse;
     }
     
     
