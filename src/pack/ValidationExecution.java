@@ -4,10 +4,8 @@
  */
 package pack;
 
-import pack.validation.Validation;
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
-import pack.validation.XmlNodes;
 
 /**
  *
@@ -25,30 +23,39 @@ public class ValidationExecution {
         return ErrorMessage;
     }
 
-
     public static boolean exexValid(DocumentXml fileToValidate) throws Exception {
         boolean testValid = true;
-        NodeList XmlForm;
-        String FileNumber;
-        String month;
 
-        if (XmlNodes.isEssentialTagValid(fileToValidate, "reclamations")) {
-            XmlForm = fileToValidate.getNodesByName("reclamations");
-        } else {
+        try {
+
+            NodeList XmlForm = fileToValidate.getNodesByName("reclamations");
+            String FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
+            String month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
+
+
+
+            ArrayList<IndividualReclamationXmlNode> ListOfAllReclamations = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation", fileToValidate);
+
+
+            boolean documentIsValid = true;
+
+            if (pack.validation.FileNumber.isFileNumberValid(FileNumber)) {
+
+                for (int i = 0; i < ListOfAllReclamations.size() && documentIsValid; i++) {
+
+                    documentIsValid = pack.validation.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
+                            && pack.validation.ServiceNumber.isServiceNumberValid(ListOfAllReclamations.get(i).getSoin())
+                            && pack.validation.Amount.isAmountFormValid(ListOfAllReclamations.get(i).getMontant());
+                }
+            }
+        } catch (NullPointerException e) {
             return false;
         }
 
-        if (XmlNodes.isEssentialTagValid(fileToValidate, "dossier")) {
-            FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
-        } else {
-            return false;
-        }
+        NodeList XmlForm = fileToValidate.getNodesByName("reclamations");
+        String FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
+        String month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
 
-        if (XmlNodes.isEssentialTagValid(fileToValidate, "mois")) {
-            month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
-        } else {
-            return false;
-        }
 
 
         ArrayList<IndividualReclamationXmlNode> ListOfAllReclamations = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation", fileToValidate);
