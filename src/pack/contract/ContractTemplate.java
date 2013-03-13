@@ -29,23 +29,23 @@ public class ContractTemplate extends Contract{
  
  
     static double reimbursementCalculationForContractNumSoin0 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin100 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.35);
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin150 (){
-        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0);
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin175 (){
-        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.50);
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin200 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin300 (){
@@ -57,11 +57,11 @@ public class ContractTemplate extends Contract{
     }
     
     static double reimbursementCalculationForContractNumSoin500 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin600 (){
-        return ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * 0.4;
+        return 0;
     }
     
     static double reimbursementCalculationForContractNumSoin700 (){

@@ -36,16 +36,16 @@ public class Contract {
             ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat();
         }
         if (typeContrat.equals("B")) {
-            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContratB();
+            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContrat();
         }
         if (typeContrat.equals("C")) {
-            ammountToReimburseInXmlElementRemboursement = ContractC.selectNumSoinContratC();
+            ammountToReimburseInXmlElementRemboursement = ContractC.selectNumSoinContrat();
         }
         if (typeContrat.equals("D")) {
-            ammountToReimburseInXmlElementRemboursement = ContractD.selectNumSoinContratD();
+            ammountToReimburseInXmlElementRemboursement = ContractD.selectNumSoinContrat();
         }     
         if (typeContrat.equals("E")) {
-            ammountToReimburseInXmlElementRemboursement = ContractE.selectNumSoinContratE();
+            ammountToReimburseInXmlElementRemboursement = ContractE.selectNumSoinContrat();
         }
         return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburseInXmlElementRemboursement);
     }
