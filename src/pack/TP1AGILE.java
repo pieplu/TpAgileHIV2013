@@ -12,7 +12,6 @@ import pack.validation.ContractLetter;
 public class TP1AGILE {
     
     private static DocumentXml document;
-    private static NodeList formulaire;
     private static Document outputXmlFile;
     
     public static DocumentXml loadXmlDocumentFromArg0(String[] args) throws Exception {
@@ -31,9 +30,9 @@ public class TP1AGILE {
         if (!ValidationExecution.exexValid(document)) {
             DocumentXml.createErrorFile(args[1]);
         } else {
-            DocumentXmlValidOutputFile xmlOutputFile= new DocumentXmlValidOutputFile(args);
+            DocumentXmlValidOutputFile xmlOutputFile = new DocumentXmlValidOutputFile(args);
             xmlOutputFile.createElementsInXmlOutputFile();
-            DocumentXml.saveXmlDocument(args[1], outputXmlFile);
+            DocumentXml.saveXmlDocument(args[1], xmlOutputFile.getOutputXmlFile());
             consoleMessageOutput(args);
         }
     }

@@ -19,6 +19,10 @@ public class DocumentXmlValidOutputFile {
     private DocumentXml document;
     private NodeList formulaire;
     private Document outputXmlFile;
+
+    public Document getOutputXmlFile() {
+        return outputXmlFile;
+    }
     private ArrayList<IndividualReclamationXmlNode> clientReclamationList;
     private Element remboursementsWrittenInOutputXmlFile;
     private String[] argsFromMain;
