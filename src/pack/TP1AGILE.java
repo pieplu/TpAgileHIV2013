@@ -26,37 +26,37 @@ public class TP1AGILE {
             
             ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",document);
             
-            Document nouveauDocument = DocumentXml.docInstanceBuilder().newDocument();
+            Document outputXmlFile = DocumentXml.docInstanceBuilder().newDocument();
 
-            Element remboursementsEcrit = ElementXml.creationElementXmlRoot(nouveauDocument, "remboursements");
+            Element remboursementsEcrit = ElementXml.creationElementXmlRoot(outputXmlFile, "remboursements");
             
-            Element writtenDossierElement = ElementXml.creationElementXmlChild(nouveauDocument, "dossier", remboursementsEcrit);
-            Text textDossier = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "dossier"));
-            writtenDossierElement.appendChild(textDossier);
+            Element dossierWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "dossier", remboursementsEcrit);
+            Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(document.obtainNodeContent(formulaire.item(0), "dossier"));
+            dossierWrittenInOutputXmlFile.appendChild(textDossierWrittenInOutputXmlFile);
 
-            Element moisEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "mois", remboursementsEcrit);
-            Text textMois = nouveauDocument.createTextNode(document.obtainNodeContent(formulaire.item(0), "mois"));
-            moisEcrit.appendChild(textMois);
+            Element moisWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "mois", remboursementsEcrit);
+            Text textMoisWrittenInOutputXmlFile = outputXmlFile.createTextNode(document.obtainNodeContent(formulaire.item(0), "mois"));
+            moisWrittenInOutputXmlFile.appendChild(textMoisWrittenInOutputXmlFile);
 
             for (int i = 0; i < listeDesReclamationsDuClient.size(); i++) {
-                Element remboursementEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "remboursement", remboursementsEcrit);
+                Element remboursementWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "remboursement", remboursementsEcrit);
 
-                Element soinEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "soin", remboursementEcrit);
-                Text textSoin = nouveauDocument.createTextNode(listeDesReclamationsDuClient.get(i).getSoin());
-                soinEcrit.appendChild(textSoin);
+                Element soinWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "soin", remboursementWrittenInOutputXmlFile);
+                Text textSoinWrittenInOutputXmlFile = outputXmlFile.createTextNode(listeDesReclamationsDuClient.get(i).getSoin());
+                soinWrittenInOutputXmlFile.appendChild(textSoinWrittenInOutputXmlFile);
 
-                Element dateEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "date", remboursementEcrit);
-                Text textDate = nouveauDocument.createTextNode(listeDesReclamationsDuClient.get(i).getDate());
-                dateEcrit.appendChild(textDate);
+                Element dateWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "date", remboursementWrittenInOutputXmlFile);
+                Text textDateWrittenInOutputXmlFile = outputXmlFile.createTextNode(listeDesReclamationsDuClient.get(i).getDate());
+                dateWrittenInOutputXmlFile.appendChild(textDateWrittenInOutputXmlFile);
 
-                Element montantEcrit = ElementXml.creationElementXmlChild(nouveauDocument, "montant", remboursementEcrit);
-                String montant = ElementXml.calculateAmountToReinburseInString(listeDesReclamationsDuClient, i);
+                Element montantWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "montant", remboursementWrittenInOutputXmlFile);
+                String montantWrittenInOutputXmlFile = ElementXml.calculateAmountToReinburseInString(listeDesReclamationsDuClient, i);
                    
-                Text textMontant = nouveauDocument.createTextNode(montant);
-                montantEcrit.appendChild(textMontant);
+                Text textMontantWrittenInOutputXmlFile = outputXmlFile.createTextNode(montantWrittenInOutputXmlFile);
+                montantWrittenInOutputXmlFile.appendChild(textMontantWrittenInOutputXmlFile);
             }
 
-            DocumentXml.saveXmlDocument(args[1], nouveauDocument);
+            DocumentXml.saveXmlDocument(args[1], outputXmlFile);
             System.out.println("Le fichier entree est : " + args[0]);
             System.out.println("Le fichier a ete enregistre : " + args[1]);
         }

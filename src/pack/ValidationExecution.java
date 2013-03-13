@@ -24,14 +24,14 @@ public class ValidationExecution {
         return ErrorMessage;
     }
     
-    public static boolean exexValid(DocumentXml fichierAValider) throws Exception {
+    public static boolean exexValid(DocumentXml fileToValidate) throws Exception {
         boolean testValid = true;
         
-        NodeList formulaire = fichierAValider.getNodesByName("reclamations");
-        String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "dossier");
-        String mois = fichierAValider.obtainNodeContent(formulaire.item(0), "mois");
+        NodeList formulaire = fileToValidate.getNodesByName("reclamations");
+        String clientID = fileToValidate.obtainNodeContent(formulaire.item(0), "dossier");
+        String mois = fileToValidate.obtainNodeContent(formulaire.item(0), "mois");
 
-        ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",fichierAValider);
+        ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",fileToValidate);
 
         boolean documentIsValid = true;
         
