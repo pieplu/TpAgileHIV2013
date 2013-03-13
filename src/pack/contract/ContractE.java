@@ -11,44 +11,55 @@ package pack.contract;
 public class ContractE extends ContractTemplate {
    
     
-    static double reimbursementCalculationForContractNumSoin0 (){
-        return ammountToReimburse = reimbursementCalculation(0.15);
+    
+    @Override
+     double reimbursementCalculationForContractNumSoin0 (){
+        return  Contract.reimbursementCalculation(0.15);
     }
     
-    static double reimbursementCalculationForContractNumSoin100 (){
-        return ammountToReimburse = reimbursementCalculation(0.25);
+    @Override
+     double reimbursementCalculationForContractNumSoin100 (){
+        return  Contract.reimbursementCalculation(0.25);
     }
     
-    static double reimbursementCalculationForContractNumSoin150 (){
-        return ammountToReimburse = reimbursementCalculation(0.15);
+    @Override
+     double reimbursementCalculationForContractNumSoin150 (){
+        return  Contract.reimbursementCalculation(0.15);
     }
     
-    static double reimbursementCalculationForContractNumSoin175 (){
-        return ammountToReimburse = reimbursementCalculation(0.25,20);
+    @Override
+     double reimbursementCalculationForContractNumSoin175 (){
+        return  Contract.reimbursementCalculation(0.25,20);
     }
     
-    static double reimbursementCalculationForContractNumSoin200 (){
-        return ammountToReimburse = reimbursementCalculation(0.12);
+    @Override
+     double reimbursementCalculationForContractNumSoin200 (){
+        return  Contract.reimbursementCalculation(0.12);
     }
     
-    static double reimbursementCalculationForContractNumSoin300 (){
-        return ammountToReimburse = reimbursementCalculation(0.60);
+    @Override
+     double reimbursementCalculationForContractNumSoin300 (){
+        return  Contract.reimbursementCalculation(0.60);
     }
     
-    static double reimbursementCalculationForContractNumSoin400 (){
-        return ammountToReimburse = reimbursementCalculation(0.25,15);
+    @Override
+     double reimbursementCalculationForContractNumSoin400 (){
+        return  Contract.reimbursementCalculation(0.25,15);
     }
     
-    static double reimbursementCalculationForContractNumSoin500 (){
-        return ammountToReimburse = reimbursementCalculation(0.30,20);
+    @Override
+     double reimbursementCalculationForContractNumSoin500 (){
+        return  Contract.reimbursementCalculation(0.30,20);
     }
     
-    static double reimbursementCalculationForContractNumSoin600 (){
-        return ammountToReimburse = reimbursementCalculation(0.15);
+    @Override
+     double reimbursementCalculationForContractNumSoin600 (){
+        return  Contract.reimbursementCalculation(0.15);
     }
     
-    static double reimbursementCalculationForContractNumSoin700 (){
-        return ammountToReimburse = reimbursementCalculation(0.22);
+    @Override
+     double reimbursementCalculationForContractNumSoin700 (){
+        return  Contract.reimbursementCalculation(0.22);
     }
     
 }
