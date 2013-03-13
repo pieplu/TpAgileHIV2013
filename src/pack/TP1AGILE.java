@@ -26,13 +26,13 @@ public class TP1AGILE {
     public static void main(String[] args) throws Exception {
         document = loadXmlDocumentFromArg0(args);
         
-        if (!ValidationExecution.exexValid(document)) {
-            DocumentXml.createErrorFile(args[1]);
-        } else {
+        if (ValidationExecution.exexValid(document)) {
             DocumentXmlValidOutputFile xmlOutputFile = new DocumentXmlValidOutputFile(args);
             xmlOutputFile.createElementsInXmlOutputFile();
             DocumentXml.saveXmlDocument(args[1], xmlOutputFile.getOutputXmlFile());
             consoleMessageOutput(args);
+        } else {
+            DocumentXml.createErrorFile(args[1]);
         }
     }
 }
