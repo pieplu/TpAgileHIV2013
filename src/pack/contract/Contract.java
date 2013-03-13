@@ -36,7 +36,7 @@ public class Contract {
             ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat();
         }
         if (typeContrat.equals("B")) {
-            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContratB();
+            ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContrat();
         }
         if (typeContrat.equals("C")) {
             ammountToReimburseInXmlElementRemboursement = ContractC.selectNumSoinContratC();
