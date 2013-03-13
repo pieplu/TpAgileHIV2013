@@ -34,7 +34,9 @@ public class Contract {
         return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburseInXmlElementRemboursement);
     }
     
-    
+    /**
+     * PAS ENCORE ANALYSÉ
+    */
     static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
         ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
                 if (ammountToReimburseInXmlElementRemboursement > maxAmmountToReimburse) {
