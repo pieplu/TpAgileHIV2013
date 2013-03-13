@@ -12,21 +12,32 @@ import org.w3c.dom.Text;
 import pack.validation.ContractLetter;
 
 public class TP1AGILE {
+    
+    private static DocumentXml document;
+    private static NodeList formulaire;
+    private static Document outputXmlFile;
+    
+    public static DocumentXml loadXmlDocumentFromArg0(String[] args) throws Exception {
+        DocumentXml document = new DocumentXml(args[0]);
+        return document;
+    }
+    
+    public static void consoleMessageOutput(String[] args) {
+        System.out.println("Le fichier entree est : " + args[0]);
+        System.out.println("Le fichier a ete enregistre : " + args[1]);
+    }
 
     public static void main(String[] args) throws Exception {
-        
-        DocumentXml document = new DocumentXml(args[0]);
+        document = loadXmlDocumentFromArg0(args);
         
         if (!ValidationExecution.exexValid(document)) {
             DocumentXml.createErrorFile(args[1]);
         } else {
-
-            NodeList formulaire = document.getNodesByName("reclamations");
-            String contratType = ContractLetter.getContractLetter();
+            formulaire = document.getNodesByName("reclamations");
+            outputXmlFile = DocumentXml.docInstanceBuilder().newDocument();
             
             ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation",document);
             
-            Document outputXmlFile = DocumentXml.docInstanceBuilder().newDocument();
 
             Element remboursementsEcrit = ElementXml.creationElementXmlRoot(outputXmlFile, "remboursements");
             
@@ -57,8 +68,7 @@ public class TP1AGILE {
             }
 
             DocumentXml.saveXmlDocument(args[1], outputXmlFile);
-            System.out.println("Le fichier entree est : " + args[0]);
-            System.out.println("Le fichier a ete enregistre : " + args[1]);
+            consoleMessageOutput(args);
         }
     }
 }
