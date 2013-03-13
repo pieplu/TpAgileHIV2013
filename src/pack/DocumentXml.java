@@ -22,11 +22,16 @@ import org.xml.sax.SAXException;
 public class DocumentXml {
     
     private Document document;
+    
+    public DocumentXml(String accessPath) throws Exception, SAXException, IOException{
+        File file = new File(accessPath);
+        this.document = xmlInterpretation(file); 
+    }
 
-    public static void enregistrerSousDocumentXml(String nomFichier, Document doc) throws Exception {
+    public static void saveXmlDocument(String xmlFileName, Document xmlDocumentToSave) throws Exception {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        Source source = new DOMSource(doc);
-        Result result = new StreamResult(new File(nomFichier));
+        Source source = new DOMSource(xmlDocumentToSave);
+        Result result = new StreamResult(new File(xmlFileName));
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
         transformer.transform(source, result);
@@ -38,12 +43,7 @@ public class DocumentXml {
         return docBuilder;
     }
     
-    public DocumentXml(String cheminAcces) throws Exception, SAXException, IOException{
-        File file = new File(cheminAcces);
-        this.document = interpretationDuXML(file); 
-    }
-    
-    private Document interpretationDuXML(File file) throws Exception {
+    private Document xmlInterpretation(File file) throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder(); 
         return builder.parse(file);
@@ -73,6 +73,6 @@ public class DocumentXml {
         Text textMessageError = nouveauError.createTextNode(ExecutionValidation.getErrorMessage());
         messageError.appendChild(textMessageError);
         
-        DocumentXml.enregistrerSousDocumentXml(argument1, nouveauError);
+        DocumentXml.saveXmlDocument(argument1, nouveauError);
     }
 }

@@ -63,7 +63,7 @@ public class TP1AGILE {
                 montantEcrit.appendChild(textMontant);
             }
 
-            DocumentXml.enregistrerSousDocumentXml(args[1], nouveauDocument);
+            DocumentXml.saveXmlDocument(args[1], nouveauDocument);
             System.out.println("Le fichier entree est : " + args[0]);
             System.out.println("Le fichier a ete enregistre : " + args[1]);
         }
