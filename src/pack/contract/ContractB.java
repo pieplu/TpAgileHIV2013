@@ -12,43 +12,43 @@ public class ContractB extends ContractTemplate{
     
     
     
-    static double reimbursementCalculationForContractNumSoin0 (){
-        return ammountToReimburse = reimbursementCalculation(0.5,40);
+      double reimbursementCalculationForContractNumSoin0 (){
+        return  Contract.reimbursementCalculation(0.5,40);
     }
     
-    static double reimbursementCalculationForContractNumSoin100 (){
-        return ammountToReimburse = reimbursementCalculation(0.5,50);
+      double reimbursementCalculationForContractNumSoin100 (){
+        return  Contract.reimbursementCalculation(0.5,50);
     }
     
-    static double reimbursementCalculationForContractNumSoin150 (){
-        return ammountToReimburse = reimbursementCalculation(0);
+      double reimbursementCalculationForContractNumSoin150 (){
+        return  Contract.reimbursementCalculation(0);
     }
     
-    static double reimbursementCalculationForContractNumSoin175 (){
-        return ammountToReimburse = reimbursementCalculation(0.75);
+      double reimbursementCalculationForContractNumSoin175 (){
+        return  Contract.reimbursementCalculation(0.75);
     }
     
-    static double reimbursementCalculationForContractNumSoin200 (){
-        return ammountToReimburse = reimbursementCalculation(1);
+      double reimbursementCalculationForContractNumSoin200 (){
+        return  Contract.reimbursementCalculation(1);
     }
     
-    static double reimbursementCalculationForContractNumSoin300 (){
-        return ammountToReimburse = reimbursementCalculation(0.5);
+      double reimbursementCalculationForContractNumSoin300 (){
+        return  Contract.reimbursementCalculation(0.5);
     }
     
-    static double reimbursementCalculationForContractNumSoin400 (){
+      double reimbursementCalculationForContractNumSoin400 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin500 (){
-        return ammountToReimburse = reimbursementCalculation(0.5,50);
+      double reimbursementCalculationForContractNumSoin500 (){
+        return  Contract.reimbursementCalculation(0.5,50);
     }
     
-    static double reimbursementCalculationForContractNumSoin600 (){
-        return ammountToReimburse = ammountInXmlFile;
+      double reimbursementCalculationForContractNumSoin600 (){
+        return Contract.ammountInXmlFile;
     }
     
-    static double reimbursementCalculationForContractNumSoin700 (){
-        return ammountToReimburse = reimbursementCalculation(0.7);
+      double reimbursementCalculationForContractNumSoin700 (){
+        return Contract.reimbursementCalculation(0.7);
     }
 }

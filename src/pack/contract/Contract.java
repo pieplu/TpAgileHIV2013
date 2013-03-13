@@ -16,21 +16,24 @@ public class Contract {
     public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
         setAmmount(montant);
         if (typeContrat.equals("A")) {
-            ContractA yop = new ContractA();
-            ammountToReimburse = yop.selectNumSoinContrat(numSoin);
+            ContractA InstenceOfContact = new ContractA();
+            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("B")) {
-            
-            ammountToReimburse = ContractB.selectNumSoinContrat(numSoin);
+            ContractB InstenceOfContact = new ContractB();
+            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("C")) {
-            ammountToReimburse = ContractC.selectNumSoinContrat(numSoin);
+            ContractC InstenceOfContact = new ContractC();
+            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("D")) {
-            ammountToReimburse = ContractD.selectNumSoinContrat(numSoin);
+            ContractD InstenceOfContact = new ContractD();
+            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
         }     
         if (typeContrat.equals("E")) {
-            ammountToReimburse = ContractE.selectNumSoinContrat(numSoin);
+            ContractE InstenceOfContact = new ContractE();
+            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
         }
         return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburse);
     }

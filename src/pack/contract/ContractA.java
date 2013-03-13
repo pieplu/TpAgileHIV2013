@@ -9,7 +9,7 @@ package pack.contract;
  * @author Dominique Menard
  */
 public class ContractA extends ContractTemplate{
-    
+
     
     
        double reimbursementCalculationForContractNumSoin0 (){
@@ -21,11 +21,11 @@ public class ContractA extends ContractTemplate{
     }
     
        double reimbursementCalculationForContractNumSoin150 (){
-        return reimbursementCalculation(0);
+        return 0;
     }
     
        double reimbursementCalculationForContractNumSoin175 (){
-        return reimbursementCalculation(0.50);
+        return Contract.reimbursementCalculation(0.50);
     }
     
        double reimbursementCalculationForContractNumSoin200 (){

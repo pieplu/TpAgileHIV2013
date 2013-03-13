@@ -10,9 +10,9 @@ import static pack.contract.Contract.ammountInXmlFile;
  *
  * @author hj991118
  */
-public class ContractTemplate extends Contract{
+public class ContractTemplate{
     
-   
+
     
   double selectNumSoinContrat(int numSoin) {
         double result = 0;
