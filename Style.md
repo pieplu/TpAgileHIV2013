@@ -7,7 +7,7 @@ Anglais
 
 ## Normes de programmation
 
-* ** Doit suivre les principes suivants:**
+* **Doit suivre les principes suivants:**
   - Noms significatifs, en tout temps.
   - Une méthode équivaut à un seul niveau d'abstraction
   - Une classe équivaut à une seule responsabilité
