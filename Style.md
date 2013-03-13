@@ -1,6 +1,6 @@
 ÉLÉMENT DE STYLE :
 
-INDENTATION:
+/INDENTATION:
 
 Respect des règles d'indentation de JAVA définie par Oracle.
 Exceptions:
@@ -8,5 +8,5 @@ Exceptions:
 
 
 
-LANGUE:
+/LANGUE:
 Utilisation de l'Anglais pour le code.
