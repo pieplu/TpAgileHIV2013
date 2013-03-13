@@ -19,16 +19,16 @@ public class DocumentXmlValidOutputFile {
     private DocumentXml document;
     private NodeList formulaire;
     private Document outputXmlFile;
-
-    public Document getOutputXmlFile() {
-        return outputXmlFile;
-    }
     private ArrayList<IndividualReclamationXmlNode> clientReclamationList;
     private Element remboursementsWrittenInOutputXmlFile;
     private String[] argsFromMain;
 
     public DocumentXmlValidOutputFile(String[] argsFromMain) {
         this.argsFromMain = argsFromMain;
+    }
+    
+    public Document getOutputXmlFile() {
+        return outputXmlFile;
     }
 
     private DocumentXml loadXmlDocumentFromArg0(String[] argsFromMain) throws Exception {
@@ -40,6 +40,7 @@ public class DocumentXmlValidOutputFile {
         loadXmlDocumentFromArg0(argsFromMain);
         setRootNodeInXmlDocument("reclamations");
         setReclamationNodeListInXmlDocument("reclamation");
+        outputXmlFile = DocumentXml.docInstanceBuilder().newDocument();
         remboursementsWrittenInOutputXmlFile = ElementXml.creationElementXmlRoot(outputXmlFile, "remboursements");
         insertChildElementsOfRemboursementElement();
     }

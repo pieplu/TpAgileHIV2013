@@ -12,7 +12,6 @@ import pack.validation.ContractLetter;
 public class TP1AGILE {
     
     private static DocumentXml document;
-    private static Document outputXmlFile;
     
     public static DocumentXml loadXmlDocumentFromArg0(String[] args) throws Exception {
         document = new DocumentXml(args[0]);
