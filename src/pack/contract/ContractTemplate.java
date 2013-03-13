@@ -6,12 +6,28 @@ package pack.contract;
 
 /**
  *
- * @author Dominique Menard
+ * @author hj991118
  */
-public class ContractA extends ContractTemplate{
+public class ContractTemplate extends Contract{
     
+   
     
-    
+ static double selectNumSoinContrat() {
+        if(getNumSoin()==0){reimbursementCalculationForContractNumSoin0 ();}
+        if(getNumSoin()==100){reimbursementCalculationForContractNumSoin100 ();}
+        if(getNumSoin()==150){reimbursementCalculationForContractNumSoin150 ();}
+        if(getNumSoin()==175){reimbursementCalculationForContractNumSoin175 ();}
+        if(getNumSoin()==200){reimbursementCalculationForContractNumSoin200 ();}
+        if(getNumSoin()>=300 && getNumSoin()<=399){reimbursementCalculationForContractNumSoin300 ();}
+        if(getNumSoin()==400){reimbursementCalculationForContractNumSoin400 ();}
+        if(getNumSoin()==500){reimbursementCalculationForContractNumSoin500 ();}
+        if(getNumSoin()==600){reimbursementCalculationForContractNumSoin600 ();}
+        if(getNumSoin()==700){reimbursementCalculationForContractNumSoin700 ();}
+        return ammountToReimburseInXmlElementRemboursement;
+    }
+ 
+ 
+ 
     static double reimbursementCalculationForContractNumSoin0 (){
         return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
     }

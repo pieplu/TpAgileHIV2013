@@ -10,7 +10,12 @@ package pack.contract;
 public class Contract {
     
     static double ammountInXmlFile;
-    static int numSoin;
+    private static int numSoin;
+
+    public static int getNumSoin() {
+        return numSoin;
+    }
+    
     static double ammountToReimburseInXmlElementRemboursement = 0;
     
     static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
@@ -28,7 +33,7 @@ public class Contract {
     public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
         setBasicContractInformation (montant, numSoin);
         if (typeContrat.equals("A")) {
-            ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContratA();
+            ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat();
         }
         if (typeContrat.equals("B")) {
             ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContratB();
@@ -46,11 +51,11 @@ public class Contract {
     }
     
     private static void setBasicContractInformation (double montant, int numSoin){
-        ammountInXmlFile (montant);
+        setAmmount (montant);
         setNumSoin (numSoin);
     }
     
-    private static void ammountInXmlFile (double montant){
+    private static void setAmmount (double montant){
         Contract.ammountInXmlFile = montant;
     }
     
