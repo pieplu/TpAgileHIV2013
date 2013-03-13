@@ -13,23 +13,23 @@ public class ContractA extends ContractTemplate{
     
     
     static double reimbursementCalculationForContractNumSoin0 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
+        return Contract.reimbursementCalculation(0.25);
     }
     
     static double reimbursementCalculationForContractNumSoin100 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.35);
+        return Contract.reimbursementCalculation(0.35);
     }
     
     static double reimbursementCalculationForContractNumSoin150 (){
-        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0);
+        return reimbursementCalculation(0);
     }
     
     static double reimbursementCalculationForContractNumSoin175 (){
-        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.50);
+        return reimbursementCalculation(0.50);
     }
     
     static double reimbursementCalculationForContractNumSoin200 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
+        return Contract.reimbursementCalculation(0.25);
     }
     
     static double reimbursementCalculationForContractNumSoin300 (){
@@ -41,11 +41,11 @@ public class ContractA extends ContractTemplate{
     }
     
     static double reimbursementCalculationForContractNumSoin500 (){
-        return ammountToReimburseInXmlElementRemboursement = Contract.reimbursementCalculation(0.25);
+        return Contract.reimbursementCalculation(0.25);
     }
     
     static double reimbursementCalculationForContractNumSoin600 (){
-        return ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * 0.4;
+        return Contract.reimbursementCalculation(0.4);
     }
     
     static double reimbursementCalculationForContractNumSoin700 (){
