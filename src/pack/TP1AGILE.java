@@ -27,11 +27,11 @@ public class TP1AGILE {
             NodeList formulaire = document.getNodesByName("reclamations");
             String contratType = ContractLetter.getContractLetter();
 
-            ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
+            ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = new ArrayList <IndividualReclamationXmlNode> ();
 
             NodeList reclamationDuXML = document.getNodesByName("reclamation");
             for (int i = 0; i < reclamationDuXML.getLength(); i++) {
-                listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, document));
+                listeDesReclamationsDuClient.add(new IndividualReclamationXmlNode(reclamationDuXML, i, document));
             }
             Document nouveauDocument = DocumentXml.docInstanceBuilder().newDocument();
 

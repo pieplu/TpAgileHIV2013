@@ -32,11 +32,11 @@ public class ExecutionValidation {
         String clientID = fichierAValider.obtainNodeContent(formulaire.item(0), "dossier");
         String mois = fichierAValider.obtainNodeContent(formulaire.item(0), "mois");
 
-        ArrayList<ReclamationObject> listeDesReclamationsDuClient = new <ReclamationObject> ArrayList();
+        ArrayList<IndividualReclamationXmlNode> listeDesReclamationsDuClient = new ArrayList <IndividualReclamationXmlNode> ();
 
         NodeList reclamationDuXML = fichierAValider.getNodesByName("reclamation");
         for (int i = 0; i < reclamationDuXML.getLength(); i++) {
-            listeDesReclamationsDuClient.add(new ReclamationObject(reclamationDuXML, i, fichierAValider));
+            listeDesReclamationsDuClient.add(new IndividualReclamationXmlNode(reclamationDuXML, i, fichierAValider));
         }
 
 

@@ -28,7 +28,7 @@ public class ElementXml {
         return createdElement;
     }
     
-    public static String calculateAmountToReinburseInString(ArrayList<ReclamationObject> clientReclamationList, int countNumber) throws NumberFormatException {
+    public static String calculateAmountToReinburseInString(ArrayList<IndividualReclamationXmlNode> clientReclamationList, int countNumber) throws NumberFormatException {
         String ammountWithoutDollarSign = clientReclamationList.get(countNumber).getMontant().substring(0, clientReclamationList.get(countNumber).getMontant().length() - 1);
         ammountWithoutDollarSign.replace("," , ".");
         double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);
