@@ -20,6 +20,7 @@ public class Contract {
             ammountToReimburse = yop.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("B")) {
+            
             ammountToReimburse = ContractB.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("C")) {
