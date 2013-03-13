@@ -4,6 +4,8 @@
  */
 package pack.contract;
 
+import static pack.contract.Contract.ammountInXmlFile;
+
 /**
  *
  * @author hj991118
@@ -34,6 +36,7 @@ public class ContractTemplate extends Contract{
     }
     
     static double reimbursementCalculationForContractNumSoin100 (){
+        System.out.println("soin 100 a 0, pas cool");
         return 0;
     }
     

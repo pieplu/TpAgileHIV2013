@@ -16,7 +16,8 @@ public class Contract {
     public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
         setAmmount(montant);
         if (typeContrat.equals("A")) {
-            ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat(numSoin);
+            ContractA yop = new ContractA();
+            ammountToReimburseInXmlElementRemboursement = yop.selectNumSoinContrat(numSoin);
         }
         if (typeContrat.equals("B")) {
             ammountToReimburseInXmlElementRemboursement = ContractB.selectNumSoinContrat(numSoin);
@@ -44,6 +45,7 @@ public class Contract {
     
     
     static double reimbursementCalculation(double multiple){
+        System.out.println("calcul " + ammountInXmlFile);
         return ammountInXmlFile * multiple;
     }
     
@@ -53,6 +55,7 @@ public class Contract {
     
     private static void setAmmount (double montant){
         ammountInXmlFile = montant;
+        System.out.println("set ammount" + ammountInXmlFile);
     }  
 
     
