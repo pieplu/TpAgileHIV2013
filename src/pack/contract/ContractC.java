@@ -8,18 +8,13 @@ package pack.contract;
  *
  * @author Dominique Menard
  */
-public class ContractC extends Contract {
+public class ContractC extends ContractTemplate {
 
-    static double selectNumSoinContratC() {
-        if (numSoin == 100) {reimbursementCalculationForContractCnumSoin100();}
-        if (numSoin == 150) {reimbursementCalculationForContractCnumSoin150();}
-        if(numSoin==600)    {reimbursementCalculationForContractCnumSoin600 ();}
-        else {
-            return ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * 0.9;
-        }
-        return ammountToReimburseInXmlElementRemboursement;
+ 
+    static double reimbursementCalculationForContractNumSoin0 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
     }
-
+    
     static double reimbursementCalculationForContractCnumSoin100() {
         return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.95);
     }
@@ -28,7 +23,35 @@ public class ContractC extends Contract {
         return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.85);
     }
     
+    
+    
+    static double reimbursementCalculationForContractNumSoin175 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
+    }
+    
+    static double reimbursementCalculationForContractNumSoin200 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
+    }
+    
+    static double reimbursementCalculationForContractNumSoin300 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
+    }
+    
+    static double reimbursementCalculationForContractNumSoin400 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
+    }
+    
+    static double reimbursementCalculationForContractNumSoin500 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
+    }
+    
+    
     static double reimbursementCalculationForContractCnumSoin600 (){
         return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.75);
+    }
+    
+    
+    static double reimbursementCalculationForContractNumSoin700 (){
+        return ammountToReimburseInXmlElementRemboursement = reimbursementCalculation(0.9);
     }
 }
