@@ -1,8 +1,8 @@
 # ÉLÉMENT DE STYLE :
 
-## Langue
+## Langue pour nomenclature
 
-Langue utilisé : Anglais
+Anglais
 
 
 ## Normes de programmation
