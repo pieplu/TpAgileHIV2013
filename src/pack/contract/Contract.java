@@ -9,29 +9,12 @@ package pack.contract;
  */
 public class Contract {
     
-    static double ammountInXmlFile;
-    private static int numSoin;
-
-    public static int getNumSoin() {
-        return numSoin;
-    }
-    
+    static double ammountInXmlFile; 
     static double ammountToReimburseInXmlElementRemboursement = 0;
     
-    static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
-        ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
-                if (ammountToReimburseInXmlElementRemboursement > maxAmmountToReimburse) {
-                    ammountToReimburseInXmlElementRemboursement = maxAmmountToReimburse;
-                }
-        return ammountToReimburseInXmlElementRemboursement;
-    }
     
-    static double reimbursementCalculation(double multiple){
-        return ammountInXmlFile * multiple;
-    }
-
     public static double reimburseCalculationByContractTypeAmmountInXmlElementRemboursementNumSoin(String typeContrat, double montant, int numSoin) {
-        setBasicContractInformation (montant, numSoin);
+        setAmmount(montant);
         if (typeContrat.equals("A")) {
             ammountToReimburseInXmlElementRemboursement = ContractA.selectNumSoinContrat(numSoin);
         }
@@ -50,18 +33,28 @@ public class Contract {
         return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburseInXmlElementRemboursement);
     }
     
-    private static void setBasicContractInformation (double montant, int numSoin){
-        setAmmount (montant);
-        setNumSoin (numSoin);
+    
+    static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
+        ammountToReimburseInXmlElementRemboursement = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
+                if (ammountToReimburseInXmlElementRemboursement > maxAmmountToReimburse) {
+                    ammountToReimburseInXmlElementRemboursement = maxAmmountToReimburse;
+                }
+        return ammountToReimburseInXmlElementRemboursement;
     }
+    
+    
+    static double reimbursementCalculation(double multiple){
+        return ammountInXmlFile * multiple;
+    }
+    
+
+    
+    
     
     private static void setAmmount (double montant){
-        Contract.ammountInXmlFile = montant;
-    }
-    
-    private static void setNumSoin (int numSoin){
-        Contract.numSoin = numSoin;
-    }
+        ammountInXmlFile = montant;
+    }  
+
     
     private static double roundUpDoubleNumberUpToTwoDecimals (double numberToRoudUp){
         double numberRounded = Math.round(numberToRoudUp*100);
