@@ -50,10 +50,10 @@ public class TP1AGILE {
                 dateWrittenInOutputXmlFile.appendChild(textDateWrittenInOutputXmlFile);
 
                 Element montantWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "montant", remboursementWrittenInOutputXmlFile);
-                String montantWrittenInOutputXmlFile = ElementXml.calculateAmountToReinburseInString(listeDesReclamationsDuClient, i);
+                String montantToReimburse = ElementXml.calculateAmountToReinburseInString(listeDesReclamationsDuClient, i);
                    
-                Text textMontantWrittenInOutputXmlFile = outputXmlFile.createTextNode(montantWrittenInOutputXmlFile);
-                montantWrittenInOutputXmlFile.appendChild(textMontantWrittenInOutputXmlFile);
+                Text textMontant = outputXmlFile.createTextNode(montantToReimburse);
+                montantWrittenInOutputXmlFile.appendChild(textMontant);
             }
 
             DocumentXml.saveXmlDocument(args[1], outputXmlFile);
