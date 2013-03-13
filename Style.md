@@ -8,10 +8,10 @@ Anglais
 ## Normes de programmation
 
  Doit suivre les principes suivants:
-  -Noms significatifs, en tout temps.
-  -Une méthode équivaut à un seul niveau d'abstraction
-  -Une classe équivaut à une seule responsabilité
-  -Suivre, dans la mesure du possible, le principe du Test-Driven-Development (TDD)
+  *Noms significatifs, en tout temps.
+  *Une méthode équivaut à un seul niveau d'abstraction
+  *Une classe équivaut à une seule responsabilité
+  *Suivre, dans la mesure du possible, le principe du Test-Driven-Development (TDD)
 
 L'essentiel est de suivre une méthodologie qui découle de la programmation Agile.
 
