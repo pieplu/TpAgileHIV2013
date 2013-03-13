@@ -14,7 +14,7 @@ public class ContractTemplate extends Contract{
     
    
     
- static double selectNumSoinContrat(int numSoin) {
+  double selectNumSoinContrat(int numSoin) {
         double result = 0;
         if(numSoin==0){result = reimbursementCalculationForContractNumSoin0 ();}
         if(numSoin==100){result = reimbursementCalculationForContractNumSoin100 ();}
@@ -31,44 +31,44 @@ public class ContractTemplate extends Contract{
  
  
  
-    static double reimbursementCalculationForContractNumSoin0 (){
+      double reimbursementCalculationForContractNumSoin0 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin100 (){
+      double reimbursementCalculationForContractNumSoin100 (){
         System.out.println("soin 100 a 0, pas cool");
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin150 (){
+      double reimbursementCalculationForContractNumSoin150 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin175 (){
+      double reimbursementCalculationForContractNumSoin175 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin200 (){
+      double reimbursementCalculationForContractNumSoin200 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin300 (){
+      double reimbursementCalculationForContractNumSoin300 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin400 (){
+      double reimbursementCalculationForContractNumSoin400 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin500 (){
+      double reimbursementCalculationForContractNumSoin500 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin600 (){
+      double reimbursementCalculationForContractNumSoin600 (){
         return 0;
     }
     
-    static double reimbursementCalculationForContractNumSoin700 (){
+      double reimbursementCalculationForContractNumSoin700 (){
         return 0;
     }
 }

@@ -3,12 +3,12 @@
     <remboursement>
         <soin>100</soin>
         <date>2013-01-11</date>
-        <montant>0.00$</montant>
+        <montant>81.90$</montant>
     </remboursement>
     <remboursement>
         <soin>200</soin>
         <date>2013-01-13</date>
-        <montant>0.00$</montant>
+        <montant>22.50$</montant>
     </remboursement>
     <remboursement>
         <soin>334</soin>
