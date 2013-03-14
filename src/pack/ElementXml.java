@@ -34,12 +34,17 @@ public class ElementXml {
         double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);
         int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
         String montant = Contract.reimburseCalculation(ContractLetter.getContractLetter(), montantAjuster, numSoin)+"";
-        if (montant.charAt(montant.length()-2) == '.'){
-            montant = montant + "0$";
-        } else {
-            montant = montant +"$";
-        }
+        montant = formatAmmountToStandartFormat(montant);
         return montant;
+    }
+    
+    public static String formatAmmountToStandartFormat(String ammountToFormat){
+        if (ammountToFormat.charAt(ammountToFormat.length()-2) == '.'){
+            ammountToFormat = ammountToFormat + "0$";
+        } else {
+          ammountToFormat = ammountToFormat +"$";
+        }
+        return ammountToFormat;
     }
     
 }

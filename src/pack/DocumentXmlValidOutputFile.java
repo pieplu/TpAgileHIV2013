@@ -42,7 +42,10 @@ public class DocumentXmlValidOutputFile {
         setReclamationNodeListInXmlDocument("reclamation");
         outputXmlFile = DocumentXml.docInstanceBuilder().newDocument();
         remboursementsWrittenInOutputXmlFile = ElementXml.creationElementXmlRoot(outputXmlFile, "remboursements");
+        insertChildElementsOfRoot("dossier");
+        insertChildElementsOfRoot("mois");
         insertChildElementsOfRemboursementElement();
+        insertChildElementMontantOfRoot("total");
     }
 
     private void setRootNodeInXmlDocument(String rootName) {
@@ -53,14 +56,16 @@ public class DocumentXmlValidOutputFile {
         clientReclamationList = DocumentXml.createListOfIndividualReclamationXmlNode(nodeName, document);
     }
 
-    private void insertChildElementsOfRoot() {
-        Element dossierWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "dossier", remboursementsWrittenInOutputXmlFile);
-        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(document.obtainNodeContent(formulaire.item(0), "dossier"));
+    private void insertChildElementsOfRoot(String nodeNameToInsert) {
+        Element dossierWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, nodeNameToInsert, remboursementsWrittenInOutputXmlFile);
+        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(document.obtainNodeContent(formulaire.item(0), nodeNameToInsert));
         dossierWrittenInOutputXmlFile.appendChild(textDossierWrittenInOutputXmlFile);
-
-        Element moisWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, "mois", remboursementsWrittenInOutputXmlFile);
-        Text textMoisWrittenInOutputXmlFile = outputXmlFile.createTextNode(document.obtainNodeContent(formulaire.item(0), "mois"));
-        moisWrittenInOutputXmlFile.appendChild(textMoisWrittenInOutputXmlFile);
+    }
+    
+    private void insertChildElementMontantOfRoot(String nodeNameToInsert) {
+        Element dossierWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, nodeNameToInsert, remboursementsWrittenInOutputXmlFile);
+        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXml.formatAmmountToStandartFormat("test") + "");
+        dossierWrittenInOutputXmlFile.appendChild(textDossierWrittenInOutputXmlFile);
     }
     
     private void insertChildElementsOfRemboursementElement(){
