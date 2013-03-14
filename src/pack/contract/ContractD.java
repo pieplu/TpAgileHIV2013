@@ -39,7 +39,7 @@ public class ContractD extends ContractTemplate{
     
     @Override
      double refundForContractNumSoin300 (){
-        return  Contract.ammountInXmlFile;
+        return  Contract.getAmmountInXmlFile();
     }
     
     @Override

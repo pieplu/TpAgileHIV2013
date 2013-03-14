@@ -9,8 +9,17 @@ package pack.contract;
  */
 public class Contract {
     
-    static double ammountInXmlFile; 
-    static double amountToRefund = 0;
+    private static double ammountInXmlFile; 
+
+    public static double getAmmountInXmlFile() {
+        return ammountInXmlFile;
+    }
+
+    public static double getAmountTotal() {
+        return amountTotal;
+    }
+    private static double amountToRefund = 0;
+    private static double amountTotal = 0;
     
     public static double refundCalculator(String contractType, double amount, int numSoin) {
         setAmmount(amount);
@@ -34,7 +43,11 @@ public class Contract {
             ContractE InstanceOfContact = new ContractE();
             amountToRefund = InstanceOfContact.selectNumSoinContrat(numSoin);
         }
-        return roundUpDoubleNumberUpToTwoDecimals(amountToRefund);
+        
+        amountToRefund = roundUpDoubleNumberUpToTwoDecimals(amountToRefund);
+        amountTotal += amountToRefund;
+        
+        return amountToRefund;
     }
     
 
@@ -48,14 +61,12 @@ public class Contract {
     
     
     static double reimbursementCalculation(double multiple){
-        System.out.println("calcul " + ammountInXmlFile);
         return ammountInXmlFile * multiple;
     }
     
     
     private static void setAmmount (double montant){
         ammountInXmlFile = montant;
-        System.out.println("set ammount" + ammountInXmlFile);
     }  
 
     

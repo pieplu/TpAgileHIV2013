@@ -4,7 +4,7 @@
  */
 package pack.contract;
 
-import static pack.contract.Contract.ammountInXmlFile;
+
 
 /**
  *
@@ -36,7 +36,6 @@ public class ContractTemplate{
     }
     
       double refundForContractNumSoin100 (){
-        System.out.println("soin 100 a 0, pas cool");
         return 0;
     }
     
