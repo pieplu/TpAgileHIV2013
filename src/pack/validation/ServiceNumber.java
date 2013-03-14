@@ -38,6 +38,7 @@ public class ServiceNumber {
     }
 
     private static String formatServiceNumberToExpectedValue(String serviceNumber, int minValue, int maxValue) {
+        
         if ((Integer.parseInt(serviceNumber) >= minValue) && (Integer.parseInt(serviceNumber) <= maxValue)) {
             return ""+ minValue;
         } else {
