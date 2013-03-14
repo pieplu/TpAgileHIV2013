@@ -37,9 +37,7 @@ public class Contract {
         return roundUpDoubleNumberUpToTwoDecimals(amountToRefund);
     }
     
-    /**
-     * PAS ENCORE ANALYSÉ
-    */
+
     static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
         amountToRefund = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
                 if (amountToRefund > maxAmmountToReimburse) {
@@ -53,9 +51,6 @@ public class Contract {
         System.out.println("calcul " + ammountInXmlFile);
         return ammountInXmlFile * multiple;
     }
-    
-
-    
     
     
     private static void setAmmount (double montant){
