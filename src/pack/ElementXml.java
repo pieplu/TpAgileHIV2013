@@ -33,7 +33,7 @@ public class ElementXml {
         ammountWithoutDollarSign.replace("," , ".");
         double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);
         int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
-        String montant = Contract.reimburseCalculation(ContractLetter.getContractLetter(), montantAjuster, numSoin)+"";
+        String montant = Contract.refundCalculator(ContractLetter.getContractLetter(), montantAjuster, numSoin)+"";
         montant = formatAmmountToStandartFormat(montant);
         return montant;
     }
