@@ -57,10 +57,9 @@ public class Date {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
-        java.util.Date date = null;
         boolean bool = true;
         try {
-            date = dateFormat.parse(dateFrom);
+            java.util.Date date = dateFormat.parse(dateFrom);
         } catch (ParseException e) {
             bool = false;
         }

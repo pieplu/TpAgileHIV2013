@@ -2,6 +2,7 @@
 <reclamations>
     <dossier>A100203</dossier>
     <mois>2013-01</mois>
+    <reclamation>
         <soin>100</soin>
         <date>2013-01-01</date>
         <montant>234,00$</montant>

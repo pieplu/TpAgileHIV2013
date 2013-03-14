@@ -71,7 +71,7 @@ public class XmlNodes {
         try {
             tagToVerify.getNodesByName(expectedTagName);
         } catch (NullPointerException e) {
-            ValidationExecution.setErrorMessage("La balise " + expectedTagName + " n'est pas présente dans le document XML");
+            ValidationExecution.setErrorMessage("Le document XML est corrompu");
             return false;
         }
         return true;
