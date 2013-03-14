@@ -25,9 +25,8 @@ public class ValidationExecution {
     }
 
     public static boolean exexValid(DocumentXml fileToValidate) throws Exception {
-        boolean testValid = true;
         XmlNodes testIfAllNodesAreThere = new XmlNodes(fileToValidate);
-        if(!testIfAllNodesAreThere.verifyIfXmlFormIsValid()){
+        if (!testIfAllNodesAreThere.verifyIfXmlFormIsValid()) {
             return false;
         }
 
@@ -36,23 +35,22 @@ public class ValidationExecution {
         String month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
 
 
+        return validateDocumentContent(FileNumber, fileToValidate, month);
+    }
 
+    private static boolean validateDocumentContent(String FileNumber, DocumentXml fileToValidate, String month) {
         ArrayList<IndividualReclamationXmlNode> ListOfAllReclamations = DocumentXml.createListOfIndividualReclamationXmlNode("reclamation", fileToValidate);
-
-
-        boolean documentIsValid = true;
-
         if (pack.validation.FileNumber.isFileNumberValid(FileNumber)) {
-
-            for (int i = 0; i < ListOfAllReclamations.size() && documentIsValid; i++) {
-
-                documentIsValid = pack.validation.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
+            for (int i = 0; i < ListOfAllReclamations.size(); i++) {
+                if (!(pack.validation.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
                         && pack.validation.ServiceNumber.isServiceNumberValid(ListOfAllReclamations.get(i).getSoin())
-                        && pack.validation.Amount.isAmountFormValid(ListOfAllReclamations.get(i).getMontant());
+                        && pack.validation.Amount.isAmountFormValid(ListOfAllReclamations.get(i).getMontant()))) {
+                    return false;
+                }
             }
+            return true;
         } else {
-            documentIsValid = false;
+            return false;
         }
-        return documentIsValid;
     }
 }
