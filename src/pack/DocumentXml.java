@@ -29,7 +29,7 @@ public class DocumentXml {
         try{
             this.document = xmlInterpretation(file); 
         }catch (Exception e){
-            ValidationExecution.setErrorMessage("Erreur: le fichier xml est corromput.");
+            ValidationExecution.setErrorMessage("Le fichier xml est corrompu.");
         }
     }
 
