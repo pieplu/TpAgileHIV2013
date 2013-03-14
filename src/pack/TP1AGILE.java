@@ -33,6 +33,7 @@ public class TP1AGILE {
             consoleMessageOutput(args);
         } else {
             DocumentXml.createErrorFile(args[1]);
+            consoleMessageOutput(args);
         }
     }
 }
