@@ -23,6 +23,12 @@ public class IndividualReclamationXmlNode {
         montant = document.obtainNodeContent(liste.item(index),"montant");
     }
     
+    public void setIndividualReclamationXmlNodeToTestNodeName(NodeList liste, int index, DocumentXml document){
+        soin = document.obtainNodeName(liste.item(index),"soin");
+        date = document.obtainNodeName(liste.item(index),"date");
+        montant = document.obtainNodeName(liste.item(index),"montant");
+    }
+    
     public String getSoin (){
         return soin;
     }
