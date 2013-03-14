@@ -13,52 +13,52 @@ public class ContractB extends ContractTemplate{
     
     
     @Override
-      double reimbursementCalculationForContractNumSoin0 (){
+      double refundForContractNumSoin0 (){
         return  Contract.reimbursementCalculation(0.5,40);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin100 (){
+      double refundForContractNumSoin100 (){
         return  Contract.reimbursementCalculation(0.5,50);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin150 (){
+      double refundForContractNumSoin150 (){
         return  Contract.reimbursementCalculation(0);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin175 (){
+      double refundForContractNumSoin175 (){
         return  Contract.reimbursementCalculation(0.75);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin200 (){
+      double refundForContractNumSoin200 (){
         return  Contract.reimbursementCalculation(1);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin300 (){
+      double refundForContractNumSoin300 (){
         return  Contract.reimbursementCalculation(0.5);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin400 (){
+      double refundForContractNumSoin400 (){
         return 0;
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin500 (){
+      double refundForContractNumSoin500 (){
         return  Contract.reimbursementCalculation(0.5,50);
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin600 (){
+      double refundForContractNumSoin600 (){
         return Contract.ammountInXmlFile;
     }
     
     @Override
-      double reimbursementCalculationForContractNumSoin700 (){
+      double refundForContractNumSoin700 (){
         return Contract.reimbursementCalculation(0.7);
     }
 }

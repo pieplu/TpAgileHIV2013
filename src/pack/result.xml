@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<remboursements>
+    <message>Une des balises de remboursement n'est pas présente dans le document XML</message>
+</remboursements>

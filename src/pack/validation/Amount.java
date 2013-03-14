@@ -20,8 +20,8 @@ public class Amount {
         if( ((isMinimumLengthForAmountValid(amount))
                 && (containsDollarSignAtTheEnd(amount))
                 && (containsDotForCents(amount))
-                && (Validation.isTheStringMadeOfDigitOnly(amount.substring(amount.length() - 3, amount.length() - 1)))
-                && (Validation.isTheStringMadeOfDigitOnly(amount.substring(0, amount.length() - 4))))){
+                && (StringAnalyzer.isTheStringMadeOfDigitOnly(amount.substring(amount.length() - 3, amount.length() - 1)))
+                && (StringAnalyzer.isTheStringMadeOfDigitOnly(amount.substring(0, amount.length() - 4))))){
             return true;
         }else{
             ValidationExecution.setErrorMessage("Erreur: Un montant n'est pas valide.");

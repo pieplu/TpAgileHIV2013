@@ -10,43 +10,42 @@ package pack.contract;
 public class Contract {
     
     static double ammountInXmlFile; 
-    static double ammountToReimburse = 0;
+    static double amountToRefund = 0;
     
-    
-    public static double reimburseCalculation(String typeContrat, double montant, int numSoin) {
-        setAmmount(montant);
-        if (typeContrat.equals("A")) {
-            ContractA InstenceOfContact = new ContractA();
-            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
+    public static double refundCalculator(String contractType, double amount, int numSoin) {
+        setAmmount(amount);
+        if (contractType.equals("A")) {
+            ContractA InstanceOfContact = new ContractA();
+            amountToRefund = InstanceOfContact.selectNumSoinContrat(numSoin);
         }
-        if (typeContrat.equals("B")) {
-            ContractB InstenceOfContact = new ContractB();
-            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
+        if (contractType.equals("B")) {
+            ContractB InstanceOfContact = new ContractB();
+            amountToRefund = InstanceOfContact.selectNumSoinContrat(numSoin);
         }
-        if (typeContrat.equals("C")) {
-            ContractC InstenceOfContact = new ContractC();
-            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
+        if (contractType.equals("C")) {
+            ContractC InstanceOfContact = new ContractC();
+            amountToRefund = InstanceOfContact.selectNumSoinContrat(numSoin);
         }
-        if (typeContrat.equals("D")) {
-            ContractD InstenceOfContact = new ContractD();
-            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
+        if (contractType.equals("D")) {
+            ContractD InstanceOfContact = new ContractD();
+            amountToRefund = InstanceOfContact.selectNumSoinContrat(numSoin);
         }     
-        if (typeContrat.equals("E")) {
-            ContractE InstenceOfContact = new ContractE();
-            ammountToReimburse = InstenceOfContact.selectNumSoinContrat(numSoin);
+        if (contractType.equals("E")) {
+            ContractE InstanceOfContact = new ContractE();
+            amountToRefund = InstanceOfContact.selectNumSoinContrat(numSoin);
         }
-        return roundUpDoubleNumberUpToTwoDecimals(ammountToReimburse);
+        return roundUpDoubleNumberUpToTwoDecimals(amountToRefund);
     }
     
     /**
      * PAS ENCORE ANALYSÉ
     */
     static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
-        ammountToReimburse = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
-                if (ammountToReimburse > maxAmmountToReimburse) {
-                    ammountToReimburse = maxAmmountToReimburse;
+        amountToRefund = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
+                if (amountToRefund > maxAmmountToReimburse) {
+                    amountToRefund = maxAmmountToReimburse;
                 }
-        return ammountToReimburse;
+        return amountToRefund;
     }
     
     

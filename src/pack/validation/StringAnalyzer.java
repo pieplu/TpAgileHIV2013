@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Mathieu Latour
  */
-public class Validation {
+public class StringAnalyzer {
     
     
 

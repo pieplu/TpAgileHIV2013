@@ -16,59 +16,59 @@ public class ContractTemplate{
     
   double selectNumSoinContrat(int numSoin) {
         double result = 0;
-        if(numSoin==0){result = reimbursementCalculationForContractNumSoin0 ();}
-        if(numSoin==100){result = reimbursementCalculationForContractNumSoin100 ();}
-        if(numSoin==150){result = reimbursementCalculationForContractNumSoin150 ();}
-        if(numSoin==175){result = reimbursementCalculationForContractNumSoin175 ();}
-        if(numSoin==200){result = reimbursementCalculationForContractNumSoin200 ();}
-        if(numSoin>=300 && numSoin<=399){result = reimbursementCalculationForContractNumSoin300 ();}
-        if(numSoin==400){result = reimbursementCalculationForContractNumSoin400 ();}
-        if(numSoin==500){result = reimbursementCalculationForContractNumSoin500 ();}
-        if(numSoin==600){result = reimbursementCalculationForContractNumSoin600 ();}
-        if(numSoin==700){result = reimbursementCalculationForContractNumSoin700 ();}
+        if(numSoin==0){result = refundForContractNumSoin0 ();}
+        if(numSoin==100){result = refundForContractNumSoin100 ();}
+        if(numSoin==150){result = refundForContractNumSoin150 ();}
+        if(numSoin==175){result = refundForContractNumSoin175 ();}
+        if(numSoin==200){result = refundForContractNumSoin200 ();}
+        if(numSoin>=300 && numSoin<=399){result = refundForContractNumSoin300 ();}
+        if(numSoin==400){result = refundForContractNumSoin400 ();}
+        if(numSoin==500){result = refundForContractNumSoin500 ();}
+        if(numSoin==600){result = refundForContractNumSoin600 ();}
+        if(numSoin==700){result = refundForContractNumSoin700 ();}
         return result;
     }
  
  
  
-      double reimbursementCalculationForContractNumSoin0 (){
+      double refundForContractNumSoin0 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin100 (){
+      double refundForContractNumSoin100 (){
         System.out.println("soin 100 a 0, pas cool");
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin150 (){
+      double refundForContractNumSoin150 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin175 (){
+      double refundForContractNumSoin175 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin200 (){
+      double refundForContractNumSoin200 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin300 (){
+      double refundForContractNumSoin300 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin400 (){
+      double refundForContractNumSoin400 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin500 (){
+      double refundForContractNumSoin500 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin600 (){
+      double refundForContractNumSoin600 (){
         return 0;
     }
     
-      double reimbursementCalculationForContractNumSoin700 (){
+      double refundForContractNumSoin700 (){
         return 0;
     }
 }

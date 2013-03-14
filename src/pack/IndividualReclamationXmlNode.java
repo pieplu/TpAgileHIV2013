@@ -17,16 +17,16 @@ public class IndividualReclamationXmlNode {
     private String montant;
     
     
-    public IndividualReclamationXmlNode (NodeList liste, int index, DocumentXml document){
-        soin = document.obtainNodeContent(liste.item(index),"soin");
-        date = document.obtainNodeContent(liste.item(index),"date");
-        montant = document.obtainNodeContent(liste.item(index),"montant");
+    public IndividualReclamationXmlNode (NodeList list, int index, DocumentXml document){
+        soin = document.obtainNodeContent(list.item(index),"soin");
+        date = document.obtainNodeContent(list.item(index),"date");
+        montant = document.obtainNodeContent(list.item(index),"montant");
     }
     
-    public void setIndividualReclamationXmlNodeToTestNodeName(NodeList liste, int index, DocumentXml document){
-        soin = document.obtainNodeName(liste.item(index),"soin");
-        date = document.obtainNodeName(liste.item(index),"date");
-        montant = document.obtainNodeName(liste.item(index),"montant");
+    public void setIndividualReclamationXmlNodeToTestNodeName(NodeList list, int index, DocumentXml document){
+        soin = document.obtainNodeName(list.item(index),"soin");
+        date = document.obtainNodeName(list.item(index),"date");
+        montant = document.obtainNodeName(list.item(index),"montant");
     }
     
     public String getSoin (){
