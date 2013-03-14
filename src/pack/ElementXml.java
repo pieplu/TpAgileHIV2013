@@ -30,7 +30,7 @@ public class ElementXml {
     
     public static String calculateAmountToReinburseInString(ArrayList<IndividualReclamationXmlNode> clientReclamationList, int countNumber) throws NumberFormatException {
         String ammountWithoutDollarSign = clientReclamationList.get(countNumber).getMontant().substring(0, clientReclamationList.get(countNumber).getMontant().length() - 1);
-        ammountWithoutDollarSign.replace("," , ".");
+        ammountWithoutDollarSign = ammountWithoutDollarSign.replace("," , ".");
         double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);
         int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
         String montant = Contract.refundCalculator(ContractLetter.getContractLetter(), montantAjuster, numSoin)+"";

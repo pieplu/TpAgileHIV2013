@@ -26,7 +26,11 @@ public class DocumentXml {
     
     public DocumentXml(String accessPath) throws Exception, SAXException, IOException{
         File file = new File(accessPath);
-        this.document = xmlInterpretation(file); 
+        try{
+            this.document = xmlInterpretation(file); 
+        }catch (Exception e){
+            ValidationExecution.setErrorMessage("Erreur: le fichier xml est corromput.");
+        }
     }
 
     public static void saveXmlDocument(String xmlFileName, Document xmlDocumentToSave) throws Exception {
