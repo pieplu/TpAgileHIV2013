@@ -23,103 +23,103 @@ public class ContractATest {
     
     @Test
     public void refundCalculationForSoin0TypeA(){
-      assertTrue(25.00 == Contract.reimburseCalculation("A", 100, 0));
+      assertTrue(25.00 == Contract.refundCalculator("A", 100, 0));
     }
     
     @Test
     public void refundCalculationForSoin0TypeAInvalid(){
-      assertFalse(1 == Contract.reimburseCalculation("A", 100, 0));
+      assertFalse(1 == Contract.refundCalculator("A", 100, 0));
     }
     
     @Test
     public void refundCalculationForSoin100TypeA(){
-      assertTrue(35.00 == Contract.reimburseCalculation("A", 100, 100));
+      assertTrue(35.00 == Contract.refundCalculator("A", 100, 100));
     }
     
     @Test
     public void refundCalculationForSoin100TypeAInvalid(){
-      assertFalse(1 == Contract.reimburseCalculation("A", 100, 100));
+      assertFalse(1 == Contract.refundCalculator("A", 100, 100));
     }
     
     @Test
     public void refundCalculationForSoin150TypeA(){
-      assertTrue(0.00 == Contract.reimburseCalculation("A", 100, 150));
+      assertTrue(0.00 == Contract.refundCalculator("A", 100, 150));
     }
     
     @Test
     public void refundCalculationForSoin150TypeAInvalid(){
-      assertFalse(1 == Contract.reimburseCalculation("A", 100, 150));
+      assertFalse(1 == Contract.refundCalculator("A", 100, 150));
     }
     
     @Test
     public void refundCalculationForSoin175TypeA(){
-      assertTrue(50.00 == Contract.reimburseCalculation("A", 100, 175));
+      assertTrue(50.00 == Contract.refundCalculator("A", 100, 175));
     }
     
     @Test
     public void refundCalculationForSoin175TypeAInvalid(){
-      assertFalse(49 == Contract.reimburseCalculation("A", 100, 175));
+      assertFalse(49 == Contract.refundCalculator("A", 100, 175));
     }
     
     @Test
     public void refundCalculationForSoin200TypeA(){
-      assertTrue(25.00 == Contract.reimburseCalculation("A", 100, 200));
+      assertTrue(25.00 == Contract.refundCalculator("A", 100, 200));
     }
     
     @Test
     public void refundCalculationForSoin200TypeAInvalid(){
-      assertFalse(49 == Contract.reimburseCalculation("A", 100, 200));
+      assertFalse(49 == Contract.refundCalculator("A", 100, 200));
     }
     
     @Test
     public void refundCalculationForSoin300TypeA(){
-      assertTrue(0.00 == Contract.reimburseCalculation("A", 100, 300));
+      assertTrue(0.00 == Contract.refundCalculator("A", 100, 300));
     }
     
     @Test
     public void refundCalculationForSoin300TypeAInvalid(){
-      assertFalse(49 == Contract.reimburseCalculation("A", 100, 300));
+      assertFalse(49 == Contract.refundCalculator("A", 100, 300));
     }
     
      
     @Test
     public void refundCalculationForSoin400TypeA(){
-      assertTrue(0.00 == Contract.reimburseCalculation("A", 100, 400));
+      assertTrue(0.00 == Contract.refundCalculator("A", 100, 400));
     }
     
     @Test
     public void refundCalculationForSoin400TypeAInvalid(){
-      assertFalse(49 == Contract.reimburseCalculation("A", 100, 400));
+      assertFalse(49 == Contract.refundCalculator("A", 100, 400));
     }
     
      @Test
     public void refundCalculationForSoin500TypeA(){
-      assertTrue(25.00 == Contract.reimburseCalculation("A", 100, 500));
+      assertTrue(25.00 == Contract.refundCalculator("A", 100, 500));
     }
     
     @Test
     public void refundCalculationForSoin500TypeAInvalid(){
-      assertFalse(25.01 == Contract.reimburseCalculation("A", 100, 500));
+      assertFalse(25.01 == Contract.refundCalculator("A", 100, 500));
     }
     
      @Test
     public void refundCalculationForSoin600TypeA(){
-      assertTrue(40.00 == Contract.reimburseCalculation("A", 100, 600));
+      assertTrue(40.00 == Contract.refundCalculator("A", 100, 600));
     }
     
     @Test
     public void refundCalculationForSoin600TypeAInvalid(){
-      assertFalse(25.01 == Contract.reimburseCalculation("A", 100, 600));
+      assertFalse(25.01 == Contract.refundCalculator("A", 100, 600));
     }
     
     @Test
     public void refundCalculationForSoin700TypeA(){
-      assertTrue(0 == Contract.reimburseCalculation("A", 100, 700));
+      assertTrue(0 == Contract.refundCalculator("A", 100, 700));
     }
     
     @Test
     public void refundCalculationForSoin700TypeAInvalid(){
-      assertFalse(1 == Contract.reimburseCalculation("A", 100, 700));
+      assertFalse(1 == Contract.refundCalculator("A", 100, 700));
     }
     
 }
