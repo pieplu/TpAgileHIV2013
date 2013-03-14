@@ -35,14 +35,33 @@ public class XmlNodes {
 
         ArrayList<IndividualReclamationXmlNode> ListOfAllReclamations = DocumentXml.createListOfIndividualReclamationXmlNodeToTestNodeName("reclamation", tagToVerify);
         for (int i = 0; i < ListOfAllReclamations.size(); i++) {
-            try{
+            try {
+                ListOfAllReclamations.get(i).getDate().equals("date");
+            } catch (NullPointerException e) {
+                ValidationExecution.setErrorMessage("Une balise date est manquante.");
+                return false;
+            }
+
+            try {
+                ListOfAllReclamations.get(i).getSoin().equals("soin");
+            } catch (NullPointerException e) {
+                ValidationExecution.setErrorMessage("Une balise soin est manquante.");
+                return false;
+            }
+
+            try {
+                ListOfAllReclamations.get(i).getMontant().equals("montant");
+            } catch (NullPointerException e) {
+                ValidationExecution.setErrorMessage("Une balise montant est manquante.");
+                return false;
+            }
+
+
             if (!ListOfAllReclamations.get(i).getDate().equals("date")
                     || !ListOfAllReclamations.get(i).getSoin().equals("soin")
                     || !ListOfAllReclamations.get(i).getMontant().equals("montant")) {
-            }
-            }catch (NullPointerException e){
-                ValidationExecution.setErrorMessage("Une des balises de " + "remboursement" + " n'est pas présente dans le document XML");
                 return false;
+
             }
         }
         return true;
