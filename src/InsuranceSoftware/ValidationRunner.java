@@ -2,7 +2,7 @@ package InsuranceSoftware;
 
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
-import Validator.XmlNodes;
+import Validator.XMLFormValidator;
 
 public class ValidationRunner {
 
@@ -17,7 +17,7 @@ public class ValidationRunner {
     }
 
     public static boolean runValidationProcess(XMLFileCreator fileToValidate) throws Exception {
-        XmlNodes testIfAllNodesAreThere = new XmlNodes(fileToValidate);
+        XMLFormValidator testIfAllNodesAreThere = new XMLFormValidator(fileToValidate);
         if (!testIfAllNodesAreThere.verifyIfXmlFormIsValid()) {
             return false;
         }

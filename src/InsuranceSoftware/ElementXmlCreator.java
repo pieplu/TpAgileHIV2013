@@ -8,19 +8,19 @@ import Validator.ContractLetter;
 
 public class ElementXmlCreator {
     
-    public static Element creationElementXmlRoot(Document documentXml, String elementName) throws DOMException {
+    public static Element createElementXmlRoot(Document documentXml, String elementName) throws DOMException {
         Element createdElement = documentXml.createElement(elementName);
         documentXml.appendChild(createdElement);
         return createdElement;
     }
     
-    public static Element creationElementXmlChild(Document documentXml, String elementName ,Element parentName) throws DOMException {
+    public static Element createElementXmlChild(Document documentXml, String elementName ,Element parentName) throws DOMException {
         Element createdElement = documentXml.createElement(elementName);
         parentName.appendChild(createdElement);
         return createdElement;
     }
     
-    public static String calculateAmountToReinburseInString(ArrayList<NodeObject> clientReclamationList, int countNumber) throws NumberFormatException {
+    public static String calculateAmountToRefundInString(ArrayList<NodeObject> clientReclamationList, int countNumber) throws NumberFormatException {
         String ammountWithoutDollarSign = clientReclamationList.get(countNumber).getMontant().substring(0, clientReclamationList.get(countNumber).getMontant().length() - 1);
         ammountWithoutDollarSign = ammountWithoutDollarSign.replace("," , ".");
         double montantAjuster = Double.parseDouble(ammountWithoutDollarSign);

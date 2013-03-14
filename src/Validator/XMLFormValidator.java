@@ -1,27 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Validator;
 
-import java.util.ArrayList;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import InsuranceSoftware.XMLFileCreator;
 import InsuranceSoftware.NodeObject;
 import InsuranceSoftware.ValidationRunner;
+import InsuranceSoftware.XMLFileCreator;
+import java.util.ArrayList;
+import org.w3c.dom.NodeList;
 
-/**
- *
- * @author utilisateur
- */
-public class XmlNodes {
+public class XMLFormValidator {
 
     static final String LIST_OF_XML_TAGS[] = new String[]{"reclamations", "dossier", "mois", "soin", "date", "montant"};
     static public final String TAG_ROOT = "reclamation";
     private static XMLFileCreator tagToVerify;
 
-    public XmlNodes(XMLFileCreator tagToVerify) {
+    public XMLFormValidator(XMLFileCreator tagToVerify) {
         this.tagToVerify = tagToVerify;
     }
 
@@ -32,7 +23,10 @@ public class XmlNodes {
                 || !areNodeChildrenValid("reclamations", "reclamation")) {
             return false;
         }
+        return areAllChildrenNodePresent();
+    }
 
+    private boolean areAllChildrenNodePresent() {
         ArrayList<NodeObject> ListOfAllReclamations = XMLFileCreator.createListOfIndividualReclamationXmlNodeToTestNodeName("reclamation", tagToVerify);
         for (int i = 0; i < ListOfAllReclamations.size(); i++) {
             try {

@@ -16,8 +16,8 @@ public class InsuranceSoftwareMain {
     }
     
     public static void consoleMessageOutput(String[] args) {
-        System.out.println("Le fichier entree est : " + args[0]);
-        System.out.println("Le fichier a ete enregistre : " + args[1]);
+        System.out.println("Le fichier entree est dans : " + args[0]);
+        System.out.println("Le fichier a ete enregistre dans : " + args[1]);
     }
 
     public static void main(String[] args) throws Exception {

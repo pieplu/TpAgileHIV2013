@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Validator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import InsuranceSoftware.ValidationRunner;
 
-/**
- *
- * @author utilisateur
- */
 public class Date {
     
     
@@ -39,31 +31,43 @@ public class Date {
          return date.length() == LENGTH_YYYY_MM_DD;
      }
     
-    //FORMAT: YYYY-MM, 
+    /*
+     * API JAVA FORMAT: yyyy-MM
+     * Parse the String in parameter and verifies this supported by the date of API Java.
+     * Note: Leap years are also included.
+     * 
+     * Throws an exception if it's not supported.
+     */
     private static boolean dateFormatYearMonth(String monthFrom) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         dateFormat.setLenient(false);
-        boolean bool = true;
+        boolean isDateValid = true;
         try {
             java.util.Date date = dateFormat.parse(monthFrom);
         } catch (ParseException e) {
-            bool = false;
+            isDateValid = false;
         }
-        return bool;
+        return isDateValid;
     }
     
-    //FORMAT: YYYY-MM-DD
+    /*
+     * API JAVA FORMAT: yyyy-MM-dd
+     * Parse the String in parameter and verifies this supported by the date of API Java.
+     * Note: Leap years are also included.
+     * 
+     * Throws an exception if it's not supported.
+     */
     private static boolean dateFormatYearMonthDay(String dateFrom) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
-        boolean bool = true;
+        boolean isDateValid = true;
         try {
             java.util.Date date = dateFormat.parse(dateFrom);
         } catch (ParseException e) {
-            bool = false;
+            isDateValid = false;
         }
-        return bool;
+        return isDateValid;
     }
     
 }

@@ -32,6 +32,9 @@ public class ServiceNumber {
         }
     }
 
+    /*
+     * When a service number is valid within a certain range, it is formatted for simplified processing. 
+     */
     private static String formatServiceNumberToExpectedValue(String serviceNumber, int minValue, int maxValue) {
         
         if ((Integer.parseInt(serviceNumber) >= minValue) && (Integer.parseInt(serviceNumber) <= maxValue)) {

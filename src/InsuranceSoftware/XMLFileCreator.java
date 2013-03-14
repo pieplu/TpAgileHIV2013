@@ -27,14 +27,7 @@ public class XMLFileCreator {
         }
     }
 
-    public static void saveXmlDocument(String xmlFileName, Document xmlDocumentToSave) throws Exception {
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        Source source = new DOMSource(xmlDocumentToSave);
-        Result result = new StreamResult(new File(xmlFileName));
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-        transformer.transform(source, result);
-    }
+    
 
     public static DocumentBuilder docInstanceBuilder() throws ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -59,7 +52,6 @@ public class XMLFileCreator {
             if (list.item(i).getNodeName().equals(NodeName)) {
                 content = list.item(i).getTextContent();
             }
-
         }
         return content;
     }
@@ -71,17 +63,28 @@ public class XMLFileCreator {
             if (list.item(i).getNodeName().equals(NodeName)) {
                 content = list.item(i).getNodeName();
             }
-
         }
         return content;
+    }
+    
+    /*
+     * Create the result XML file(with indent). 
+     */
+    public static void saveXmlDocument(String xmlFileName, Document xmlDocumentToSave) throws Exception {
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        Source source = new DOMSource(xmlDocumentToSave);
+        Result result = new StreamResult(new File(xmlFileName));
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+        transformer.transform(source, result);
     }
     
     public static void createErrorFile(String argument1) throws Exception, ParserConfigurationException, DOMException {
         Document newError = XMLFileCreator.docInstanceBuilder().newDocument();
         
-        Element remboursementsWrittenError = ElementXmlCreator.creationElementXmlRoot(newError, "remboursements");
+        Element remboursementsWrittenError = ElementXmlCreator.createElementXmlRoot(newError, "remboursements");
 
-        Element messageError = ElementXmlCreator.creationElementXmlChild(newError, "message", remboursementsWrittenError);
+        Element messageError = ElementXmlCreator.createElementXmlChild(newError, "message", remboursementsWrittenError);
         Text textMessageError = newError.createTextNode(ValidationRunner.getErrorMessage());
         messageError.appendChild(textMessageError);
         
