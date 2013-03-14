@@ -107,7 +107,7 @@ public class DocumentXml {
     
     public static ArrayList<IndividualReclamationXmlNode> createListOfIndividualReclamationXmlNodeToTestNodeName(String nodeName, DocumentXml document){
         ArrayList<IndividualReclamationXmlNode> individualReclamationXmlNodeList = new ArrayList <IndividualReclamationXmlNode> ();
-
+      
         NodeList reclamationDuXML = document.getNodesByName(nodeName);
         for (int i = 0; i < reclamationDuXML.getLength(); i++) {
             individualReclamationXmlNodeList.add(new IndividualReclamationXmlNode(reclamationDuXML, i, document));

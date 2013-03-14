@@ -14,32 +14,32 @@ public class ContractB extends ContractTemplate{
     
     @Override
       double refundForContractNumSoin0 (){
-        return  Contract.reimbursementCalculation(0.5,40);
+        return  Contract.refundCalculator(0.5,40);
     }
     
     @Override
       double refundForContractNumSoin100 (){
-        return  Contract.reimbursementCalculation(0.5,50);
+        return  Contract.refundCalculator(0.5,50);
     }
     
     @Override
       double refundForContractNumSoin150 (){
-        return  Contract.reimbursementCalculation(0);
+        return  Contract.refundCalculator(0);
     }
     
     @Override
       double refundForContractNumSoin175 (){
-        return  Contract.reimbursementCalculation(0.75);
+        return  Contract.refundCalculator(0.75);
     }
     
     @Override
       double refundForContractNumSoin200 (){
-        return  Contract.reimbursementCalculation(1);
+        return  Contract.refundCalculator(1);
     }
     
     @Override
       double refundForContractNumSoin300 (){
-        return  Contract.reimbursementCalculation(0.5);
+        return  Contract.refundCalculator(0.5);
     }
     
     @Override
@@ -49,16 +49,16 @@ public class ContractB extends ContractTemplate{
     
     @Override
       double refundForContractNumSoin500 (){
-        return  Contract.reimbursementCalculation(0.5,50);
+        return  Contract.refundCalculator(0.5,50);
     }
     
     @Override
       double refundForContractNumSoin600 (){
-        return Contract.getAmmountInXmlFile();
+        return Contract.getAmountInXmlFile();
     }
     
     @Override
       double refundForContractNumSoin700 (){
-        return Contract.reimbursementCalculation(0.7);
+        return Contract.refundCalculator(0.7);
     }
 }
