@@ -30,10 +30,9 @@ public class TP1AGILE {
             DocumentXmlValidOutputFile xmlOutputFile = new DocumentXmlValidOutputFile(args);
             xmlOutputFile.createElementsInXmlOutputFile();
             DocumentXml.saveXmlDocument(args[1], xmlOutputFile.getOutputXmlFile());
-            consoleMessageOutput(args);
         } else {
             DocumentXml.createErrorFile(args[1]);
-            consoleMessageOutput(args);
         }
+        consoleMessageOutput(args);
     }
 }
