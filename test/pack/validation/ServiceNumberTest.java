@@ -3,13 +3,9 @@
  * and open the template in the editor.
  */
 package pack.validation;
-import pack.validation.Amount;
-import pack.validation.Validation;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

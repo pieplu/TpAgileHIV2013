@@ -25,7 +25,7 @@ public class FileNumber {
         }
     }
 
-    public static boolean isFileNumberLengthValid(String FileNumber) {
+    private static boolean isFileNumberLengthValid(String FileNumber) {
         return (FileNumber.length() == VALID_LENGTH_FOR_FILE_NUMBER);
     }
 

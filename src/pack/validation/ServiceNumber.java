@@ -25,7 +25,7 @@ public class ServiceNumber {
         }
     }
 
-    public static boolean arrayServiceList(String serviceNumber) {
+    private static boolean arrayServiceList(String serviceNumber) {
         serviceNumber = formatServiceNumberToExpectedValue(serviceNumber, 300, 399);
         
         boolean isValid =false;
@@ -37,7 +37,7 @@ public class ServiceNumber {
         return isValid;
     }
 
-    public static String formatServiceNumberToExpectedValue(String serviceNumber, int minValue, int maxValue) {
+    private static String formatServiceNumberToExpectedValue(String serviceNumber, int minValue, int maxValue) {
         if ((Integer.parseInt(serviceNumber) >= minValue) && (Integer.parseInt(serviceNumber) <= maxValue)) {
             return ""+ minValue;
         } else {

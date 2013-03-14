@@ -14,8 +14,14 @@ import pack.ValidationExecution;
  */
 public class Date {
     
+    
+    final static int LENGTH_YYYY_MM = 7 ;
+    final static int LENGTH_YYYY_MM_DD = 10 ;
+    
      public static boolean isDateValid (String reclamationMonth, String date){
-         if ( (dateFormatYearMonth(reclamationMonth) &&
+         if ( ( isMonthLengthValid(reclamationMonth) &&
+                isDateLengthValid(date) &&
+                dateFormatYearMonth(reclamationMonth) &&
                 dateFormatYearMonthDay(date) &&
                 reclamationMonth.equals(date.substring(0,7)))){
              return true;
@@ -24,9 +30,17 @@ public class Date {
              return false;
          }
     }
+     
+     private static boolean isMonthLengthValid (String month){
+         return month.length() == LENGTH_YYYY_MM;
+     }
+     
+      private static boolean isDateLengthValid (String date){
+         return date.length() == LENGTH_YYYY_MM_DD;
+     }
     
     //FORMAT: YYYY-MM, 
-    public static boolean dateFormatYearMonth(String monthFrom) {
+    private static boolean dateFormatYearMonth(String monthFrom) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         dateFormat.setLenient(false);
         boolean bool = true;
@@ -39,7 +53,7 @@ public class Date {
     }
     
     //FORMAT: YYYY-MM-DD
-    public static boolean dateFormatYearMonthDay(String dateFrom) {
+    private static boolean dateFormatYearMonthDay(String dateFrom) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);

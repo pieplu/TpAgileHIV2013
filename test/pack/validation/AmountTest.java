@@ -3,13 +3,9 @@
  * and open the template in the editor.
  */
 package pack.validation;
-import pack.validation.Amount;
-import pack.validation.Validation;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -17,20 +13,7 @@ import static org.junit.Assert.*;
  */
 public class AmountTest {
 
-    @Test
-    public void containsDollarSignAtTheEnd() {
-        assertTrue(Amount.containsDollarSignAtTheEnd("0.0000000000000$"));
-    }
-
-    @Test
-    public void containsNoDollarSignAtTheEnd() {
-        assertFalse(Amount.containsDollarSignAtTheEnd("0.0000000000000"));
-    }
-
-    @Test
-    public void containsDotForCents() {
-        assertTrue(Amount.containsDollarSignAtTheEnd("1.25$"));
-    }
+    
 
     @Test
     public void containsNoDotForCents() {
@@ -52,10 +35,7 @@ public class AmountTest {
         assertTrue(Amount.isAmountFormValid("1025,01$"));
     }
 
-    @Test
-    public void amountMinimumLengthForAmountValid() {
-        assertTrue(Amount.isMinimumLengthForAmountValid("1000.25$"));
-    }
+    
 
     @Test
     public void amountFormatIsInvalidLengthIsTooSmall() {

@@ -28,22 +28,13 @@ public class Amount {
             return false;
         }
     }
-    
-    public static void getErrorMessage(){
-        
-    }
-    
-    public static void setErrorMessage(){
-        
-    }
-
-    
-    public static boolean isMinimumLengthForAmountValid(String amount) {
+ 
+    private static boolean isMinimumLengthForAmountValid(String amount) {
         return amount.length() >= MINIMUM_LENGTH_FOR_AMOUNT;
     }
 
     
-    public static boolean containsDollarSignAtTheEnd(String amountInDollars) {
+    private static boolean containsDollarSignAtTheEnd(String amountInDollars) {
         return amountInDollars.charAt(amountInDollars.length() - 1) == '$';
     }
 

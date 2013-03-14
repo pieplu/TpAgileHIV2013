@@ -4,11 +4,9 @@
  */
 package pack.validation;
 
-import pack.validation.Validation;
-import static org.junit.Assert.*;
-import org.junit.Before;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import pack.validation.Validation;
 
 /**
  *
@@ -19,11 +17,11 @@ public class ValidationTest {
    
     @Test
     public void testTheStringIsMadeOfDigitOnly() {
-        assertTrue(Validation.isTheStringMadeOfDigitOnly("1234587651"));
+        assertTrue(StringAnalyzer.isTheStringMadeOfDigitOnly("1234587651"));
     }
 
     @Test
     public void testTheStringIsNotMadeOfDigitOnly() {
-        assertFalse(Validation.isTheStringMadeOfDigitOnly("a12345"));
+        assertFalse(StringAnalyzer.isTheStringMadeOfDigitOnly("a12345"));
     }
 }
