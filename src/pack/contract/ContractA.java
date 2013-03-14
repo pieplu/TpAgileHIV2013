@@ -14,12 +14,12 @@ public class ContractA extends ContractTemplate{
     
     @Override
        double refundForContractNumSoin0 (){
-        return Contract.reimbursementCalculation(0.25);
+        return Contract.refundCalculator(0.25);
     }
     
     @Override
        double refundForContractNumSoin100 (){
-        return Contract.reimbursementCalculation(0.35);
+        return Contract.refundCalculator(0.35);
     }
     
     @Override
@@ -29,12 +29,12 @@ public class ContractA extends ContractTemplate{
     
     @Override
        double refundForContractNumSoin175 (){
-        return Contract.reimbursementCalculation(0.50);
+        return Contract.refundCalculator(0.50);
     }
     
     @Override
        double refundForContractNumSoin200 (){
-        return Contract.reimbursementCalculation(0.25);
+        return Contract.refundCalculator(0.25);
     }
     
     @Override
@@ -49,12 +49,12 @@ public class ContractA extends ContractTemplate{
     
     @Override
        double refundForContractNumSoin500 (){
-        return Contract.reimbursementCalculation(0.25);
+        return Contract.refundCalculator(0.25);
     }
     
     @Override
        double refundForContractNumSoin600 (){
-        return Contract.reimbursementCalculation(0.4);
+        return Contract.refundCalculator(0.4);
     }
     
     @Override

@@ -14,7 +14,7 @@ public class Contract {
     private static double amountTotal = 0;
     
     
-    public static double getAmmountInXmlFile() {
+    public static double getAmountInXmlFile() {
         return ammountInXmlFile;
     }
 
@@ -45,16 +45,16 @@ public class Contract {
     }
     
 
-    static double reimbursementCalculation(double multipleToApplyOnAmmountToReimburse, double maxAmmountToReimburse){
+    static double refundCalculator(double multipleToApplyOnAmmountToReimburse, double maxAmountToReimburse){
         amountToRefund = ammountInXmlFile * multipleToApplyOnAmmountToReimburse;
-                if (amountToRefund > maxAmmountToReimburse) {
-                    amountToRefund = maxAmmountToReimburse;
+                if (amountToRefund > maxAmountToReimburse) {
+                    amountToRefund = maxAmountToReimburse;
                 }
         return amountToRefund;
     }
     
     
-    static double reimbursementCalculation(double multiple){
+    static double refundCalculator(double multiple){
         return ammountInXmlFile * multiple;
     }
     
