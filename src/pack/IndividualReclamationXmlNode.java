@@ -30,6 +30,7 @@ public class IndividualReclamationXmlNode {
     }
     
     public String getSoin (){
+        
         return soin;
     }
     
