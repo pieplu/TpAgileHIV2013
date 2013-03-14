@@ -9,6 +9,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
+import pack.contract.Contract;
 
 /**
  *
@@ -64,7 +65,7 @@ public class DocumentXmlValidOutputFile {
     
     private void insertChildElementMontantOfRoot(String nodeNameToInsert) {
         Element dossierWrittenInOutputXmlFile = ElementXml.creationElementXmlChild(outputXmlFile, nodeNameToInsert, remboursementsWrittenInOutputXmlFile);
-        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXml.formatAmmountToStandartFormat("test") + "");
+        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXml.formatAmmountToStandartFormat( String.valueOf(Contract.getAmountTotal())+ ""));
         dossierWrittenInOutputXmlFile.appendChild(textDossierWrittenInOutputXmlFile);
     }
     

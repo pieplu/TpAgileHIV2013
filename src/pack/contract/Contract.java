@@ -10,7 +10,10 @@ package pack.contract;
 public class Contract {
     
     private static double ammountInXmlFile; 
-
+    private static double amountToRefund = 0;
+    private static double amountTotal = 0;
+    
+    
     public static double getAmmountInXmlFile() {
         return ammountInXmlFile;
     }
@@ -18,8 +21,6 @@ public class Contract {
     public static double getAmountTotal() {
         return amountTotal;
     }
-    private static double amountToRefund = 0;
-    private static double amountTotal = 0;
     
     public static double refundCalculator(String contractType, double amount, int numSoin) {
         setAmmount(amount);
