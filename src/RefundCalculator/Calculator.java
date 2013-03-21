@@ -5,7 +5,10 @@ public class Calculator {
     private static int amountInXmlFile; 
     private static int amountToRefund = 0;
     private static int amountTotal = 0;
-    
+     
+    final private static int[] numSoinWithMaximum = new int[] {100,175,200,500,600}; 
+    final private static int[] numSoinMaximum = new int[] {25000,20000,25000,15000,30000};
+    private static int[] maximum = new int[] {0,0,0,0,0};
     
     public static int getAmountInXmlFile() {
         return amountInXmlFile;
@@ -17,11 +20,42 @@ public class Calculator {
     
       private static void setAmount (int montant){
         amountInXmlFile = montant;
-    } 
-    
+    }
+      
+       private static boolean doesNumSoinHasMaxAmount(int numSoin){
+        for (int i = 0 ; i < numSoinWithMaximum.length; i++)
+            if (numSoin == numSoinWithMaximum[i])
+                return true;
+        return false;
+      }
+      
+
+      private static int getNumSoinMaxAmount(int numSoin){
+        
+        for (int i = 0 ; i < numSoinWithMaximum.length; i++)
+            if (numSoin == numSoinWithMaximum[i])
+                return numSoinMaximum[i];
+       
+        return 0;
+      }
+      
+      
+      private static int getMaxTemp(int numSoin){
+          for (int i = 0 ; i < numSoinMaximum.length; i++)
+            if (numSoin == numSoinWithMaximum[i])
+                return maximum[i];
+       
+        return 0;
+      }
+     
+      
     public static int refundCalculator(String contractType, int amount, int numSoin) {
         setAmount(amount);
-        amountToRefund = (int) contractSelector(contractType).selectNumSoinContrat(numSoin);
+        amountToRefund = contractSelector(contractType).selectNumSoinContrat(numSoin);
+        if(amountToRefund + getMaxTemp(numSoin) >= getNumSoinMaxAmount(numSoin) ){
+    
+    }
+        
         amountTotal += amountToRefund;
         return amountToRefund;
     }

@@ -2,8 +2,8 @@ package RefundCalculator;
 
 public class ContractTemplate{
       
-  double selectNumSoinContrat(int numSoin) {
-        double result = 0;
+  int selectNumSoinContrat(int numSoin) {
+        int result = 0;
         if(numSoin==0){result = refundForContractNumSoin0 ();}
         if(numSoin==100){result = refundForContractNumSoin100 ();}
         if(numSoin==150){result = refundForContractNumSoin150 ();}
