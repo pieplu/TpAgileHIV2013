@@ -19,43 +19,43 @@ public class ContractTemplate{
  
  
  
-      double refundForContractNumSoin0 (){
+      int refundForContractNumSoin0 (){
         return 0;
     }
     
-      double refundForContractNumSoin100 (){
+      int refundForContractNumSoin100 (){
         return 0;
     }
     
-      double refundForContractNumSoin150 (){
+      int refundForContractNumSoin150 (){
         return 0;
     }
     
-      double refundForContractNumSoin175 (){
+      int refundForContractNumSoin175 (){
         return 0;
     }
     
-      double refundForContractNumSoin200 (){
+      int refundForContractNumSoin200 (){
         return 0;
     }
     
-      double refundForContractNumSoin300 (){
+      int refundForContractNumSoin300 (){
         return 0;
     }
     
-      double refundForContractNumSoin400 (){
+      int refundForContractNumSoin400 (){
         return 0;
     }
     
-      double refundForContractNumSoin500 (){
+      int refundForContractNumSoin500 (){
         return 0;
     }
     
-      double refundForContractNumSoin600 (){
+      int refundForContractNumSoin600 (){
         return 0;
     }
     
-      double refundForContractNumSoin700 (){
+      int refundForContractNumSoin700 (){
         return 0;
     }
 }

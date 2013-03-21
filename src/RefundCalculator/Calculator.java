@@ -2,27 +2,26 @@ package RefundCalculator;
 
 public class Calculator {
     
-    private static double amountInXmlFile; 
-    private static double amountToRefund = 0;
-    private static double amountTotal = 0;
+    private static int amountInXmlFile; 
+    private static int amountToRefund = 0;
+    private static int amountTotal = 0;
     
     
-    public static double getAmountInXmlFile() {
+    public static int getAmountInXmlFile() {
         return amountInXmlFile;
     }
 
-    public static double getAmountTotal() {
+    public static int getAmountTotal() {
         return amountTotal;
     }
     
-      private static void setAmount (double montant){
+      private static void setAmount (int montant){
         amountInXmlFile = montant;
     } 
     
-    public static double refundCalculator(String contractType, double amount, int numSoin) {
+    public static int refundCalculator(String contractType, int amount, int numSoin) {
         setAmount(amount);
-        amountToRefund = contractSelector(contractType).selectNumSoinContrat(numSoin);
-        amountToRefund = roundUpDoubleNumberUpToTwoDecimals(amountToRefund);
+        amountToRefund = (int) contractSelector(contractType).selectNumSoinContrat(numSoin);
         amountTotal += amountToRefund;
         return amountToRefund;
     }
@@ -38,23 +37,20 @@ public class Calculator {
     }
     
 
-    static double refundCalculator(double multipleToApplyOnAmmountToReimburse, double maxAmountToReimburse){
-        amountToRefund = amountInXmlFile * multipleToApplyOnAmmountToReimburse;
-                if (amountToRefund > maxAmountToReimburse) {
-                    amountToRefund = maxAmountToReimburse;
+    static int refundCalculator(int multipleToApplyOnAmountToRefund, int maxAmountToRefund){
+        amountToRefund = (amountInXmlFile * multipleToApplyOnAmountToRefund) / 100;
+                if (amountToRefund > (maxAmountToRefund*100) ) {
+                    amountToRefund = maxAmountToRefund*100;
                 }
         return amountToRefund;
     }
     
     
-    static double refundCalculator(double multiple){
-        return amountInXmlFile * multiple;
+    static int refundCalculator(int multiple){
+        return (amountInXmlFile * multiple) /100;
     }
     
 
-    private static double roundUpDoubleNumberUpToTwoDecimals (double numberToRoudUp){
-        double numberRounded = Math.round(numberToRoudUp*100);
-        return numberRounded/100;
-    }
+    
     
 }

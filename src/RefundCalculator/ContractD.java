@@ -5,53 +5,53 @@ public class ContractD extends ContractTemplate{
 
     
     @Override
-     double refundForContractNumSoin0 (){
-        return  Calculator.refundCalculator(1,85);
+     int refundForContractNumSoin0 (){
+        return  Calculator.refundCalculator(100,85);
     }
     
     @Override
-     double refundForContractNumSoin100 (){
-        return  Calculator.refundCalculator(1,75);
+     int refundForContractNumSoin100 (){
+        return  Calculator.refundCalculator(100,75);
     }
     
     @Override
-     double refundForContractNumSoin150 (){
-        return  Calculator.refundCalculator(1,150);
+     int refundForContractNumSoin150 (){
+        return  Calculator.refundCalculator(100,150);
     }
     
     @Override
-     double refundForContractNumSoin175 (){
-        return  Calculator.refundCalculator(0.95);
+     int refundForContractNumSoin175 (){
+        return  Calculator.refundCalculator(95);
     }
     
     @Override
-     double refundForContractNumSoin200 (){
-        return  Calculator.refundCalculator(1,100);
+     int refundForContractNumSoin200 (){
+        return  Calculator.refundCalculator(100,100);
     }
     
     @Override
-     double refundForContractNumSoin300 (){
-        return  Calculator.getAmountInXmlFile();
+     int refundForContractNumSoin300 (){
+        return  Calculator.refundCalculator(100);
     }
     
     @Override
-     double refundForContractNumSoin400 (){
-        return  Calculator.refundCalculator(1,65);
+     int refundForContractNumSoin400 (){
+        return  Calculator.refundCalculator(100,65);
     }
     
     @Override
-     double refundForContractNumSoin500 (){
-        return  Calculator.refundCalculator(1);
+     int refundForContractNumSoin500 (){
+        return  Calculator.refundCalculator(100);
     }
     
     @Override
-     double refundForContractNumSoin600 (){
-        return  Calculator.refundCalculator(1,100);
+     int refundForContractNumSoin600 (){
+        return  Calculator.refundCalculator(100,100);
     }
     
     @Override
-     double refundForContractNumSoin700 (){
-        return  Calculator.refundCalculator(1,90);
+     int refundForContractNumSoin700 (){
+        return  Calculator.refundCalculator(100,90);
     }
     
 }

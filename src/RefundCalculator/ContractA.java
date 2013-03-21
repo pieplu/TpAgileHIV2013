@@ -5,52 +5,52 @@ public class ContractA extends ContractTemplate{
     
     
     @Override
-       double refundForContractNumSoin0 (){
-        return Calculator.refundCalculator(0.25);
+       int refundForContractNumSoin0 (){
+        return Calculator.refundCalculator(25);
     }
     
     @Override
-       double refundForContractNumSoin100 (){
-        return Calculator.refundCalculator(0.35);
+       int refundForContractNumSoin100 (){
+        return Calculator.refundCalculator(35);
     }
     
     @Override
-       double refundForContractNumSoin150 (){
+       int refundForContractNumSoin150 (){
         return 0;
     }
     
     @Override
-       double refundForContractNumSoin175 (){
-        return Calculator.refundCalculator(0.50);
+       int refundForContractNumSoin175 (){
+        return Calculator.refundCalculator(50);
     }
     
     @Override
-       double refundForContractNumSoin200 (){
-        return Calculator.refundCalculator(0.25);
+       int refundForContractNumSoin200 (){
+        return Calculator.refundCalculator(25);
     }
     
     @Override
-       double refundForContractNumSoin300 (){
+       int refundForContractNumSoin300 (){
         return 0;
     }
     
     @Override
-       double refundForContractNumSoin400 (){
+       int refundForContractNumSoin400 (){
         return 0;
     }
     
     @Override
-       double refundForContractNumSoin500 (){
-        return Calculator.refundCalculator(0.25);
+       int refundForContractNumSoin500 (){
+        return Calculator.refundCalculator(25);
     }
     
     @Override
-       double refundForContractNumSoin600 (){
-        return Calculator.refundCalculator(0.4);
+       int refundForContractNumSoin600 (){
+        return Calculator.refundCalculator(40);
     }
     
     @Override
-       double refundForContractNumSoin700 (){
+       int refundForContractNumSoin700 (){
         return 0;
     }
 }

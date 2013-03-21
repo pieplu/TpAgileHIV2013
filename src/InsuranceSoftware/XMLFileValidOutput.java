@@ -64,7 +64,7 @@ public class XMLFileValidOutput {
 
     private void insertChildElementMontantOfRoot(String nodeNameToInsert) {
         Element dossierWrittenInOutputXmlFile = ElementXmlCreator.createElementXmlChild(outputXmlFile, nodeNameToInsert, refundsWrittenInOutputXmlFile);
-        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXmlCreator.formatAmmountToStandartFormat(String.valueOf(Calculator.getAmountTotal()) + ""));
+        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXmlCreator.formatAmmountToStandartFormat(Calculator.getAmountTotal()));
         dossierWrittenInOutputXmlFile.appendChild(textDossierWrittenInOutputXmlFile);
     }
 
