@@ -8,6 +8,26 @@
         <montant>234,00$</montant>
     </reclamation>
     <reclamation>
+        <soin>100</soin>
+        <date>2013-01-01</date>
+        <montant>234,00$</montant>
+    </reclamation>
+    <reclamation>
+        <soin>100</soin>
+        <date>2013-01-01</date>
+        <montant>234,00$</montant>
+    </reclamation>
+    <reclamation>
+        <soin>100</soin>
+        <date>2013-01-01</date>
+        <montant>234,00$</montant>
+    </reclamation>
+    <reclamation>
+        <soin>100</soin>
+        <date>2013-01-01</date>
+        <montant>234,00$</montant>
+    </reclamation>
+    <reclamation>
         <soin>200</soin>
         <date>2013-01-13</date>
         <montant>90.00$</montant>

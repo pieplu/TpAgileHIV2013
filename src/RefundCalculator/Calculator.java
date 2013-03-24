@@ -5,9 +5,17 @@ public class Calculator {
     private static int amountInXmlFile;
     private static int amountToRefund = 0;
     private static int amountTotal = 0;
+    
+    
+    //NumSoin:                          100   175    200   500    600 
+    //Monthly maximum for each numSoin 25000 20000  25000 15000  30000 
+    //Refund made for this month:        0     0      0     0      0
+    //Maximum for month attained:      false false  false false  false
+     
     final private static int[] numSoinWithMaximum = new int[]{100, 175, 200, 500, 600};
-    final private static int[] numSoinMaximum = new int[]{25000, 20000, 25000, 15000, 30000};
-    private static int[] maximum = new int[]{0, 0, 0, 0, 0};
+    final private static int[] monthlyMaxForEachNumSoin = new int[]{25000, 20000, 25000, 15000, 30000};
+    private static int[] refundDollarForThisMonth = new int[]{0, 0, 0, 0, 0};
+    private static boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
 
     public static int getAmountInXmlFile() {
         return amountInXmlFile;
@@ -17,56 +25,45 @@ public class Calculator {
         return amountTotal;
     }
 
-    private static void setAmount(int montant) {
-        amountInXmlFile = montant;
+    private static void setDollar(int dollar) {
+        amountInXmlFile = dollar;
     }
 
-    private static boolean doesNumSoinHasMaxAmount(int numSoin) {
+    private static int getIndexOfMaxAmountForNumSoin(int numSoin) {
         for (int i = 0; i < numSoinWithMaximum.length; i++) {
             if (numSoin == numSoinWithMaximum[i]) {
-                return true;
+                return i;
             }
         }
-        return false;
+        return -1;
     }
 
-    private static int getNumSoinMaxAmount(int numSoin) {
-
-        for (int i = 0; i < numSoinWithMaximum.length; i++) {
-            if (numSoin == numSoinWithMaximum[i]) {
-                return numSoinMaximum[i];
-            }
-        }
-
-        return 0;
+    private static int getNumSoinMaxAmount(int index) {
+        return monthlyMaxForEachNumSoin[index];
     }
 
-    private static int getMaxTemp(int numSoin) {
-        for (int i = 0; i < numSoinMaximum.length; i++) {
-            if (numSoin == numSoinWithMaximum[i]) {
-                return maximum[i];
-            }
-        }
-
-        return 0;
+    private static int getRefundDollarForThisMonth(int index) {
+        return refundDollarForThisMonth[index];
     }
 
-    public static int refundCalculator(String contractType, int amount, int numSoin) {
-        setAmount(amount);
-        if (doesNumSoinHasMaxAmount(numSoin)) {
-            if (getMaxTemp(numSoin) >= getNumSoinMaxAmount(numSoin)) {
+    public static int refundCalculator(String contractType, int dollar, int numSoin) {
+        setDollar(dollar);
+        int index = getIndexOfMaxAmountForNumSoin(numSoin);
+        if (index >= 0) {
+            if (!isMonthlyMaxAttained[index]) {
+                if(){
+                    
+                }
+                }else{
+            } else {
                 return 0;
-            }else if(amountToRefund + getMaxTemp(numSoin) >= getNumSoinMaxAmount(numSoin)){
-                amountToRefund=getNumSoinMaxAmount(numSoin) - getMaxTemp(numSoin);
-                amountTotal += amountToRefund;
-                return amountToRefund; 
-            }else{
+            } else {
                 amountToRefund = contractSelector(contractType).selectNumSoinContrat(numSoin);
                 amountTotal += amountToRefund;
                 return amountToRefund;
             }
         } else {
-            
+
             amountToRefund = contractSelector(contractType).selectNumSoinContrat(numSoin);
             amountTotal += amountToRefund;
         }
