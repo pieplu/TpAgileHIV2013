@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import RefundCalculator.Calculator;
 import Validator.ContractLetter;
+import Validator.Dollar;
 
 public class ElementXmlCreator {
 
@@ -24,21 +25,13 @@ public class ElementXmlCreator {
     public static String calculateAmountToRefundInString(ArrayList<NodeObject> clientReclamationList, int countNumber) throws NumberFormatException {
         String amountWithoutDollarSign = clientReclamationList.get(countNumber).getMontant().substring(0, clientReclamationList.get(countNumber).getMontant().length() - 1);
 
-        amountWithoutDollarSign = amountWithoutDollarSign.replace(",", "");
-        amountWithoutDollarSign = amountWithoutDollarSign.replace(".", "");
-        int amountAsIntegers = Integer.parseInt(amountWithoutDollarSign);
+        amountWithoutDollarSign = Dollar.removeDotAndCommaFromString(amountWithoutDollarSign);
+        int amountAsIntegers = Dollar.returnDollarValueInCents(amountWithoutDollarSign);
         System.out.println(amountAsIntegers);
         int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
         int montant = Calculator.refundCalculator(ContractLetter.getContractLetter(), amountAsIntegers, numSoin);
-        return formatAmmountToStandartFormat(montant);
-
+        
+        return Dollar.formatAmmountToStandartFormat(montant);
     }
 
-    public static String formatAmmountToStandartFormat(int ammountToFormat) {
-        if (ammountToFormat < 10) {
-            return "0.0" + (ammountToFormat % 100) + "$";
-        } else {
-            return (ammountToFormat / 100) + "." + (ammountToFormat % 100) + "$";
-        }
-    }
 }

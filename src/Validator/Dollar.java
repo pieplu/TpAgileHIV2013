@@ -2,7 +2,7 @@ package Validator;
 
 import InsuranceSoftware.ValidationRunner;
 
-public class Amount {
+public class Dollar {
     
    
     final static int MINIMUM_LENGTH_FOR_AMOUNT = 5;
@@ -35,6 +35,25 @@ public class Amount {
         return amountInDollars.charAt(amountInDollars.length() - 4) == '.' ||
                amountInDollars.charAt(amountInDollars.length() - 4) == ',' ;
     }
+    
+    public static String removeDotAndCommaFromString(String amountInDollars){
+        amountInDollars = amountInDollars.replace(",", "");
+        amountInDollars = amountInDollars.replace(".", "");
+        
+        return amountInDollars;
+    }
 
+    public static int returnDollarValueInCents (String amountInDollars){
+        int amountAsIntegers = Integer.parseInt(amountInDollars);
+        return amountAsIntegers;
+    }
+    
+    public static String formatAmmountToStandartFormat(int ammountToFormat) {
+        if (ammountToFormat < 10) {
+            return "0.0" + (ammountToFormat % 100) + "$";
+        } else {
+            return (ammountToFormat / 100) + "." + (ammountToFormat % 100) + "$";
+        }
+    }
     
 }
