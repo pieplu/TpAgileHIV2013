@@ -8,10 +8,10 @@ package InsuranceSoftware;
 
 public class InsuranceSoftwareMain {
     
-    private static XMLFileCreator document;
+    private static JSONFileCreator document;
     
-    public static XMLFileCreator loadXmlDocumentFromArg0(String[] args) throws Exception {
-        document = new XMLFileCreator(args[0]);
+    public static JSONFileCreator loadXmlDocumentFromArg0(String[] args) throws Exception {
+        document = new JSONFileCreator(args[0]);
         return document;
     }
     
@@ -24,11 +24,11 @@ public class InsuranceSoftwareMain {
         document = loadXmlDocumentFromArg0(args);
         
         if (ValidationRunner.runValidationProcess(document)) {
-            XMLFileValidOutput xmlOutputFile = new XMLFileValidOutput(args);
+            JSONFileValidOutput xmlOutputFile = new JSONFileValidOutput(args);
             xmlOutputFile.createElementsInXmlOutputFile();
-            XMLFileCreator.saveXmlDocument(args[1], xmlOutputFile.getOutputXmlFile());
+            JSONFileCreator.saveJSONFile(args[1], xmlOutputFile.getOutputJSONFile());
         } else {
-            XMLFileCreator.createErrorFile(args[1]);
+            JSONFileCreator.createErrorFile(args[1]);
         }
         consoleMessageOutput(args);
     }

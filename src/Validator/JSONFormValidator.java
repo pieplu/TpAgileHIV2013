@@ -1,18 +1,17 @@
 package Validator;
 
-import InsuranceSoftware.NodeObject;
+import InsuranceSoftware.JSONArrayObject;
 import InsuranceSoftware.ValidationRunner;
-import InsuranceSoftware.XMLFileCreator;
+import InsuranceSoftware.JSONFileCreator;
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
 
-public class XMLFormValidator {
+public class JSONFormValidator {
 
-    static final String LIST_OF_XML_TAGS[] = new String[]{"reclamations", "dossier", "mois", "soin", "date", "montant"};
-    static public final String TAG_ROOT = "reclamation";
-    private static XMLFileCreator tagToVerify;
+    static final String LIST_OF_JSON_OBJECTS[] = new String[]{"reclamations", "dossier", "mois", "soin", "date", "montant"};
+    private static JSONFileCreator tagToVerify;
 
-    public XMLFormValidator(XMLFileCreator tagToVerify) {
+    public JSONFormValidator(JSONFileCreator tagToVerify) {
         this.tagToVerify = tagToVerify;
     }
 
@@ -27,7 +26,7 @@ public class XMLFormValidator {
     }
 
     private boolean areAllChildrenNodePresent() {
-        ArrayList<NodeObject> ListOfAllReclamations = XMLFileCreator.createListOfIndividualReclamationXmlNodeToTestNodeName("reclamation", tagToVerify);
+        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationXmlNodeToTestNodeName("reclamation", tagToVerify);
         for (int i = 0; i < ListOfAllReclamations.size(); i++) {
             try {
                 ListOfAllReclamations.get(i).getDate().equals("date");
@@ -63,9 +62,9 @@ public class XMLFormValidator {
 
     public static boolean isEssentialTagValid(String expectedTagName) {
         try {
-            tagToVerify.getNodesByName(expectedTagName);
-        } catch (NullPointerException e) {
-            ValidationRunner.setErrorMessage("Le document XML est corrompu");
+            tagToVerify.getJSONArrayByName(expectedTagName);
+        } catch (Exception e) {
+            ValidationRunner.setErrorMessage("Le document JSON est corrompu");
             return false;
         }
         return true;
@@ -73,7 +72,7 @@ public class XMLFormValidator {
     }
 
     public boolean areNodeChildrenValid(String parentName, String expectedTagName) {
-        NodeList XmlForm = tagToVerify.getNodesByName(parentName);
+        NodeList XmlForm = tagToVerify.getJSONArrayByName(parentName);
         try {
             if (tagToVerify.obtainNodeName(XmlForm.item(0), expectedTagName).equals(expectedTagName)) {
                 return true;

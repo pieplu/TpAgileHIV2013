@@ -2,7 +2,7 @@ package InsuranceSoftware;
 
 import java.util.ArrayList;
 import org.w3c.dom.NodeList;
-import Validator.XMLFormValidator;
+import Validator.JSONFormValidator;
 
 public class ValidationRunner {
 
@@ -16,13 +16,13 @@ public class ValidationRunner {
         return ErrorMessage;
     }
 
-    public static boolean runValidationProcess(XMLFileCreator fileToValidate) throws Exception {
-        XMLFormValidator testIfAllNodesAreThere = new XMLFormValidator(fileToValidate);
+    public static boolean runValidationProcess(JSONFileCreator fileToValidate) throws Exception {
+        JSONFormValidator testIfAllNodesAreThere = new JSONFormValidator(fileToValidate);
         if (!testIfAllNodesAreThere.verifyIfXmlFormIsValid()) {
             return false;
         }
 
-        NodeList XmlForm = fileToValidate.getNodesByName("reclamations");
+        NodeList XmlForm = fileToValidate.getJSONArrayByName("reclamations");
         String FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
         String month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
 
@@ -30,8 +30,8 @@ public class ValidationRunner {
         return validateDocumentContent(FileNumber, fileToValidate, month);
     }
 
-    private static boolean validateDocumentContent(String FileNumber, XMLFileCreator fileToValidate, String month) {
-        ArrayList<NodeObject> ListOfAllReclamations = XMLFileCreator.createListOfIndividualReclamationXmlNode("reclamation", fileToValidate);
+    private static boolean validateDocumentContent(String FileNumber, JSONFileCreator fileToValidate, String month) {
+        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamation", fileToValidate);
         if (Validator.FileNumber.isFileNumberValid(FileNumber)) {
             for (int i = 0; i < ListOfAllReclamations.size(); i++) {
                 if (!(Validator.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
