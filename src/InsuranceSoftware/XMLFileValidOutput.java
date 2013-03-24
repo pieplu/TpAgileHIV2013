@@ -6,6 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 import RefundCalculator.Calculator;
+import Validator.Dollar;
 import org.w3c.dom.*;
 
 public class XMLFileValidOutput {
