@@ -4,7 +4,7 @@ public class Calculator {
 
     private static int amountFromXmlFile;
     private static int amountToRefund = 0;
-    private int refundForThisReclamation = 0;
+    private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;
     
     
@@ -34,7 +34,7 @@ public class Calculator {
     
     
 
-    public int  refundCalculator(String contractType, int dollar, int numSoin) {
+    public static int refundCalculator(String contractType, int dollar, int numSoin) {
         int index = getIndexOfMaxAmountForNumSoin(numSoin);
         amountFromXmlFile = dollar;
         refundForThisReclamation = contractSelector(contractType).selectNumSoinContrat(numSoin);
