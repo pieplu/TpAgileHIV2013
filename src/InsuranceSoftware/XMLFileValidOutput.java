@@ -6,6 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 import RefundCalculator.Calculator;
+import Validator.Dollar;
 import org.w3c.dom.*;
 
 public class XMLFileValidOutput {
@@ -64,7 +65,7 @@ public class XMLFileValidOutput {
 
     private void insertChildElementMontantOfRoot(String nodeNameToInsert) {
         Element dossierWrittenInOutputXmlFile = ElementXmlCreator.createElementXmlChild(outputXmlFile, nodeNameToInsert, refundsWrittenInOutputXmlFile);
-        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXmlCreator.formatAmmountToStandartFormat(Calculator.getAmountTotal()));
+        Text textDossierWrittenInOutputXmlFile = outputXmlFile.createTextNode(ElementXmlCreator.(Dollar.formatAmmountToStandartFormat(Calculator.getAmountTotal())));
         dossierWrittenInOutputXmlFile.appendChild(textDossierWrittenInOutputXmlFile);
     }
 
