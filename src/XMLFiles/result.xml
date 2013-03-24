@@ -5,37 +5,37 @@
     <remboursement>
         <soin>100</soin>
         <date>2013-01-01</date>
-        <montant>81.90$</montant>
+        <montant>0.00$</montant>
     </remboursement>
     <remboursement>
         <soin>100</soin>
         <date>2013-01-01</date>
-        <montant>81.90$</montant>
+        <montant>0.00$</montant>
     </remboursement>
     <remboursement>
         <soin>100</soin>
         <date>2013-01-01</date>
-        <montant>81.90$</montant>
+        <montant>0.00$</montant>
     </remboursement>
     <remboursement>
         <soin>100</soin>
         <date>2013-01-01</date>
-        <montant>81.90$</montant>
+        <montant>0.00$</montant>
     </remboursement>
     <remboursement>
         <soin>100</soin>
         <date>2013-01-01</date>
-        <montant>81.90$</montant>
+        <montant>0.00$</montant>
     </remboursement>
     <remboursement>
         <soin>200</soin>
         <date>2013-01-13</date>
-        <montant>22.50$</montant>
+        <montant>0.00$</montant>
     </remboursement>
     <remboursement>
         <soin>334</soin>
         <date>2013-01-23</date>
         <montant>0.00$</montant>
     </remboursement>
-    <total>432.0$</total>
+    <total>0.00$</total>
 </remboursements>

@@ -2,9 +2,10 @@ package RefundCalculator;
 
 public class Calculator {
 
-    private static int amountInXmlFile;
+    private static int amountFromXmlFile;
     private static int amountToRefund = 0;
-    private static int amountTotal = 0;
+    private int refundForThisReclamation = 0;
+    private static int sumOfAllReclamations = 0;
     
     
     //NumSoin:                          100   175    200   500    600 
@@ -16,17 +17,10 @@ public class Calculator {
     final private static int[] monthlyMaxForEachNumSoin = new int[]{25000, 20000, 25000, 15000, 30000};
     private static int[] refundDollarForThisMonth = new int[]{0, 0, 0, 0, 0};
     private static boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
-
-    public static int getAmountInXmlFile() {
-        return amountInXmlFile;
-    }
-
-    public static int getAmountTotal() {
-        return amountTotal;
-    }
-
-    private static void setDollar(int dollar) {
-        amountInXmlFile = dollar;
+    
+    
+    public static int getSumOfAllReclamations(){
+        return sumOfAllReclamations;
     }
 
     private static int getIndexOfMaxAmountForNumSoin(int numSoin) {
@@ -37,37 +31,26 @@ public class Calculator {
         }
         return -1;
     }
+    
+    
 
-    private static int getNumSoinMaxAmount(int index) {
-        return monthlyMaxForEachNumSoin[index];
-    }
-
-    private static int getRefundDollarForThisMonth(int index) {
-        return refundDollarForThisMonth[index];
-    }
-
-    public static int refundCalculator(String contractType, int dollar, int numSoin) {
-        setDollar(dollar);
+    public int  refundCalculator(String contractType, int dollar, int numSoin) {
         int index = getIndexOfMaxAmountForNumSoin(numSoin);
+        amountFromXmlFile = dollar;
+        refundForThisReclamation = contractSelector(contractType).selectNumSoinContrat(numSoin);
         if (index >= 0) {
             if (!isMonthlyMaxAttained[index]) {
-                if(){
-                    
-                }
-                }else{
-            } else {
-                return 0;
-            } else {
-                amountToRefund = contractSelector(contractType).selectNumSoinContrat(numSoin);
-                amountTotal += amountToRefund;
-                return amountToRefund;
-            }
-        } else {
-
-            amountToRefund = contractSelector(contractType).selectNumSoinContrat(numSoin);
-            amountTotal += amountToRefund;
-        }
-        return amountToRefund;
+                 refundForThisReclamation  = contractSelector(contractType).selectNumSoinContrat(numSoin);
+                 if ( (refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index] ){
+                      refundForThisReclamation = monthlyMaxForEachNumSoin[index] - refundDollarForThisMonth[index];
+                      isMonthlyMaxAttained[index] = true;
+                    }
+            }else{
+                  refundForThisReclamation = 0;   
+                 } 
+        } 
+         sumOfAllReclamations += refundForThisReclamation;    
+        return refundForThisReclamation;
     }
 
     private static ContractTemplate contractSelector(String contractType) {
@@ -91,7 +74,7 @@ public class Calculator {
     }
 
     static int refundCalculator(int multipleToApplyOnAmountToRefund, int maxAmountToRefund) {
-        amountToRefund = (amountInXmlFile * multipleToApplyOnAmountToRefund) / 100;
+        amountToRefund = (amountFromXmlFile * multipleToApplyOnAmountToRefund) / 100;
         if (amountToRefund > (maxAmountToRefund * 100)) {
             amountToRefund = maxAmountToRefund * 100;
         }
@@ -99,6 +82,6 @@ public class Calculator {
     }
 
     static int refundCalculator(int multiple) {
-        return (amountInXmlFile * multiple) / 100;
+        return (amountFromXmlFile * multiple) / 100;
     }
 }
