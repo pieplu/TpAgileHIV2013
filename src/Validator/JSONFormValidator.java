@@ -4,7 +4,6 @@ import InsuranceSoftware.JSONArrayObject;
 import InsuranceSoftware.ValidationRunner;
 import InsuranceSoftware.JSONFileCreator;
 import java.util.ArrayList;
-import org.w3c.dom.NodeList;
 
 public class JSONFormValidator {
 
@@ -15,72 +14,53 @@ public class JSONFormValidator {
         this.tagToVerify = tagToVerify;
     }
 
-    public boolean verifyIfXmlFormIsValid() {
-        if (!isEssentialTagValid("reclamations")
-                || !areNodeChildrenValid("reclamations", "dossier")
-                || !areNodeChildrenValid("reclamations", "mois")
-                || !areNodeChildrenValid("reclamations", "reclamation")) {
+    public boolean verifyIfJSONFormIsValid() {
+        if (!areJSONObjectValid("dossier")
+                || !areJSONObjectValid("mois")
+                || !areJSONObjectValid("reclamations")) {
             return false;
         }
-        return areAllChildrenNodePresent();
+        return areAllJSONArrayObjectPresent();
     }
 
-    private boolean areAllChildrenNodePresent() {
-        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationXmlNodeToTestNodeName("reclamation", tagToVerify);
+    private boolean areAllJSONArrayObjectPresent() {
+        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamations", tagToVerify);
+
+
         for (int i = 0; i < ListOfAllReclamations.size(); i++) {
             try {
-                ListOfAllReclamations.get(i).getDate().equals("date");
-            } catch (NullPointerException e) {
+                tagToVerify.getjsonFile().getJSONArray("reclamations").getJSONObject(i).has("date");
+            } catch (Exception e) {
                 ValidationRunner.setErrorMessage("Une balise date est manquante.");
                 return false;
             }
 
             try {
-                ListOfAllReclamations.get(i).getSoin().equals("soin");
-            } catch (NullPointerException e) {
+                tagToVerify.getjsonFile().getJSONArray("reclamations").getJSONObject(i).has("soin");
+            } catch (Exception e) {
                 ValidationRunner.setErrorMessage("Une balise soin est manquante.");
                 return false;
             }
 
             try {
-                ListOfAllReclamations.get(i).getMontant().equals("montant");
-            } catch (NullPointerException e) {
+                tagToVerify.getjsonFile().getJSONArray("reclamations").getJSONObject(i).has("montant");
+            } catch (Exception e) {
                 ValidationRunner.setErrorMessage("Une balise montant est manquante.");
                 return false;
             }
 
-
-            if (!ListOfAllReclamations.get(i).getDate().equals("date")
-                    || !ListOfAllReclamations.get(i).getSoin().equals("soin")
-                    || !ListOfAllReclamations.get(i).getMontant().equals("montant")) {
-                return false;
-
-            }
         }
         return true;
     }
 
-    public static boolean isEssentialTagValid(String expectedTagName) {
+    public boolean areJSONObjectValid(String expectedTagName) {
+        boolean isValid;
         try {
-            tagToVerify.getJSONArrayByName(expectedTagName);
+            isValid = tagToVerify.getjsonFile().has(expectedTagName);
         } catch (Exception e) {
-            ValidationRunner.setErrorMessage("Le document JSON est corrompu");
-            return false;
+            ValidationRunner.setErrorMessage("La balise " + expectedTagName + " n'est pas présente dans le document JSON");
+            isValid = false;
         }
-        return true;
-
-    }
-
-    public boolean areNodeChildrenValid(String parentName, String expectedTagName) {
-        NodeList XmlForm = tagToVerify.getJSONArrayByName(parentName);
-        try {
-            if (tagToVerify.obtainNodeName(XmlForm.item(0), expectedTagName).equals(expectedTagName)) {
-                return true;
-            }
-        } catch (NullPointerException e) {
-            ValidationRunner.setErrorMessage("La balise " + expectedTagName + " n'est pas présente dans le document XML");
-            return false;
-        }
-        return false;
+        return isValid;
     }
 }

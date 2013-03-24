@@ -17,22 +17,23 @@ public class ValidationRunner {
     }
 
     public static boolean runValidationProcess(JSONFileCreator fileToValidate) throws Exception {
-        JSONFormValidator testIfAllNodesAreThere = new JSONFormValidator(fileToValidate);
-        if (!testIfAllNodesAreThere.verifyIfXmlFormIsValid()) {
+        JSONFormValidator testIfAllJSONObjectsArePresent = new JSONFormValidator(fileToValidate);
+        if (!testIfAllJSONObjectsArePresent.verifyIfJSONFormIsValid()) {
             return false;
         }
 
-        NodeList XmlForm = fileToValidate.getJSONArrayByName("reclamations");
-        String FileNumber = fileToValidate.obtainNodeContent(XmlForm.item(0), "dossier");
-        String month = fileToValidate.obtainNodeContent(XmlForm.item(0), "mois");
+        String fileNumber = fileToValidate.getjsonFile().getString("dossier");
+        String month = fileToValidate.getjsonFile().getString("mois");
 
 
-        return validateDocumentContent(FileNumber, fileToValidate, month);
+        return validateFileContent(fileNumber, fileToValidate, month);
     }
 
-    private static boolean validateDocumentContent(String FileNumber, JSONFileCreator fileToValidate, String month) {
-        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamation", fileToValidate);
+    private static boolean validateFileContent(String FileNumber, JSONFileCreator fileToValidate, String month) {
+        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamations", fileToValidate);
+        
         if (Validator.FileNumber.isFileNumberValid(FileNumber)) {
+            
             for (int i = 0; i < ListOfAllReclamations.size(); i++) {
                 if (!(Validator.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
                         && Validator.ServiceNumber.isServiceNumberValid(ListOfAllReclamations.get(i).getSoin())
