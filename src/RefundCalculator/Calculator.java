@@ -1,5 +1,7 @@
 package RefundCalculator;
 
+import Validator.Dollar;
+
 public class Calculator {
 
     private static int amountFromXmlFile;
@@ -19,8 +21,8 @@ public class Calculator {
     private static boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
     
     
-    public static int getSumOfAllReclamations(){
-        return sumOfAllReclamations;
+    public static String getSumOfAllReclamations(){
+        return Dollar.formatAmmountToStandartFormat(sumOfAllReclamations);
     }
 
     private static int getIndexOfMaxAmountForNumSoin(int numSoin) {

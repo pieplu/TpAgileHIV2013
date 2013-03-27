@@ -40,9 +40,9 @@ public class JSONFileValidOutput {
         outputJSONFile.accumulate("mois", file.getjsonFile().getString("mois"));
 
         JSONArray reclamationsArray = new JSONArray();
-        JSONObject reclamation = new JSONObject();
 
         for (int i = 0; i < allReclamationsList.size();i++) {
+            JSONObject reclamation = new JSONObject();
             reclamation.accumulate("soin", allReclamationsList.get(i).getSoin());
             reclamation.accumulate("date", allReclamationsList.get(i).getDate());    
             reclamation.accumulate("montant", calculateAmountToRefundInString(allReclamationsList, i));

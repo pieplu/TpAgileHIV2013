@@ -10,7 +10,7 @@ public class JSONArrayObject {
     public JSONArrayObject (int index, JSONFileCreator file){
         soin = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("soin");
         date = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("date");
-        montant = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("soin");
+        montant = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("montant");
     }
     
     public void setIndividualReclamationJSONArrayObjectToTestObjectName(int index, JSONFileCreator file){

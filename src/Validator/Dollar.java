@@ -1,6 +1,7 @@
 package Validator;
 
 import InsuranceSoftware.ValidationRunner;
+import Validator.StringAnalyzer;
 
 public class Dollar {
     
