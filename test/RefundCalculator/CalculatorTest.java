@@ -40,14 +40,33 @@ public class CalculatorTest {
     }
     
      @Test
-   /*/ public void testRefundCalculator_intMOCK() {
+    public void testRefundCalculator_intMOCK() {
          Calculator mock = new Calculator();
-         mock.refundCalculator ("A", 10, 100);
-        assertEquals(mock.refundCalculator(50), 5);
+         mock.refundCalculator ("A", 90000, 100);
+        assertEquals(mock.refundCalculator(100), 90000);
     }
-    */
+  /*  
       public void testgetIndexOfMaxAmountForNumSoin() {
          Calculator mock = new Calculator();
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
-}
+       public void testgetIndexOfMaxAmountForNumSoin2() {
+         Calculator mock = new Calculator();
+         mock.refundCalculator ("A", 10, 100);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
+    }
+       
+         public void testgetIndexOfMaxAmountForNumSoin3() {
+         Calculator mock = new Calculator();
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
+    }
+         
+           public void testgetIndexOfMaxAmountForNumSoin4() {
+         Calculator mock = new Calculator();
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
+    }
+
+* 
+* */
+     
+     }

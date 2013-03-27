@@ -25,7 +25,7 @@ public class Calculator {
         return Dollar.formatAmountToStandardFormat(sumOfAllReclamations);
     }
 
-    private static int getIndexOfMaxAmountForNumSoin(int numSoin) {
+    static int getIndexOfMaxAmountForNumSoin(int numSoin) {
         for (int i = 0; i < numSoinWithMaximum.length; i++) {
             if (numSoin == numSoinWithMaximum[i]) {
                 return i;
@@ -52,7 +52,8 @@ public class Calculator {
                  } 
         } 
          sumOfAllReclamations += refundForThisReclamation;  
-         refundDollarForThisMonth[index] += refundForThisReclamation;
+         if (index != -1 )
+            refundDollarForThisMonth[index] += refundForThisReclamation;
         return refundForThisReclamation;
     }
 
