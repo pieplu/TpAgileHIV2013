@@ -40,9 +40,14 @@ public class CalculatorTest {
     }
     
      @Test
-    public void testRefundCalculator_intMOCK() {
+   /*/ public void testRefundCalculator_intMOCK() {
          Calculator mock = new Calculator();
          mock.refundCalculator ("A", 10, 100);
         assertEquals(mock.refundCalculator(50), 5);
+    }
+    */
+      public void testgetIndexOfMaxAmountForNumSoin() {
+         Calculator mock = new Calculator();
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
 }
