@@ -9,7 +9,7 @@ public class Calculator {
     private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;
     
-    
+    //                 CHARTE GRAPHIQUE DES TABLEAUX 
     //NumSoin:                          100   175    200   500    600 
     //Monthly maximum for each numSoin 25000 20000  25000 15000  30000 
     //Refund made for this month:        0     0      0     0      0
@@ -51,7 +51,8 @@ public class Calculator {
                   refundForThisReclamation = 0;   
                  } 
         } 
-         sumOfAllReclamations += refundForThisReclamation;    
+         sumOfAllReclamations += refundForThisReclamation;  
+         refundDollarForThisMonth[index] += refundForThisReclamation;
         return refundForThisReclamation;
     }
 
