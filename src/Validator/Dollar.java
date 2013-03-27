@@ -22,12 +22,12 @@ public class Dollar {
         }
     }
  
-    private static boolean isMinimumLengthForAmountValid(String amount) {
+    public static boolean isMinimumLengthForAmountValid(String amount) {
         return amount.length() >= MINIMUM_LENGTH_FOR_AMOUNT;
     }
 
     
-    private static boolean containsDollarSignAtTheEnd(String amountInDollars) {
+    public static boolean containsDollarSignAtTheEnd(String amountInDollars) {
         return amountInDollars.charAt(amountInDollars.length() - 1) == '$';
     }
 
@@ -50,11 +50,17 @@ public class Dollar {
     }
     
     public static String formatAmmountToStandartFormat(int ammountToFormat) {
+        String cents = "";
+        if(ammountToFormat % 100 == 0){
+            cents = "0";
+        }
+        
         if (ammountToFormat < 10) {
             return "0.0" + (ammountToFormat % 100) + "$";
-        } else {
-            return (ammountToFormat / 100) + "." + (ammountToFormat % 100) + "$";
+        } else{
+            return (ammountToFormat / 100) + "." + ammountToFormat % 100 + cents + "$";
         }
+        
     }
     
 }
