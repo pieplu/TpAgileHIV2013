@@ -63,7 +63,7 @@ public class JSONFileValidOutput {
         int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
         int montant = Calculator.refundCalculator(ContractLetter.getContractLetter(), amountAsIntegers, numSoin);
         
-        return Dollar.formatAmmountToStandartFormat(montant);
+        return Dollar.formatAmountToStandardFormat(montant);
     }
 
 

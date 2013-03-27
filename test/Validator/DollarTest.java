@@ -104,28 +104,28 @@ public class DollarTest {
     }
     
     @Test
-    public void formatAmmountToStandartFormatWithNine() {
-        assertEquals(Dollar.formatAmmountToStandartFormat(9),"0.09$");
+    public void formatAmountToStandardFormatWithNine() {
+        assertEquals(Dollar.formatAmountToStandardFormat(9),"0.09$");
     }
     
     @Test
-    public void formatAmmountToStandartFormatWithTen() {
-        assertEquals(Dollar.formatAmmountToStandartFormat(10),"0.10$");
+    public void formatAmountToStandardFormatWithTen() {
+        assertEquals(Dollar.formatAmountToStandardFormat(10),"0.10$");
     }
     
     @Test
-    public void formatAmmountToStandartFormatWithHundred() {
-        assertEquals(Dollar.formatAmmountToStandartFormat(100),"1.00$");
+    public void formatAmountToStandardFormatWithHundred() {
+        assertEquals(Dollar.formatAmountToStandardFormat(100),"1.00$");
     }
     
     @Test
-    public void formatAmmountToStandartFormatWithThousand() {
-        assertEquals(Dollar.formatAmmountToStandartFormat(1000),"10.00$");
+    public void formatAmountToStandardFormatWithThousand() {
+        assertEquals(Dollar.formatAmountToStandardFormat(1000),"10.00$");
     }
     
     @Test
-    public void formatAmmountToStandartFormatWithThousandAndTwelve() {
-        assertEquals(Dollar.formatAmmountToStandartFormat(1012),"10.12$");
+    public void formatAmountToStandardFormatWithThousandAndTwelve() {
+        assertEquals(Dollar.formatAmountToStandardFormat(1012),"10.12$");
     }
     
 }

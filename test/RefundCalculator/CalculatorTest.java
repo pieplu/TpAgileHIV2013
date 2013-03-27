@@ -36,6 +36,13 @@ public class CalculatorTest {
 
     @Test
     public void testRefundCalculator_int() {
-        assertEquals(Calculator.refundCalculator(25), 0);
+        assertEquals(Calculator.refundCalculator(50), 0);
+    }
+    
+     @Test
+    public void testRefundCalculator_intMOCK() {
+         Calculator mock = new Calculator();
+         mock.refundCalculator ("A", 10, 100);
+        assertEquals(mock.refundCalculator(50), 5);
     }
 }

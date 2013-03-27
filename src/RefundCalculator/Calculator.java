@@ -4,7 +4,7 @@ import Validator.Dollar;
 
 public class Calculator {
 
-    private static int amountFromXmlFile;
+    private static int amountFromJsonFile;
     private static int amountToRefund = 0;
     private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;
@@ -22,7 +22,7 @@ public class Calculator {
     
     
     public static String getSumOfAllReclamations(){
-        return Dollar.formatAmmountToStandartFormat(sumOfAllReclamations);
+        return Dollar.formatAmountToStandardFormat(sumOfAllReclamations);
     }
 
     private static int getIndexOfMaxAmountForNumSoin(int numSoin) {
@@ -38,7 +38,7 @@ public class Calculator {
 
     public static int refundCalculator(String contractType, int dollar, int numSoin) {
         int index = getIndexOfMaxAmountForNumSoin(numSoin);
-        amountFromXmlFile = dollar;
+        amountFromJsonFile = dollar;
         refundForThisReclamation = contractSelector(contractType).selectNumSoinContrat(numSoin);
         if (index >= 0) {
             if (!isMonthlyMaxAttained[index]) {
@@ -76,7 +76,7 @@ public class Calculator {
     }
 
     static int refundCalculator(int multipleToApplyOnAmountToRefund, int maxAmountToRefund) {
-        amountToRefund = (amountFromXmlFile * multipleToApplyOnAmountToRefund) / 100;
+        amountToRefund = (amountFromJsonFile * multipleToApplyOnAmountToRefund) / 100;
         if (amountToRefund > (maxAmountToRefund * 100)) {
             amountToRefund = maxAmountToRefund * 100;
         }
@@ -84,6 +84,6 @@ public class Calculator {
     }
 
     static int refundCalculator(int multiple) {
-        return (amountFromXmlFile * multiple) / 100;
+        return (amountFromJsonFile * multiple) / 100;
     }
 }

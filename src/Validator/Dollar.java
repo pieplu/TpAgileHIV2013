@@ -49,7 +49,7 @@ public class Dollar {
         return amountAsIntegers;
     }
     
-    public static String formatAmmountToStandartFormat(int ammountToFormat) {
+    public static String formatAmountToStandardFormat(int ammountToFormat) {
         String cents = "";
         if(ammountToFormat % 100 == 0){
             cents = "0";
