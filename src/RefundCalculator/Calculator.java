@@ -50,10 +50,10 @@ public class Calculator {
             }else{
                   refundForThisReclamation = 0;   
                  } 
+            refundDollarForThisMonth[index] += refundForThisReclamation;
         } 
          sumOfAllReclamations += refundForThisReclamation;  
-         if (index != -1 )
-            refundDollarForThisMonth[index] += refundForThisReclamation;
+            
         return refundForThisReclamation;
     }
 
