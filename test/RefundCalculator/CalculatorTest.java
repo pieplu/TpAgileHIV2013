@@ -42,7 +42,7 @@ public class CalculatorTest {
      @Test
     public void testRefundCalculator_intMOCK() {
          Calculator mock = new Calculator();
-         mock.refundCalculator ("A", 90000, 700);
+         mock.refundCalculator ("A", 90, 700);
         assertEquals(mock.refundCalculator(700), 90000);
     }
   /*  
