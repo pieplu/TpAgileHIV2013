@@ -1,8 +1,7 @@
 package InsuranceSoftware;
 
-import java.util.ArrayList;
-import org.w3c.dom.NodeList;
 import Validator.JSONFormValidator;
+import java.util.ArrayList;
 
 public class ValidationRunner {
 

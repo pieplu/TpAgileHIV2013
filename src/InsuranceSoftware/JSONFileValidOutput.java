@@ -32,9 +32,9 @@ public class JSONFileValidOutput {
     /**
      * Create tags for a valid output file
      */
-    public void createElementsInXmlOutputFile() throws Exception {
+    public void createJSONObjectInOutputFile() throws Exception {
         loadJSONObjectFromArg0(argsFromMain);
-        setReclamationNodeListInXmlJSONObject("reclamations");
+        setReclamationListInJSONObject("reclamations");
         outputJSONFile = new JSONObject();
         outputJSONFile.accumulate("dossier", file.getjsonFile().getString("dossier"));
         outputJSONFile.accumulate("mois", file.getjsonFile().getString("mois"));
@@ -70,7 +70,7 @@ public class JSONFileValidOutput {
     /*
      * Affects the list of the reclamations made by the client
      */
-    private void setReclamationNodeListInXmlJSONObject(String jsonArrayName) {
+    private void setReclamationListInJSONObject(String jsonArrayName) {
         allReclamationsList = JSONFileCreator.createListOfIndividualReclamationJSONObject(jsonArrayName, file);
     }
 

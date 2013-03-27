@@ -25,7 +25,7 @@ public class InsuranceSoftwareMain {
         
         if (ValidationRunner.runValidationProcess(file)) {
             JSONFileValidOutput jsonOutputFile = new JSONFileValidOutput(args);
-            jsonOutputFile.createElementsInXmlOutputFile();
+            jsonOutputFile.createJSONObjectInOutputFile();
             JSONFileCreator.saveJSONFile(args[1], jsonOutputFile.getOutputJSONFile());
         } else {
             JSONFileCreator.createErrorFile(args[1]);
