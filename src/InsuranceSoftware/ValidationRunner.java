@@ -29,8 +29,12 @@ public class ValidationRunner {
     }
 
     private static boolean validateFileContent(String FileNumber, JSONFileCreator fileToValidate, String month) {
-        ArrayList<JSONArrayObject> ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamations", fileToValidate);
-        
+        ArrayList<JSONArrayObject> ListOfAllReclamations = null;
+        try{
+         ListOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamations", fileToValidate);
+        } catch (Exception e){
+            return false;
+        }
         if (Validator.FileNumber.isFileNumberValid(FileNumber)) {
             
             for (int i = 0; i < ListOfAllReclamations.size(); i++) {

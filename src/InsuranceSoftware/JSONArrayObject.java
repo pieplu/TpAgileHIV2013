@@ -7,10 +7,25 @@ public class JSONArrayObject {
     private String montant;
     
     
-    public JSONArrayObject (int index, JSONFileCreator file){
+    public JSONArrayObject (int index, JSONFileCreator file) throws Exception{
+        try{
         soin = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("soin");
+        }catch(Exception e){
+            ValidationRunner.setErrorMessage("Une balise soin est manquante.");
+            throw new Exception();
+        }
+        try{
         date = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("date");
+        }catch(Exception e){
+            ValidationRunner.setErrorMessage("Une balise date est manquante.");
+            throw new Exception();
+        }
+        try{
         montant = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("montant");
+        }catch(Exception e){
+            ValidationRunner.setErrorMessage("Une balise montant est manquante.");
+            throw new Exception();
+        }
     }
     
     public void setIndividualReclamationJSONArrayObjectToTestObjectName(int index, JSONFileCreator file){
