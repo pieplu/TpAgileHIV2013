@@ -8,6 +8,8 @@ import java.io.IOException;
 import RefundCalculator.Calculator;
 import Validator.ContractLetter;
 import Validator.Dollar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class JSONFileValidOutput {
 
@@ -70,7 +72,10 @@ public class JSONFileValidOutput {
      * Affects the list of the reclamations made by the client
      */
     private void setReclamationListInJSONObject(String jsonArrayName) {
-        allReclamationsList = JSONFileCreator.createListOfIndividualReclamationJSONObject(jsonArrayName, file);
+        try {
+            allReclamationsList = JSONFileCreator.createListOfIndividualReclamationJSONObject(jsonArrayName, file);
+        } catch (Exception ex) {
+        }
     }
 
 }
