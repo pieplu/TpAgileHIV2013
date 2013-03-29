@@ -18,7 +18,7 @@ public class Date {
                 reclamationMonth.equals(date.substring(0,7)))){
              return true;
          }else{
-             ValidationRunner.setErrorMessage("Une date n'est pas valide.");
+             ValidationRunner.setErrorMessage("La date ne correspond pas avec le mois de la réclamation.");
              return false;
          }
     }
