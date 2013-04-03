@@ -8,7 +8,6 @@ import net.sf.json.JSONException;
 
 public class JSONFormValidator {
 
-    static final String LIST_OF_JSON_OBJECTS[] = new String[]{"reclamations", "dossier", "mois", "soin", "date", "montant"};
     private static JSONFileCreator tagToVerify;
 
     public JSONFormValidator(JSONFileCreator tagToVerify) {
