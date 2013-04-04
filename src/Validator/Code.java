@@ -16,7 +16,7 @@ public class Code {
             if (index == 0 || index == 1) {
                 return code.length() == MAXIMUM_LENGTH_FOR_CODE_A_AND_CODE_C; //is either A or C 
             } else if (index == 2 || index == 3) {
-                return code.length() >= MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && StringAnalyzer.isTheStringMadeOfDigitOnly(code.substring(1, code.length())); //is either E or H
+                return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && StringAnalyzer.isTheStringMadeOfDigitOnly(code.substring(1, code.length())); //is either E or H
             } else {
                 return false;
             }
