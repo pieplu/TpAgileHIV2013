@@ -32,7 +32,8 @@ public class CodeTest {
     
     @Test
     public void testCodeLetterIsValidH() {
-        assertTrue(Code.isCodeValid("H2"));
+        
+        assertTrue(Code.isCodeValid("H1"));
     }
     
     @Test
