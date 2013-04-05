@@ -13,6 +13,8 @@ import static org.junit.Assert.*;
  */
 public class CalculatorTest {
     
+    private Calculator mock ;
+    
     public CalculatorTest() {
     }
 
@@ -26,11 +28,12 @@ public class CalculatorTest {
     
     @Before
     public void setUp() {
-          
+          mock = new Calculator();
     }
     
     @After
     public void tearDown() {
+        
     }
 
 
@@ -41,32 +44,37 @@ public class CalculatorTest {
     
      @Test
     public void testRefundCalculator_intMOCK() {
-         Calculator mock = new Calculator();
-         mock.refundCalculator ("A", 90, 700);
-        assertEquals(mock.refundCalculator(700), 90000);
-    }
-  /*  
-      public void testgetIndexOfMaxAmountForNumSoin() {
-         Calculator mock = new Calculator();
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
-    }
-       public void testgetIndexOfMaxAmountForNumSoin2() {
-         Calculator mock = new Calculator();
-         mock.refundCalculator ("A", 10, 100);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
-    }
-       
-         public void testgetIndexOfMaxAmountForNumSoin3() {
-         Calculator mock = new Calculator();
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
-    }
          
-           public void testgetIndexOfMaxAmountForNumSoin4() {
-         Calculator mock = new Calculator();
+         mock.refundCalculator ("A", 90, 700);
+        assertEquals(mock.refundCalculator(700), 9000);
+    }
+    
+     @Test 
+     public void testgetIndexOfMaxAmountForNumSoin() {
+         
+         mock.refundCalculator ("A", 90, 700);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 9000);
+    }
+     
+     @Test 
+     public void testgetIndexOfMaxAmountForNumSoin2() {
+         
+         mock.refundCalculator ("A", 30, 700);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100),5);
+    }
+       @Test 
+        public void testgetIndexOfMaxAmountForNumSoin3() {
+         
+         mock.refundCalculator ("A", 50, 700);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
+    }
+       @Test   
+       public void testgetIndexOfMaxAmountForNumSoin4() {
+         
+         mock.refundCalculator ("A", 0, 100);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
 
-* 
-* */
+
      
      }
