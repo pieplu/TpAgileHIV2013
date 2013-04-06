@@ -41,7 +41,7 @@ public class ValidationRunner {
                 if (!(Validator.Date.isDateValid(month, ListOfAllReclamations.get(i).getDate())
                         && Validator.ServiceNumber.isServiceNumberValid(ListOfAllReclamations.get(i).getSoin())
                         && Validator.Dollar.isAmountFormValid(ListOfAllReclamations.get(i).getMontant())
-                        && Validator.Code.isCodeValid(code))) {
+                        && Validator.Code.isCodeValid(ListOfAllReclamations.get(i).getCode()))) {
                     return false;
                 }
             }

@@ -5,21 +5,26 @@ public class JSONArrayObject {
     private String soin;
     private String date;
     private String montant;
+    private String code;
     
     
     public JSONArrayObject (int index, JSONFileCreator file) throws Exception{
+        insertValidSoinInJSONArrayObject(file, index);
+        insertValidDateInJSONArrayObject(file, index);
+        insertValidMontantInJSONArrayObject(file, index);
+        insertValidCodeInJSONArrayObject(file, index);
+    }
+    
+    private void insertValidCodeInJSONArrayObject(JSONFileCreator file, int index) throws Exception {
         try{
-        soin = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("soin");
+        code = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("code");
         }catch(Exception e){
-            ValidationRunner.setErrorMessage("Une balise soin est manquante.");
+            ValidationRunner.setErrorMessage("Une balise code est manquante.");
             throw new Exception();
         }
-        try{
-        date = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("date");
-        }catch(Exception e){
-            ValidationRunner.setErrorMessage("Une balise date est manquante.");
-            throw new Exception();
-        }
+    }
+
+    private void insertValidMontantInJSONArrayObject(JSONFileCreator file, int index) throws Exception {
         try{
         montant = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("montant");
         }catch(Exception e){
@@ -27,10 +32,31 @@ public class JSONArrayObject {
             throw new Exception();
         }
     }
+
+    private void insertValidDateInJSONArrayObject(JSONFileCreator file, int index) throws Exception {
+        try{
+        date = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("date");
+        }catch(Exception e){
+            ValidationRunner.setErrorMessage("Une balise date est manquante.");
+            throw new Exception();
+        }
+    }
+
+    private void insertValidSoinInJSONArrayObject(JSONFileCreator file, int index) throws Exception {
+        try{
+        soin = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("soin");
+        }catch(Exception e){
+            ValidationRunner.setErrorMessage("Une balise soin est manquante.");
+            throw new Exception();
+        }
+    }
     
     public void setIndividualReclamationJSONArrayObjectToTestObjectName(int index, JSONFileCreator file){
         if(file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).has("soin")){
         soin = "soin";
+        }
+        if(file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).has("code")){
+        code = "code";
         }
         if(file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).has("date")){
         date = "date";
@@ -53,4 +79,8 @@ public class JSONArrayObject {
         return montant;
     }
     
+    public String getCode (){
+        return code;
+    }
+
 }
