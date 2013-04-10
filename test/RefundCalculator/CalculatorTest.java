@@ -43,15 +43,12 @@ public class CalculatorTest {
     }
     
      @Test
-    public void testRefundCalculator_intMOCK() {
-         
-         mock.refundCalculator ("A", 90, 700);
-        assertEquals(mock.refundCalculator(700), 9000);
+    public void testRefundCalculator_int2() {
+        assertEquals(mock.refundCalculator(700), 630);
     }
     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin() {
-         
          mock.refundCalculator ("A", 90, 700);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 9000);
     }
