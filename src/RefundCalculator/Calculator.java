@@ -48,6 +48,9 @@ public class Calculator {
             }else{
                   refundForThisReclamation = 0;   
                  } 
+            if(client.getCode().substring(0,1).equals("H")){
+                refundForThisReclamation = refundForThisReclamation/2;
+            }
             client.refundDollarForThisMonth[index] += refundForThisReclamation;
         } 
          sumOfAllReclamations += refundForThisReclamation;  
