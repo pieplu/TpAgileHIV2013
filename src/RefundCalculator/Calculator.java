@@ -1,5 +1,6 @@
 package RefundCalculator;
 
+import InsuranceSoftware.JSONArrayObject;
 import Validator.Dollar;
 
 public class Calculator {
@@ -12,13 +13,10 @@ public class Calculator {
     //                 CHARTE GRAPHIQUE DES TABLEAUX 
     //NumSoin:                          100   175    200   500    600 
     //Monthly maximum for each numSoin 25000 20000  25000 15000  30000 
-    //Refund made for this month:        0     0      0     0      0
-    //Maximum for month attained:      false false  false false  false
      
     final private static int[] numSoinWithMaximum = new int[]{100, 175, 200, 500, 600};
     final private static int[] monthlyMaxForEachNumSoin = new int[]{25000, 20000, 25000, 15000, 30000};
-    private static int[] refundDollarForThisMonth = new int[]{0, 0, 0, 0, 0};
-    private static boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
+
     
     
     public static String getSumOfAllReclamations(){
@@ -36,21 +34,21 @@ public class Calculator {
     
     
 
-    public static int refundCalculator(String contractType, int dollar, int numSoin) {
+    public static int refundCalculator(String contractType, int dollar, int numSoin, JSONArrayObject client) {
         int index = getIndexOfMaxAmountForNumSoin(numSoin);
         amountFromJsonFile = dollar;
         refundForThisReclamation = contractSelector(contractType).selectNumSoinContrat(numSoin);
         if (index >= 0) {
-            if (!isMonthlyMaxAttained[index]) {
+            if (!client.isMonthlyMaxAttained[index]) {
                  refundForThisReclamation  = contractSelector(contractType).selectNumSoinContrat(numSoin);
-                 if ( (refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index] ){
-                      refundForThisReclamation = monthlyMaxForEachNumSoin[index] - refundDollarForThisMonth[index];
-                      isMonthlyMaxAttained[index] = true;
+                 if ( (client.refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index] ){
+                      refundForThisReclamation = monthlyMaxForEachNumSoin[index] - client.refundDollarForThisMonth[index];
+                      client.isMonthlyMaxAttained[index] = true;
                     }
             }else{
                   refundForThisReclamation = 0;   
                  } 
-            refundDollarForThisMonth[index] += refundForThisReclamation;
+            client.refundDollarForThisMonth[index] += refundForThisReclamation;
         } 
          sumOfAllReclamations += refundForThisReclamation;  
             
