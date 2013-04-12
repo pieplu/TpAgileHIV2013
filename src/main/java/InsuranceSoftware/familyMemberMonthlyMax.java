@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class familyMemberMonthlyMax {
     
-    
     public static ArrayList<familyMemberMonthlyMax> familyMembersMonthlyMaxList;
     public static ArrayList<String> familyCodeList;
     
