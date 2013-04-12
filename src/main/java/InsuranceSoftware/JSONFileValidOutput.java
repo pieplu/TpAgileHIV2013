@@ -62,7 +62,7 @@ public class JSONFileValidOutput {
         amountWithoutDollarSign = Dollar.removeDotAndCommaFromString(amountWithoutDollarSign);
         int amountAsIntegers = Dollar.returnDollarValueInCents(amountWithoutDollarSign);
         int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
-        int montant = Calculator.refundCalculator(ContractLetter.getContractLetter(), amountAsIntegers, numSoin,clientReclamationList.get(countNumber));
+        int montant = Calculator.refundCalculator(ContractLetter.getContractLetter(), amountAsIntegers, numSoin, countNumber);
         
         return Dollar.formatAmountToStandardFormat(montant);
     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ValidationRunner {
 
     private static String ErrorMessage = "";
-    private static ArrayList<JSONArrayObject> listOfAllReclamations;
+    public static ArrayList<JSONArrayObject> listOfAllReclamations;
     private static JSONFileCreator fileToValidate;
     private static String month;
     private static String fileNumber;
@@ -57,19 +57,25 @@ public class ValidationRunner {
         }
         return true;
     }
+
+    
     
     private static boolean areAllJSONArrayObjectValid(){
         boolean testAJSONArrayObject = true;
         if (!areAllDatesValid()){
+            ValidationRunner.setErrorMessage("Erreur: Une date n'est pas valide.");
             testAJSONArrayObject = false;
         }
         if (!areAllSoinsValid()){
+           ValidationRunner.setErrorMessage("Erreur: Un soin n'est pas valide.");
             testAJSONArrayObject = false;
         }
         if (!areAllMontantsValid()){
+            ValidationRunner.setErrorMessage("Erreur: Un montant n'est pas valide.");
             testAJSONArrayObject = false;
         }
         if (!areAllCodesValid()){
+            ValidationRunner.setErrorMessage("Erreur: Un code n'est pas valide."); 
             testAJSONArrayObject = false;
         }
         
@@ -78,7 +84,7 @@ public class ValidationRunner {
     
     private static boolean areAllDatesValid(){
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                if (isADateValid(i)) return false;
+                if (!isADateValid(i)) return false;
         }
         return true;
     }
@@ -92,7 +98,10 @@ public class ValidationRunner {
     
     private static boolean areAllSoinsValid(){
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                if (isASoinValid(i)) return false;
+            
+                if (!isASoinValid(i)) {
+                    return false;
+                }
         }
         return true;
     }
@@ -106,7 +115,9 @@ public class ValidationRunner {
     
     private static boolean areAllMontantsValid(){
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                if (isAMontantValid(i)) return false;
+                if (!isAMontantValid(i)) {
+                    return false;
+                }
         }
         return true;
     }
@@ -120,7 +131,10 @@ public class ValidationRunner {
     
     private static boolean areAllCodesValid(){
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                if (isACodeValid(i)) return false;
+            
+                if (!isACodeValid(i)) {
+                    return false;
+                }
         }
         return true;
     }

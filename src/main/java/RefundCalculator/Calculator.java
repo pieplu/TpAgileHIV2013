@@ -1,9 +1,15 @@
 package RefundCalculator;
 
 import InsuranceSoftware.JSONArrayObject;
+import InsuranceSoftware.ValidationRunner;
 import Validator.Dollar;
+import java.util.ArrayList;
 
 public class Calculator {
+    
+    public static JSONArrayObject getJSONArrayObject(int index) {
+        return ValidationRunner.listOfAllReclamations.get(index);
+    }
 
     private static int amountFromJsonFile;
     private static int amountToRefund = 0;
@@ -34,24 +40,29 @@ public class Calculator {
     
     
 
-    public static int refundCalculator(String contractType, int dollar, int numSoin, JSONArrayObject client) {
+    public static int refundCalculator(String contractType, int dollar, int numSoin, int client) {
+        System.out.println(getJSONArrayObject(client));
         int index = getIndexOfMaxAmountForNumSoin(numSoin);
         amountFromJsonFile = dollar;
         refundForThisReclamation = contractSelector(contractType).selectNumSoinContrat(numSoin);
+        if(getJSONArrayObject(client).getCode().substring(0,1).equals("H")){
+                refundForThisReclamation = refundForThisReclamation/2;
+            }
+        
         if (index >= 0) {
-            if (!client.isMonthlyMaxAttained[index]) {
+            if (!getJSONArrayObject(client).isMonthlyMaxAttained[index]) {
                  refundForThisReclamation  = contractSelector(contractType).selectNumSoinContrat(numSoin);
-                 if ( (client.refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index] ){
-                      refundForThisReclamation = monthlyMaxForEachNumSoin[index] - client.refundDollarForThisMonth[index];
-                      client.isMonthlyMaxAttained[index] = true;
+                 if ( (getJSONArrayObject(client).refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index] ){
+                      refundForThisReclamation = monthlyMaxForEachNumSoin[index] - getJSONArrayObject(client).refundDollarForThisMonth[index];
+                      getJSONArrayObject(client).setIsMonthlyMaxAttained(index, true);
                     }
             }else{
                   refundForThisReclamation = 0;   
                  } 
-            if(client.getCode().substring(0,1).equals("H")){
-                refundForThisReclamation = refundForThisReclamation/2;
-            }
-            client.refundDollarForThisMonth[index] += refundForThisReclamation;
+            
+            
+           getJSONArrayObject(client).setRefundDollarForThisMonth(index, refundForThisReclamation +  getJSONArrayObject(client).refundDollarForThisMonth[index]); 
+            System.out.println(getJSONArrayObject(client).refundDollarForThisMonth[index]);
         } 
          sumOfAllReclamations += refundForThisReclamation;  
             
