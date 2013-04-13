@@ -6,6 +6,15 @@ public class JSONArrayObject {
     private String date;
     private String montant;
     private String code;
+    private familyMemberMonthlyMax monthlyMaxReference;
+
+    public familyMemberMonthlyMax getMonthlyMaxReference() {
+        return monthlyMaxReference;
+    }
+
+    public void setMonthlyMaxReference(familyMemberMonthlyMax monthlyMaxReference) {
+        this.monthlyMaxReference = monthlyMaxReference;
+    }
     
     
     //Refund made for this month:        0     0      0     0      0
