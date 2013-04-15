@@ -43,6 +43,11 @@ public class ServiceNumberTest {
     public void serviceNumberIsInvalid() {
         assertFalse(ServiceNumber.isServiceNumberValid("1"));
     }
+    
+    @Test
+    public void serviceNumberIsInvalid() {
+        assertFalse(ServiceNumber.isServiceNumberValid("a"));
+    }
 
     
 }
