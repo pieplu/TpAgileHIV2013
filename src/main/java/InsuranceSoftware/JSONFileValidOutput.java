@@ -56,15 +56,8 @@ public class JSONFileValidOutput {
         outputJSONFile.accumulate("total", Calculator.getSumOfAllReclamations());
     }
     
-    public static String calculateAmountToRefundInString(ArrayList<JSONArrayObject> clientReclamationList, int countNumber) throws NumberFormatException {
-        String amountWithoutDollarSign = clientReclamationList.get(countNumber).getMontant().substring(0, clientReclamationList.get(countNumber).getMontant().length() - 1);
-
-        amountWithoutDollarSign = Dollar.removeDotAndCommaFromString(amountWithoutDollarSign);
-        int amountAsIntegers = Dollar.returnDollarValueInCents(amountWithoutDollarSign);
-        int numSoin = Integer.parseInt(clientReclamationList.get(countNumber).getSoin());
-        int montant = Calculator.refundCalculator(ContractLetter.getContractLetter(), amountAsIntegers, numSoin, countNumber);
-        
-        return Dollar.formatAmountToStandardFormat(montant);
+    public static String calculateAmountToRefundInString(ArrayList<JSONArrayObject> clientReclamationList, int countNumber) throws NumberFormatException { 
+        return Dollar.formatAmountToStandardFormat(Calculator.refundCalculator(clientReclamationList.get(countNumber)));
     }
 
 

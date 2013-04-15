@@ -8,8 +8,6 @@ public class ValidationRunner {
     private static String ErrorMessage = "";
     public static ArrayList<JSONArrayObject> listOfAllReclamations;
     private static JSONFileCreator fileToValidate;
-    private static String month;
-    private static String fileNumber;
 
     public static void setErrorMessage(String ErrorMessage) {
         ValidationRunner.ErrorMessage = ErrorMessage;
@@ -26,8 +24,9 @@ public class ValidationRunner {
             return false;
         }
 
-        fileNumber = fileToValidate.getjsonFile().getString("dossier");
-        month = fileToValidate.getjsonFile().getString("mois");
+        JSONArrayObject.fileNumber = fileToValidate.getjsonFile().getString("dossier");
+        JSONArrayObject.contractType = JSONArrayObject.fileNumber.substring(0,1);
+        JSONArrayObject.month = fileToValidate.getjsonFile().getString("mois");
 
 
         return validateFileContent();
@@ -39,7 +38,7 @@ public class ValidationRunner {
         if(!isFileToValidateInValidFormat()){
             testValidFileFormat = false;
         }
-        if (!Validator.FileNumber.isFileNumberValid(fileNumber)) {
+        if (!Validator.FileNumber.isFileNumberValid(JSONArrayObject.fileNumber)) {
             testValidFileFormat = false;
         }
         if (!areAllJSONArrayObjectValid()) {
@@ -90,7 +89,7 @@ public class ValidationRunner {
     }
 
     private static boolean isADateValid(int compteur) {
-        if (Validator.Date.isDateValid(month, listOfAllReclamations.get(compteur).getDate())) {
+        if (Validator.Date.isDateValid(JSONArrayObject.month, listOfAllReclamations.get(compteur).getDate())) {
             return true;
         }
         return false;

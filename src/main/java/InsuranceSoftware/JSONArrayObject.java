@@ -2,6 +2,10 @@ package InsuranceSoftware;
 
 public class JSONArrayObject {
 
+    
+    public static String month;
+    public static String fileNumber;
+    public static String contractType;
     private String soin;
     private String date;
     private String montant;
