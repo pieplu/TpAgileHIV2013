@@ -130,19 +130,12 @@ public class ValidationRunner {
     
     private static boolean areAllCodesValid(){
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-            
-                if (!isACodeValid(i)) {
-                    return false;
-                }
+                Validator.Code.listInputCodes.add(listOfAllReclamations.get(i).getCode());
         }
-        return true;
+        
+        return Validator.Code.areAllCodesValid();
     }
 
-    private static boolean isACodeValid(int compteur) {
-        if (Validator.Code.isCodeValid(listOfAllReclamations.get(compteur).getCode())) {
-            return true;
-        }
-        return false;
-    }
+   
     
 }

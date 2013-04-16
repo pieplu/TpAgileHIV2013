@@ -46,7 +46,8 @@ public class JSONFileValidOutput {
         for (int i = 0; i < allReclamationsList.size();i++) {
             JSONObject reclamation = new JSONObject();
             reclamation.accumulate("soin", allReclamationsList.get(i).getSoin());
-            reclamation.accumulate("date", allReclamationsList.get(i).getDate());    
+            reclamation.accumulate("code", allReclamationsList.get(i).getCode());
+            reclamation.accumulate("date", allReclamationsList.get(i).getDate());
             reclamation.accumulate("montant", calculateAmountToRefundInString(allReclamationsList, i));
             reclamationsArray.add(reclamation);
         }
@@ -57,6 +58,7 @@ public class JSONFileValidOutput {
     }
     
     public static String calculateAmountToRefundInString(ArrayList<JSONArrayObject> clientReclamationList, int countNumber) throws NumberFormatException { 
+        familyMemberMonthlyMax.setFamilyMembersMonthlyMaxReference(clientReclamationList.get(countNumber));
         return Dollar.formatAmountToStandardFormat(Calculator.refundCalculator(clientReclamationList.get(countNumber)));
     }
 

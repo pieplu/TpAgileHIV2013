@@ -12,40 +12,35 @@ import java.util.ArrayList;
  */
 public class familyMemberMonthlyMax {
 
-    public static ArrayList<familyMemberMonthlyMax> familyMembersMonthlyMaxList;
-    public static ArrayList<String> familyCodeList;
-
-    
+    public static ArrayList<familyMemberMonthlyMax> familyMembersMonthlyMaxList = new ArrayList<familyMemberMonthlyMax>();
+    public static ArrayList<String> familyCodeList = new ArrayList<String>();
     //Refund made for this month:        0     0      0     0      0
     //Maximum for month attained:      false false  false false  false
     public int[] refundDollarForThisMonth = new int[]{0, 0, 0, 0, 0};
-
-    public static void setAllFamilyMembersMonthlyMaxReference() {
-        for (int i = 0; i < ValidationRunner.listOfAllReclamations.size(); i++) {
-            if (!familyCodeList.contains(ValidationRunner.listOfAllReclamations.get(i).getCode())) {
-                familyCodeList.add(ValidationRunner.listOfAllReclamations.get(i).getCode());
-                ValidationRunner.listOfAllReclamations.get(i).setMonthlyMaxReference(new familyMemberMonthlyMax());
-            } else {
-                ValidationRunner.listOfAllReclamations.get(i).setMonthlyMaxReference(findMonthlyMaxReference(ValidationRunner.listOfAllReclamations.get(i).getCode()));
-            }
-        }
-    }
-    
-    private static familyMemberMonthlyMax findMonthlyMaxReference(String code) {
-        for (int j = 0; j < ValidationRunner.listOfAllReclamations.size(); j++) {
-            if (code.equals(ValidationRunner.listOfAllReclamations.get(j).getCode())) {
-                return ValidationRunner.listOfAllReclamations.get(j).getMonthlyMaxReference();
-            }
-        }
-        return null;
-    }
-
-    public void setRefundDollarForThisMonth(int index, int amount) {
-        refundDollarForThisMonth[index] = amount;
-    }
     public boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
 
-    public void setIsMonthlyMaxAttained(int index, boolean isAttained) {
-        isMonthlyMaxAttained[index] = isAttained;
+    public static void setFamilyMembersMonthlyMaxReference(JSONArrayObject reclamation) {
+        if (!familyCodeList.contains(reclamation.getCode())) {
+            familyCodeList.add(reclamation.getCode());
+            familyMembersMonthlyMaxList.add(new familyMemberMonthlyMax());
+        }
+    }
+
+    public static int getFamilyMembersMonthlyMaxIndex(String code) {
+        for (int i = 0; i < familyCodeList.size(); i++) {
+            if (code.equals(familyCodeList.get(i))) {
+                return i;
+            }
+        }
+        return 0;
+
+    }
+
+    public static void setRefundDollarForThisMonth(int index,int indexFamilyMember, int amount) {
+        familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] = amount;
+    }
+
+    public static void setIsMonthlyMaxAttained(int index, int indexFamilyMember,  boolean isAttained) {
+        familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = isAttained;
     }
 }

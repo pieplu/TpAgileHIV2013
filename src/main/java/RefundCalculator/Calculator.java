@@ -2,6 +2,7 @@ package RefundCalculator;
 
 import InsuranceSoftware.JSONArrayObject;
 import InsuranceSoftware.ValidationRunner;
+import InsuranceSoftware.familyMemberMonthlyMax;
 import Validator.Dollar;
 import java.util.ArrayList;
 
@@ -24,9 +25,9 @@ public class Calculator {
         return Dollar.formatAmountToStandardFormat(sumOfAllReclamations);
     }
 
-    static int getIndexOfMaxAmountForNumSoin(String numSoin) {
+    static int getIndexOfMaxAmountForNumSoin(int numSoin) {
         for (int i = 0; i < numSoinWithMaximum.length; i++) {
-            if (numSoin.equals(numSoinWithMaximum[i])) {
+            if (numSoin == (numSoinWithMaximum[i])) {
                 return i;
             }
         }
@@ -35,25 +36,27 @@ public class Calculator {
 
     public static int refundCalculator(JSONArrayObject reclamation) {
         amountFromJsonFile = formatDollar(reclamation);
-        int index = getIndexOfMaxAmountForNumSoin(reclamation.getSoin());
+        int index = getIndexOfMaxAmountForNumSoin(Integer.parseInt(reclamation.getSoin()));
         refundForThisReclamation = contractSelector(JSONArrayObject.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
-        if (JSONArrayObject.contractType.equals("H")) {
-            refundForThisReclamation = refundForThisReclamation / 2;
-        }
+        
+        int indexFamilyMember = familyMemberMonthlyMax.getFamilyMembersMonthlyMaxIndex(reclamation.getCode());
         if (index >= 0) {
-            if (!reclamation.isMonthlyMaxAttained[index]) {
+            if (!familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
                 refundForThisReclamation = contractSelector(reclamation.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
-                if ((reclamation.refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index]) {
-                    refundForThisReclamation = monthlyMaxForEachNumSoin[index] - reclamation.refundDollarForThisMonth[index];
-                    reclamation.setIsMonthlyMaxAttained(index, true);
+                if (reclamation.getCode().substring(0, 1).equals("H")) {
+                    refundForThisReclamation = refundForThisReclamation / 2;
                 }
+                if ((familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index]) {
+                    refundForThisReclamation = monthlyMaxForEachNumSoin[index] - familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
+                    familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
+                }
+                
             } else {
                 refundForThisReclamation = 0;
             }
 
 
-            reclamation.setRefundDollarForThisMonth(index, refundForThisReclamation + reclamation.refundDollarForThisMonth[index]);
-            System.out.println(reclamation.refundDollarForThisMonth[index]);
+            familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] += refundForThisReclamation;
         }
         sumOfAllReclamations += refundForThisReclamation;
 

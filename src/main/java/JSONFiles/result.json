@@ -4,34 +4,64 @@
     "reclamations":     [
                 {
             "soin": "175",
+            "code": "H1",
             "date": "2013-03-02",
-            "montant": "50.00$"
+            "montant": "25.00$"
         },
                 {
             "soin": "175",
+            "code": "H1",
             "date": "2013-03-02",
-            "montant": "50.00$"
+            "montant": "100.00$"
         },
                 {
             "soin": "175",
+            "code": "H1",
             "date": "2013-03-02",
-            "montant": "50.00$"
+            "montant": "75.00$"
         },
                 {
             "soin": "175",
+            "code": "H1",
             "date": "2013-03-02",
-            "montant": "50.00$"
+            "montant": "0.00$"
         },
                 {
             "soin": "175",
+            "code": "H2",
             "date": "2013-03-02",
-            "montant": "50.00$"
+            "montant": "125.00$"
         },
                 {
             "soin": "175",
+            "code": "H1",
             "date": "2013-03-02",
-            "montant": "50.00$"
+            "montant": "0.00$"
+        },
+                {
+            "soin": "175",
+            "code": "H1",
+            "date": "2013-03-02",
+            "montant": "0.00$"
+        },
+                {
+            "soin": "175",
+            "code": "H1",
+            "date": "2013-03-02",
+            "montant": "0.00$"
+        },
+                {
+            "soin": "175",
+            "code": "H1",
+            "date": "2013-03-02",
+            "montant": "0.00$"
+        },
+                {
+            "soin": "175",
+            "code": "H1",
+            "date": "2013-03-02",
+            "montant": "0.00$"
         }
     ],
-    "total": "300.00$"
+    "total": "325.00$"
 }

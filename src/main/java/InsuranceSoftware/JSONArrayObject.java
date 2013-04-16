@@ -8,7 +8,7 @@ public class JSONArrayObject {
     public static String contractType;
     private String soin;
     private String date;
-    private String montant;
+    private String dollar;
     private String code;
     private familyMemberMonthlyMax monthlyMaxReference;
 
@@ -38,7 +38,7 @@ public class JSONArrayObject {
     public JSONArrayObject(int index, JSONFileCreator file) throws Exception {
         insertValidSoinInJSONArrayObject(file, index);
         insertValidDateInJSONArrayObject(file, index);
-        insertValidMontantInJSONArrayObject(file, index);
+        insertValidDollarInJSONArrayObject(file, index);
         insertValidCodeInJSONArrayObject(file, index);
     }
 
@@ -51,9 +51,9 @@ public class JSONArrayObject {
         }
     }
 
-    private void insertValidMontantInJSONArrayObject(JSONFileCreator file, int index) throws Exception {
+    private void insertValidDollarInJSONArrayObject(JSONFileCreator file, int index) throws Exception {
         try {
-            montant = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("montant");
+            dollar = file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("montant");
         } catch (Exception e) {
             ValidationRunner.setErrorMessage("Une balise montant est manquante.");
             throw new Exception();
@@ -89,7 +89,7 @@ public class JSONArrayObject {
             date = "date";
         }
         if (file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).has("montant")) {
-            montant = "montant";
+            dollar = "montant";
         }
     }
 
@@ -103,7 +103,7 @@ public class JSONArrayObject {
     }
 
     public String getMontant() {
-        return montant;
+        return dollar;
     }
 
     public String getCode() {

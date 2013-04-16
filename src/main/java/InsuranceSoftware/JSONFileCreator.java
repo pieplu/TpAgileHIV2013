@@ -62,7 +62,7 @@ public class JSONFileCreator {
             for (int i = 0; i < file.getJSONArrayByName(jsonArrayName).size(); i++) {
                 individualReclamationJSONObjectList.add(new JSONArrayObject(i, file));
             }
-
+            
             return individualReclamationJSONObjectList;
         } catch (Exception e) {
             throw new Exception();
