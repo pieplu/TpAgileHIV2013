@@ -40,7 +40,7 @@ public class DateTest {
     }
     
     @Test
-    public void reclamationMonthDoesNotCorrespondToDate() {
+    public void dateDontExist() {
         assertFalse(Date.isDateValid("2011-02", "2011-02-29"));
     }
 }
