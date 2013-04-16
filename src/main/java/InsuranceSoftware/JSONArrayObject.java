@@ -2,7 +2,6 @@ package InsuranceSoftware;
 
 public class JSONArrayObject {
 
-    
     public static String month;
     public static String fileNumber;
     public static String contractType;
@@ -11,6 +10,15 @@ public class JSONArrayObject {
     private String dollar;
     private String code;
     private familyMemberMonthlyMax monthlyMaxReference;
+    
+    public JSONArrayObject(){
+    }
+    
+    public JSONArrayObject(String soin,String dollar, String contracType) {
+        this.soin = soin;
+        this.dollar = dollar;
+        this.contractType = contracType;
+    }
 
     public familyMemberMonthlyMax getMonthlyMaxReference() {
         return monthlyMaxReference;
@@ -109,4 +117,5 @@ public class JSONArrayObject {
     public String getCode() {
         return code;
     }
+    
 }

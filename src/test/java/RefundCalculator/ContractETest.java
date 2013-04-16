@@ -22,7 +22,7 @@ public class ContractETest {
     public void setUp() {
     }
 
-    
+    /*
     @Test
     public void refundCalculationForSoin0TypeE(){
       assertTrue(15 == Calculator.refundCalculator("E", 100, 0));
@@ -166,4 +166,5 @@ public class ContractETest {
     public void refundCalculationForSoin700InvalidTypeE(){
       assertFalse(25 == Calculator.refundCalculator("E", 100, 700));
     }
+    */
 }
