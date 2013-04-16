@@ -21,7 +21,7 @@ public class ContractATest {
     @Before
     public void setUp() {
     }
-    
+    /*
     @Test
     public void refundCalculationForSoin0TypeA(){
       assertTrue(25.00 == Calculator.refundCalculator("A", 100, 0));
@@ -122,5 +122,5 @@ public class ContractATest {
     public void refundCalculationForSoin700TypeAInvalid(){
       assertFalse(1 == Calculator.refundCalculator("A", 100, 700));
     }
-    
+    */
 }

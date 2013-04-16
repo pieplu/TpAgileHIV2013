@@ -34,20 +34,43 @@ public class ServiceNumberTest {
         
     }
 
+    
     @Test
     public void serviceNumberIsValid2() {
         assertTrue(ServiceNumber.isServiceNumberValid("350"));
     }
-
+    
+    
     @Test
-    public void serviceNumberIsInvalid() {
+    public void serviceNumberIsInvalid1() {
         assertFalse(ServiceNumber.isServiceNumberValid("1"));
     }
     
+    
     @Test
-    public void serviceNumberIsInvalid() {
+    public void serviceNumberIsInvalid2() {
         assertFalse(ServiceNumber.isServiceNumberValid("a"));
     }
+    
+     @Test
+    public void serviceNumberIsInvalid3() {
+        assertFalse(ServiceNumber.isServiceNumberValid("-1"));
+    }
+     
+    @Test
+    public void serviceNumberIsInvalid4() {
+        assertFalse(ServiceNumber.isServiceNumberValid("#"));
+    }
 
+    
+    @Test
+    public void serviceNumberIsInvalid5() {
+        assertFalse(ServiceNumber.isServiceNumberValid("956"));
+    }
+    
+    @Test
+    public void serviceNumberIsInvalid6() {
+        assertFalse(ServiceNumber.isServiceNumberValid("1000"));
+    }
     
 }

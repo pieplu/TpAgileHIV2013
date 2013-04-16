@@ -1,9 +1,11 @@
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package RefundCalculator;
 
+import InsuranceSoftware.JSONArrayObject;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -14,6 +16,7 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
     
     private Calculator mock ;
+    private JSONArrayObject client ;
     
     public CalculatorTest() {
     }
@@ -49,10 +52,11 @@ public class CalculatorTest {
     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin() {
-         mock.refundCalculator ("A", 90, 700);
+         client = new JSONArrayObject("700", "90.00", "A");
+         mock.refundCalculator (client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 9000);
     }
-     
+     /*
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin2() {
          
@@ -72,6 +76,6 @@ public class CalculatorTest {
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
 
-
+*/
      
-     }
+}
