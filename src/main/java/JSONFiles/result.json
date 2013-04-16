@@ -6,19 +6,19 @@
             "soin": "175",
             "code": "H1",
             "date": "2013-03-02",
-            "montant": "25.00$"
+            "montant": "50.00$"
         },
                 {
             "soin": "175",
             "code": "H1",
             "date": "2013-03-02",
-            "montant": "100.00$"
+            "montant": "150.00$"
         },
                 {
             "soin": "175",
             "code": "H1",
             "date": "2013-03-02",
-            "montant": "75.00$"
+            "montant": "0.00$"
         },
                 {
             "soin": "175",
@@ -30,38 +30,38 @@
             "soin": "175",
             "code": "H2",
             "date": "2013-03-02",
-            "montant": "125.00$"
+            "montant": "200.00$"
         },
                 {
             "soin": "175",
-            "code": "H1",
+            "code": "H2",
             "date": "2013-03-02",
             "montant": "0.00$"
         },
                 {
             "soin": "175",
-            "code": "H1",
+            "code": "E1",
             "date": "2013-03-02",
-            "montant": "0.00$"
+            "montant": "200.00$"
         },
                 {
             "soin": "175",
-            "code": "H1",
+            "code": "H3",
             "date": "2013-03-02",
-            "montant": "0.00$"
+            "montant": "100.00$"
         },
                 {
             "soin": "175",
-            "code": "H1",
+            "code": "H3",
             "date": "2013-03-02",
-            "montant": "0.00$"
+            "montant": "100.00$"
         },
                 {
             "soin": "175",
-            "code": "H1",
+            "code": "H3",
             "date": "2013-03-02",
             "montant": "0.00$"
         }
     ],
-    "total": "325.00$"
+    "total": "800.00$"
 }

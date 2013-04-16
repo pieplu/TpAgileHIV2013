@@ -38,14 +38,14 @@ public class Calculator {
         amountFromJsonFile = formatDollar(reclamation);
         int index = getIndexOfMaxAmountForNumSoin(Integer.parseInt(reclamation.getSoin()));
         refundForThisReclamation = contractSelector(JSONArrayObject.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
-        
+        if (reclamation.contractType.equals("H")) {
+                    refundForThisReclamation = refundForThisReclamation / 2;
+                }
         int indexFamilyMember = familyMemberMonthlyMax.getFamilyMembersMonthlyMaxIndex(reclamation.getCode());
         if (index >= 0) {
             if (!familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
                 refundForThisReclamation = contractSelector(reclamation.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
-                if (reclamation.getCode().substring(0, 1).equals("H")) {
-                    refundForThisReclamation = refundForThisReclamation / 2;
-                }
+                
                 if ((familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index]) {
                     refundForThisReclamation = monthlyMaxForEachNumSoin[index] - familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
                     familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
