@@ -15,19 +15,15 @@ public class Calculator {
     private static int amountToRefund = 0;
     private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;
-    //                 CHARTE GRAPHIQUE DES TABLEAUX 
-    //NumSoin:                          100   175    200   500    600 
-    //Monthly maximum for each numSoin 25000 20000  25000 15000  30000 
-    final private static int[] numSoinWithMaximum = new int[]{100, 175, 200, 500, 600};
-    final private static int[] monthlyMaxForEachNumSoin = new int[]{25000, 20000, 25000, 15000, 30000};
+    
 
     public static String getSumOfAllReclamations() {
         return Dollar.formatAmountToStandardFormat(sumOfAllReclamations);
     }
 
     static int getIndexOfMaxAmountForNumSoin(int numSoin) {
-        for (int i = 0; i < numSoinWithMaximum.length; i++) {
-            if (numSoin == (numSoinWithMaximum[i])) {
+        for (int i = 0; i < familyMemberMonthlyMax.numSoinWithMaximum.length; i++) {
+            if (numSoin == (familyMemberMonthlyMax.numSoinWithMaximum[i])) {
                 return i;
             }
         }
@@ -41,23 +37,9 @@ public class Calculator {
         int index = getIndexOfMaxAmountForNumSoin(Integer.parseInt(reclamation.getSoin()));
         int indexFamilyMember = familyMemberMonthlyMax.getFamilyMembersMonthlyMaxIndex(reclamation.getCode());
         if (index >= 0) {
-            if (!familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
-                refundForThisReclamation = contractSelector(reclamation.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
-
-                if ((familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > monthlyMaxForEachNumSoin[index]) {
-                    refundForThisReclamation = monthlyMaxForEachNumSoin[index] - familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
-                    familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
-                }
-
-            } else {
-                refundForThisReclamation = 0;
-            }
-
-
-            familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] += refundForThisReclamation;
+            setFamilyMemberMonthlyMax(indexFamilyMember, index);
         }
         sumOfAllReclamations += refundForThisReclamation;
-
         return refundForThisReclamation;
     }
 
@@ -105,6 +87,24 @@ public class Calculator {
             return refundForThisReclamation / 2;
         } else {
             return refundForThisReclamation;
+        }
+    }
+
+   
+
+    private static void setFamilyMemberMonthlyMax(int indexFamilyMember, int index) {
+        if (!familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
+            ajustToMonthlyMax(indexFamilyMember, index);
+        } else {
+            refundForThisReclamation = 0;
+        }
+        familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] += refundForThisReclamation;
+    }
+    
+     private static void ajustToMonthlyMax(int indexFamilyMember, int index) {
+        if ((familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > familyMemberMonthlyMax.monthlyMaxForEachNumSoin[index]) {
+            refundForThisReclamation = familyMemberMonthlyMax.monthlyMaxForEachNumSoin[index] - familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
+            familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
         }
     }
 }

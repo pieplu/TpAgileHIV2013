@@ -28,9 +28,9 @@ public class Code {
         if (index == 0 || index == 1) {
             return code.length() == MAXIMUM_LENGTH_FOR_CODE_A_AND_CODE_C; //is either A or C 
         } else if (index == 2) {
-            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && isCodeELinear();
+            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && isCodeLinear(code.charAt(0));
         } else if (index == 3) {
-            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && isCodeHLinear();
+            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && isCodeLinear(code.charAt(0));
         } else {
             return false;
         }
@@ -49,12 +49,12 @@ public class Code {
         }
     }
 
-    private static boolean isCodeELinear() {
+    private static boolean isCodeLinear(char codeLetter) {
         int highestNumber;
         try {
-            highestNumber = findHighestNumberCodeE();
+            highestNumber = findHighestNumber(codeLetter);
             for (int codeIndex = highestNumber; codeIndex > 0; codeIndex--) {
-                if (!listInputCodes.contains("E" + codeIndex)) {
+                if (!listInputCodes.contains("" + codeLetter + codeIndex)) {
                     return false;
                 }
             }
@@ -63,38 +63,13 @@ public class Code {
             return false;
         }
 
-    }
-
-    private static boolean isCodeHLinear() {
-        int highestNumber;
-        try {
-            highestNumber = findHighestNumberCodeH();
-            for (int codeIndex = highestNumber; codeIndex > 0; codeIndex--) {
-                if (!listInputCodes.contains("H" + codeIndex)) {
-                    return false;
-                }
-            }
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-
-    }
-
-    private static int findHighestNumberCodeE() throws NumberFormatException {
-        int highestNumber = 0;
-            for (int i = 0; i < listInputCodes.size(); i++) {
-                if (listInputCodes.get(i).charAt(0) == 'E' && Integer.parseInt(listInputCodes.get(i).substring(1)) > highestNumber) {
-                    highestNumber = Integer.parseInt(listInputCodes.get(i).substring(1, listInputCodes.get(i).length()));
-                }
-            }
-        return highestNumber;
     }
     
-     private static int findHighestNumberCodeH() throws NumberFormatException {
+
+     private static int findHighestNumber(char codeLetter) throws NumberFormatException {
         int highestNumber = 0;
             for (int i = 0; i < listInputCodes.size(); i++) {
-                if (listInputCodes.get(i).charAt(0) == 'H' && Integer.parseInt(listInputCodes.get(i).substring(1)) > highestNumber ) {
+                if (listInputCodes.get(i).charAt(0) == codeLetter && Integer.parseInt(listInputCodes.get(i).substring(1)) > highestNumber ) {
                     highestNumber = Integer.parseInt(listInputCodes.get(i).substring(1, listInputCodes.get(i).length()));
                 }
             }

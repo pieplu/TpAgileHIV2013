@@ -15,6 +15,9 @@ public class familyMemberMonthlyMax {
     public static ArrayList<familyMemberMonthlyMax> familyMembersMonthlyMaxList = new ArrayList<familyMemberMonthlyMax>();
     public static ArrayList<String> familyCodeList = new ArrayList<String>();
     
+    final public static int[] numSoinWithMaximum = new int[]{100, 175, 200, 500, 600};
+    final public static int[] monthlyMaxForEachNumSoin = new int[]{25000, 20000, 25000, 15000, 30000};
+    
     //Each array slot corresponds to a specific numSoin for a specific family member
     public int[] refundDollarForThisMonth = new int[]{0, 0, 0, 0, 0};
     public boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
