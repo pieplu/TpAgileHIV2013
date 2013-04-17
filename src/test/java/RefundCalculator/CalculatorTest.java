@@ -44,6 +44,12 @@ public class CalculatorTest {
         assertEquals(Calculator.refundCalculator(50), 0);
     }
     
+    @Test
+    public void testGetSumInStringInvalid() {
+        System.out.println(Calculator.getSumOfAllReclamations());
+        assertEquals(Calculator.getSumOfAllReclamations(),"50.00$");
+    }
+    
      @Test
     public void testRefundCalculator_int2() {
          client = new FamilyMemberData("700", "0.00$", "A");

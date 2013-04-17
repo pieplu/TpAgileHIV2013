@@ -4,9 +4,7 @@ public class ContractLetter {
 
     private static String contractLetter = "";
 
-    public static String getContractLetter() {
-        return contractLetter;
-    }
+    
     final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D", "E"};
 
     public static boolean isContractLetterValid(String contractLetter) {

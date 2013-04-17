@@ -4,167 +4,106 @@
  */
 package RefundCalculator;
 
-import RefundCalculator.Calculator;
-import org.junit.Before;
+import InsuranceSoftware.FamilyMemberData;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author utilisateur
  */
 public class ContractETest {
-    
-    public ContractETest() {
-    }
-    
-    @Before
-    public void setUp() {
+
+    private Calculator mock;
+
+    @Test
+    public void testRefundForContractNumSoin0() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin0(), 1500);
     }
 
-    /*
     @Test
-    public void refundCalculationForSoin0TypeE(){
-      assertTrue(15 == Calculator.refundCalculator("E", 100, 0));
+    public void testRefundForContractNumSoin100() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin100(), 2500);
     }
-   
-    
+
     @Test
-    public void refundCalculationForSoin0InvalidTypeE(){
-      assertFalse(0 == Calculator.refundCalculator("E", 100, 0));
+    public void testRefundForContractNumSoin150() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin150(), 1500);
     }
-    
+
     @Test
-    public void refundCalculationForSoin100TypeE(){
-      assertTrue(25 == Calculator.refundCalculator("E", 100, 100));
+    public void testRefundForContractNumSoin175() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "20.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin175(), 500);
     }
-   
-    
+
     @Test
-    public void refundCalculationForSoin100InvalidTypeE(){
-      assertFalse(10 == Calculator.refundCalculator("E", 100, 100));
+    public void testRefundForContractNumSoin175Max() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin175(), 2000);
     }
-    
-     @Test
-    public void refundCalculationForSoin150TypeE(){
-      assertTrue(15 == Calculator.refundCalculator("E", 100, 150));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin150InvalidTypeE(){
-      assertFalse(10 == Calculator.refundCalculator("E", 100, 150));
+    public void testRefundForContractNumSoin200() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin200(), 1200);
     }
-    
-     @Test
-    public void refundCalculationForSoin175TypeEMaxRefund(){
-      assertTrue(20 == Calculator.refundCalculator("E", 150, 175));
-    }
-    
+
     @Test
-    public void refundCalculationForSoin175TypeEMaxRefundInvalid(){
-      assertFalse(150 == Calculator.refundCalculator("E", 150, 175));
+    public void testRefundForContractNumSoin300() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin300(), 6000);
     }
-    
-    
-       @Test
-    public void refundCalculationForSoin175TypeE(){
-      assertTrue(10 == Calculator.refundCalculator("E", 40, 175));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin175InvalidTypeE(){
-      assertFalse(10 == Calculator.refundCalculator("E", 100, 175));
+    public void testRefundForContractNumSoin400() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "10.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin400(), 250);
     }
-    
-      @Test
-    public void refundCalculationForSoin200TypeE(){
-      assertTrue(12 == Calculator.refundCalculator("E", 100, 200));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin200InvalidTypeE(){
-      assertFalse(10 == Calculator.refundCalculator("E", 100, 200));
+    public void testRefundForContractNumSoin400Max() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin400(), 1500);
     }
-    
-      @Test
-    public void refundCalculationForSoin300TypeE(){
-      assertTrue(60 == Calculator.refundCalculator("E", 100, 300));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin300InvalidTypeE(){
-      assertFalse(50 == Calculator.refundCalculator("E", 100, 300));
+    public void testRefundForContractNumSoin500() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "10.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin500(), 300);
     }
-    
-    
-     @Test
-    public void refundCalculationForSoin400TypeEMaxRefund(){
-      assertTrue(15 == Calculator.refundCalculator("E", 150, 400));
-    }
-    
+
     @Test
-    public void refundCalculationForSoin400TypeEMaxRefundInvalid(){
-      assertFalse(150 == Calculator.refundCalculator("E", 150, 400));
+    public void testRefundForContractNumSoin500Max() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "120.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin500(), 2000);
     }
-    
-    
-     @Test
-    public void refundCalculationForSoin400TypeE(){
-      assertTrue(10 == Calculator.refundCalculator("E", 40, 400));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin400InvalidTypeE(){
-      assertFalse(25 == Calculator.refundCalculator("E", 100, 400));
+    public void testRefundForContractNumSoin600() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin600(), 1500);
     }
-    
+
     @Test
-    public void refundCalculationForSoin500TypeEMaxRefund(){
-      assertTrue(20 == Calculator.refundCalculator("E", 150, 500));
+    public void testRefundForContractNumSoin700() {
+        ContractE contractMock = new ContractE();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "E"));
+        assertEquals(contractMock.refundForContractNumSoin700(), 2200);
     }
-    
-    @Test
-    public void refundCalculationForSoin500TypeEMaxRefundInvalid(){
-      assertFalse(40 == Calculator.refundCalculator("E", 150, 500));
-    }
-    
-    
-     @Test
-    public void refundCalculationForSoin500TypeE(){
-      assertTrue(15 == Calculator.refundCalculator("E", 50, 500));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin500InvalidTypeE(){
-      assertFalse(25 == Calculator.refundCalculator("E", 100, 500));
-    }
-    
-    @Test
-    public void refundCalculationForSoin600TypeE(){
-      assertTrue(15 == Calculator.refundCalculator("E", 100, 600));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin600InvalidTypeE(){
-      assertFalse(25 == Calculator.refundCalculator("E", 100, 600));
-    }
-    
-    @Test
-    public void refundCalculationForSoin70TypeE(){
-      assertTrue(22 == Calculator.refundCalculator("E", 100, 700));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin700InvalidTypeE(){
-      assertFalse(25 == Calculator.refundCalculator("E", 100, 700));
-    }
-    */
 }

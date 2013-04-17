@@ -4,136 +4,90 @@
  */
 package RefundCalculator;
 
-import RefundCalculator.Calculator;
-import org.junit.Before;
+import InsuranceSoftware.FamilyMemberData;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author utilisateur
  */
 public class ContractCTest {
-    
-    public ContractCTest() {
-    }
-    
-    @Before
-    public void setUp() {
+
+    private Calculator mock;
+
+    @Test
+    public void testRefundForContractNumSoin0() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin0(), 9000);
     }
 
-    /*
     @Test
-    public void refundCalculationForSoin0TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 0));
+    public void testRefundForContractNumSoin100() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin100(), 9500);
+    }
+    
+
+    @Test
+    public void testRefundForContractNumSoin150() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin150(), 8500);
+    }
+
+    @Test
+    public void testRefundForContractNumSoin175() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin175(), 9000);
     }
    
-    
+
     @Test
-    public void refundCalculationForSoin0InvalidTypeC(){
-      assertFalse(1 == Calculator.refundCalculator("C", 100, 0));
+    public void testRefundForContractNumSoin200() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin200(), 9000);
     }
     
-    @Test
-    public void refundCalculationForSoin100TypeC(){
-      assertTrue(95.00 == Calculator.refundCalculator("C", 100, 100));
-    }
    
-    
+
     @Test
-    public void refundCalculationForSoin100InvalidTypeC(){
-      assertFalse(90 == Calculator.refundCalculator("C", 100, 100));
+    public void testRefundForContractNumSoin300() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin300(), 9000);
     }
-    
-    
-     @Test
-    public void refundCalculationForSoin150TypeC(){
-      assertTrue(85.00 == Calculator.refundCalculator("C", 100, 150));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin150InvalidTypeC(){
-      assertFalse(90 == Calculator.refundCalculator("C", 100, 150));
+    public void testRefundForContractNumSoin400() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin400(), 9000);
     }
-    
+
     @Test
-    public void refundCalculationForSoin175TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 175));
+    public void testRefundForContractNumSoin500() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin500(), 9000);
     }
-   
-    
+
     @Test
-    public void refundCalculationForSoin175InvalidTypeC(){
-      assertFalse(87 == Calculator.refundCalculator("C", 100, 175));
+    public void testRefundForContractNumSoin600() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin600(), 7500);
     }
     
-     @Test
-    public void refundCalculationForSoin200TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 200));
-    }
-   
-    
+
     @Test
-    public void refundCalculationForSoin200InvalidTypeC(){
-      assertFalse(87 == Calculator.refundCalculator("C", 100, 200));
+    public void testRefundForContractNumSoin700() {
+        ContractC contractMock = new ContractC();
+        mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
+        assertEquals(contractMock.refundForContractNumSoin700(), 9000);
     }
-    
-     @Test
-    public void refundCalculationForSoin300TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 300));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin300InvalidTypeC(){
-      assertFalse(87 == Calculator.refundCalculator("C", 100, 300));
-    }
-    
-     @Test
-    public void refundCalculationForSoin400TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 400));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin400InvalidTypeC(){
-      assertFalse(87 == Calculator.refundCalculator("C", 100, 400));
-    }
-    
-    
-      @Test
-    public void refundCalculationForSoin500TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 500));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin500InvalidTypeC(){
-      assertFalse(87 == Calculator.refundCalculator("C", 100, 500));
-    }
-    
-    
-    @Test
-    public void refundCalculationForSoin600TypeC(){
-      assertTrue(75.00 == Calculator.refundCalculator("C", 100, 600));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin600InvalidTypeC(){
-      assertFalse(90 == Calculator.refundCalculator("C", 100, 600));
-    }
-    
-    @Test
-    public void refundCalculationForSoi700TypeC(){
-      assertTrue(90.00 == Calculator.refundCalculator("C", 100, 700));
-    }
-   
-    
-    @Test
-    public void refundCalculationForSoin700InvalidTypeC(){
-      assertFalse(91.02 == Calculator.refundCalculator("C", 100, 700));
-    }
-    */
 }

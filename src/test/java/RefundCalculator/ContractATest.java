@@ -5,10 +5,8 @@
 package RefundCalculator;
 
 import InsuranceSoftware.FamilyMemberData;
-import RefundCalculator.Calculator;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
