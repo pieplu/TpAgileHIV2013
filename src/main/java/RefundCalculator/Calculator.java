@@ -43,6 +43,7 @@ public class Calculator {
         return refundForThisReclamation;
     }
 
+        
     private static ContractTemplate contractSelector(String contractType) {
         ContractTemplate InstanceOfContract = new ContractTemplate();
         if (contractType.equals("A")) {
@@ -61,6 +62,15 @@ public class Calculator {
             InstanceOfContract = new ContractE();
         }
         return InstanceOfContract;
+    }
+    
+    
+    private static int ajustRefundIfCodeH(JSONArrayObject reclamation) {
+        if (reclamation.contractType.equals("H")) {
+            return refundForThisReclamation / 2;
+        } else {
+            return refundForThisReclamation;
+        }
     }
 
     static int refundCalculator(int multipleToApplyOnAmountToRefund, int maxAmountToRefund) {
@@ -82,13 +92,7 @@ public class Calculator {
         return amountAsIntegers;
     }
 
-    private static int ajustRefundIfCodeH(JSONArrayObject reclamation) {
-        if (reclamation.contractType.equals("H")) {
-            return refundForThisReclamation / 2;
-        } else {
-            return refundForThisReclamation;
-        }
-    }
+   
 
    
 
