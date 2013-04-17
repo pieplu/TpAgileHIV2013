@@ -24,14 +24,12 @@ public class JSONFormValidator {
         return true;
     }
 
-    
-
     public boolean areJSONObjectValid(String expectedTagName) {
         boolean isValid;
         try {
-            if(tagToVerify.getjsonFile().has(expectedTagName)){
+            if (tagToVerify.getjsonFile().has(expectedTagName)) {
                 isValid = true;
-            }else{
+            } else {
                 throw new Exception();
             }
         } catch (Exception e) {
@@ -40,8 +38,8 @@ public class JSONFormValidator {
         }
         return isValid;
     }
-    
-    public boolean isJSONFileValid(String expectedTagName){
+
+    public boolean isJSONFileValid(String expectedTagName) {
         boolean isValid;
         try {
             isValid = tagToVerify.getjsonFile().has(expectedTagName);

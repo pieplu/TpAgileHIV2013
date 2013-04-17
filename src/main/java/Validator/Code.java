@@ -14,15 +14,15 @@ public class Code {
     public static ArrayList<String> listInputCodes = new ArrayList<String>();
 
     public static boolean areAllCodesValid() {
-        if(listInputCodes.contains("")){
+        if (listInputCodes.contains("")) {
             return false;
-        } else{
-        for (int i = 0; i < listInputCodes.size(); i++) {
-            if (!isCodeValid(listInputCodes.get(i))) {
-                return false;
+        } else {
+            for (int i = 0; i < listInputCodes.size(); i++) {
+                if (!isCodeValid(listInputCodes.get(i))) {
+                    return false;
+                }
             }
-        }
-        return true;
+            return true;
         }
     }
 
@@ -31,9 +31,9 @@ public class Code {
         if (index == 0 || index == 1) {
             return code.length() == MAXIMUM_LENGTH_FOR_CODE_A_AND_CODE_C; //is either A or C 
         } else if (index == 2) {
-            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && isCodeLinear(code.charAt(0));
+            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && areAllCodesWithThisCodeLetterLinear(code.charAt(0));
         } else if (index == 3) {
-            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && isCodeLinear(code.charAt(0));
+            return code.length() > MINIMUM_LENGTH_FOR_CODE_E_AND_CODE_H && areAllCodesWithThisCodeLetterLinear(code.charAt(0));
         } else {
             return false;
         }
@@ -52,7 +52,7 @@ public class Code {
         }
     }
 
-    private static boolean isCodeLinear(char codeLetter) {
+    private static boolean areAllCodesWithThisCodeLetterLinear(char codeLetter) {
         int highestNumber;
         try {
             highestNumber = findHighestNumber(codeLetter);
@@ -67,15 +67,14 @@ public class Code {
         }
 
     }
-    
 
-     private static int findHighestNumber(char codeLetter) throws NumberFormatException {
+    private static int findHighestNumber(char codeLetter) throws NumberFormatException {
         int highestNumber = 0;
-            for (int i = 0; i < listInputCodes.size(); i++) {
-                if (listInputCodes.get(i).charAt(0) == codeLetter && Integer.parseInt(listInputCodes.get(i).substring(1)) > highestNumber ) {
-                    highestNumber = Integer.parseInt(listInputCodes.get(i).substring(1, listInputCodes.get(i).length()));
-                }
+        for (int i = 0; i < listInputCodes.size(); i++) {
+            if (listInputCodes.get(i).charAt(0) == codeLetter && Integer.parseInt(listInputCodes.get(i).substring(1)) > highestNumber) {
+                highestNumber = Integer.parseInt(listInputCodes.get(i).substring(1, listInputCodes.get(i).length()));
             }
+        }
         return highestNumber;
     }
 }

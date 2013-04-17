@@ -13,7 +13,7 @@ public class JSONFileCreator {
     public JSONObject getjsonFile() {
         return jsonFile;
     }
-    
+
     public JSONFileCreator(JSONObject fileForTest) throws Exception {
         jsonFile = fileForTest;
     }
@@ -36,7 +36,7 @@ public class JSONFileCreator {
     }
 
     /*
-     * Create the result XML file(with indent). 
+     * Create the result XML file(with indent).
      */
     public static void saveJSONFile(String xmlFileName, JSONObject jsonFileToSave) throws Exception {
 
@@ -65,7 +65,7 @@ public class JSONFileCreator {
             for (int i = 0; i < file.getJSONArrayByName(jsonArrayName).size(); i++) {
                 individualReclamationJSONObjectList.add(new FamilyMemberData(i, file));
             }
-            
+
             return individualReclamationJSONObjectList;
         } catch (Exception e) {
             throw new Exception();

@@ -1,7 +1,7 @@
 package Validator;
 
 public class StringAnalyzer {
- 
+
     public static boolean isTheStringMadeOfDigitOnly(String onlyDigits) {
         for (int i = 0; i < onlyDigits.length(); i++) {
             if (!(isTheCharacterADigit(onlyDigits.charAt(i)))) {
@@ -15,17 +15,3 @@ public class StringAnalyzer {
         return Character.isDigit(theCharacter);
     }
 }
-
-    
-    
-    
-    
-   
-
-    
-    
-    
-    
-    
-
-    

@@ -3,16 +3,14 @@ package Validator;
 import InsuranceSoftware.ValidationRunner;
 
 public class ServiceNumber {
-    
-    
+
     static String serviceList[] = new String[]{"0", "100", "150", "175", "200", "300",
         "400", "500", "600", "700"};
-    
-    
+
     public static boolean isServiceNumberValid(String serviceNumber) {
-        if ( (arrayServiceList(serviceNumber)) ) {
+        if ((arrayServiceList(serviceNumber))) {
             return true;
-        }else{
+        } else {
             ValidationRunner.setErrorMessage("Un numero de soin est invalide.");
             return false;
         }
@@ -27,23 +25,21 @@ public class ServiceNumber {
                 }
             }
             return false;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     /*
-     * When a service number is valid within a certain range, it is formatted for simplified processing. 
+     * When a service number is valid within a certain range, it is formatted
+     * for simplified processing.
      */
     private static String formatServiceNumberToExpectedValue(String serviceNumber, int minValue, int maxValue) {
-        
+
         if ((Integer.parseInt(serviceNumber) >= minValue) && (Integer.parseInt(serviceNumber) <= maxValue)) {
-            return ""+ minValue;
+            return "" + minValue;
         } else {
             return serviceNumber;
         }
     }
-    
 }
-    
-

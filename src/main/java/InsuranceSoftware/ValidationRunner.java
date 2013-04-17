@@ -25,7 +25,7 @@ public class ValidationRunner {
         }
 
         FamilyData.fileNumber = fileToValidate.getjsonFile().getString("dossier");
-        FamilyData.contractType = FamilyData.fileNumber.substring(0,1);
+        FamilyData.contractType = FamilyData.fileNumber.substring(0, 1);
         FamilyData.month = fileToValidate.getjsonFile().getString("mois");
 
 
@@ -34,8 +34,8 @@ public class ValidationRunner {
 
     private static boolean validateFileContent() {
         boolean testValidFileFormat = true;
-        
-        if(!isFileToValidateInValidFormat()){
+
+        if (!isFileToValidateInValidFormat()) {
             testValidFileFormat = false;
         }
         if (!Validator.FileNumber.isFileNumberValid(FamilyMemberData.fileNumber)) {
@@ -44,7 +44,7 @@ public class ValidationRunner {
         if (!areAllJSONArrayObjectValid()) {
             testValidFileFormat = false;
         }
-        
+
         return testValidFileFormat;
     }
 
@@ -57,33 +57,33 @@ public class ValidationRunner {
         return true;
     }
 
-    
-    
-    private static boolean areAllJSONArrayObjectValid(){
+    private static boolean areAllJSONArrayObjectValid() {
         boolean testAJSONArrayObject = true;
-        if (!areAllDatesValid()){
+        if (!areAllDatesValid()) {
             ValidationRunner.setErrorMessage("Erreur: Une date n'est pas valide.");
             testAJSONArrayObject = false;
         }
-        if (!areAllSoinsValid()){
-           ValidationRunner.setErrorMessage("Erreur: Un soin n'est pas valide.");
+        if (!areAllSoinsValid()) {
+            ValidationRunner.setErrorMessage("Erreur: Un soin n'est pas valide.");
             testAJSONArrayObject = false;
         }
-        if (!areAllMontantsValid()){
+        if (!areAllMontantsValid()) {
             ValidationRunner.setErrorMessage("Erreur: Un montant n'est pas valide.");
             testAJSONArrayObject = false;
         }
-        if (!areAllCodesValid()){
-            ValidationRunner.setErrorMessage("Erreur: Un code n'est pas valide."); 
+        if (!areAllCodesValid()) {
+            ValidationRunner.setErrorMessage("Erreur: Un code n'est pas valide.");
             testAJSONArrayObject = false;
         }
-        
+
         return testAJSONArrayObject;
     }
-    
-    private static boolean areAllDatesValid(){
+
+    private static boolean areAllDatesValid() {
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                if (!isADateValid(i)) return false;
+            if (!isADateValid(i)) {
+                return false;
+            }
         }
         return true;
     }
@@ -94,13 +94,13 @@ public class ValidationRunner {
         }
         return false;
     }
-    
-    private static boolean areAllSoinsValid(){
+
+    private static boolean areAllSoinsValid() {
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-            
-                if (!isASoinValid(i)) {
-                    return false;
-                }
+
+            if (!isASoinValid(i)) {
+                return false;
+            }
         }
         return true;
     }
@@ -111,12 +111,12 @@ public class ValidationRunner {
         }
         return false;
     }
-    
-    private static boolean areAllMontantsValid(){
+
+    private static boolean areAllMontantsValid() {
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                if (!isAMontantValid(i)) {
-                    return false;
-                }
+            if (!isAMontantValid(i)) {
+                return false;
+            }
         }
         return true;
     }
@@ -127,15 +127,12 @@ public class ValidationRunner {
         }
         return false;
     }
-    
-    private static boolean areAllCodesValid(){
+
+    private static boolean areAllCodesValid() {
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
-                Validator.Code.listInputCodes.add(listOfAllReclamations.get(i).getCode());
+            Validator.Code.listInputCodes.add(listOfAllReclamations.get(i).getCode());
         }
-        
+
         return Validator.Code.areAllCodesValid();
     }
-
-   
-    
 }

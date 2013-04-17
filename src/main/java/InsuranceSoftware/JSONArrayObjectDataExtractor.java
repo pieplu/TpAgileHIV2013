@@ -9,8 +9,7 @@ package InsuranceSoftware;
  * @author ff291104
  */
 public class JSONArrayObjectDataExtractor {
-    
-    
+
     public static String getCodeFromJSONArrayObject(JSONFileCreator file, int index) throws Exception {
         try {
             return file.getjsonFile().getJSONArray("reclamations").getJSONObject(index).getString("code");
@@ -46,6 +45,4 @@ public class JSONArrayObjectDataExtractor {
             throw new Exception();
         }
     }
-
-    
 }

@@ -35,7 +35,7 @@ public class JSONFileContentProcessor {
 
         JSONArray reclamationsArray = new JSONArray();
 
-        for (int i = 0; i < allReclamationsList.size();i++) {
+        for (int i = 0; i < allReclamationsList.size(); i++) {
             JSONObject reclamation = new JSONObject();
             reclamation.accumulate("soin", allReclamationsList.get(i).getSoin());
             reclamation.accumulate("code", allReclamationsList.get(i).getCode());
@@ -48,17 +48,16 @@ public class JSONFileContentProcessor {
 
         outputJSONFile.accumulate("total", Calculator.getSumOfAllReclamations());
     }
-    
-    public static String calculateAmountToRefundConsideringMonthlyMax(ArrayList<FamilyMemberData> clientReclamationList, int countNumber) throws NumberFormatException { 
+
+    public static String calculateAmountToRefundConsideringMonthlyMax(ArrayList<FamilyMemberData> clientReclamationList, int countNumber) throws NumberFormatException {
         FamilyData.setAndCreateMonthlyMaxDependingOnNumSoin(clientReclamationList.get(countNumber));
         return Dollar.formatAmountToStandardFormat(Calculator.refundCalculator(clientReclamationList.get(countNumber)));
     }
-    
+
     private void setReclamationListInJSONObject(String jsonArrayName) {
         try {
             allReclamationsList = JSONFileCreator.createListOfIndividualReclamationJSONObject(jsonArrayName, file);
         } catch (Exception ex) {
         }
     }
-
 }

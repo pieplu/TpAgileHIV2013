@@ -2,8 +2,8 @@ package RefundCalculator;
 
 import InsuranceSoftware.FamilyData;
 import InsuranceSoftware.FamilyMemberData;
-import InsuranceSoftware.ValidationRunner;
 import InsuranceSoftware.MonthlyMaxRestriction;
+import InsuranceSoftware.ValidationRunner;
 import Validator.Dollar;
 
 public class Calculator {
@@ -15,7 +15,6 @@ public class Calculator {
     private static int amountToRefund = 0;
     private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;
-    
 
     public static String getSumOfAllReclamations() {
         return Dollar.formatAmountToStandardFormat(sumOfAllReclamations);
@@ -42,7 +41,6 @@ public class Calculator {
         return refundForThisReclamation;
     }
 
-        
     private static ContractTemplate contractSelector(String contractType) {
         ContractTemplate InstanceOfContract = new ContractTemplate();
         if (contractType.equals("A")) {
@@ -62,8 +60,7 @@ public class Calculator {
         }
         return InstanceOfContract;
     }
-    
-    
+
     private static int ajustRefundIfCodeH(FamilyMemberData reclamation) {
         if (reclamation.contractType.equals("H")) {
             return refundForThisReclamation / 2;
@@ -91,10 +88,6 @@ public class Calculator {
         return amountAsIntegers;
     }
 
-   
-
-   
-
     private static void setFamilyMemberMonthlyMax(int indexFamilyMember, int index) {
         if (!FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
             ajustToMonthlyMax(indexFamilyMember, index);
@@ -103,8 +96,8 @@ public class Calculator {
         }
         FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] += refundForThisReclamation;
     }
-    
-     private static void ajustToMonthlyMax(int indexFamilyMember, int index) {
+
+    private static void ajustToMonthlyMax(int indexFamilyMember, int index) {
         if ((FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > MonthlyMaxRestriction.monthlyMaxForEachNumSoin[index]) {
             refundForThisReclamation = MonthlyMaxRestriction.monthlyMaxForEachNumSoin[index] - FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
             FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
