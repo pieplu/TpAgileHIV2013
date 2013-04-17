@@ -14,6 +14,10 @@ public class JSONFileCreator {
     public JSONObject getjsonFile() {
         return jsonFile;
     }
+    
+    public JSONFileCreator(JSONObject fileForTest) throws Exception {
+        jsonFile = fileForTest;
+    }
 
     public JSONFileCreator(String accessPath) throws Exception {
         String json = FileReader.loadFileIntoString(accessPath);

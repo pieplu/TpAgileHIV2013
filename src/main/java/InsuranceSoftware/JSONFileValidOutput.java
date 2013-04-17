@@ -31,9 +31,6 @@ public class JSONFileValidOutput {
         return file;
     }
 
-    /**
-     * Create tags for a valid output file
-     */
     public void createJSONObjectInOutputFile() throws Exception {
         loadJSONObjectFromArg0(argsFromMain);
         setReclamationListInJSONObject("reclamations");
@@ -61,11 +58,7 @@ public class JSONFileValidOutput {
         familyMemberMonthlyMax.setFamilyMembersMonthlyMaxReference(clientReclamationList.get(countNumber));
         return Dollar.formatAmountToStandardFormat(Calculator.refundCalculator(clientReclamationList.get(countNumber)));
     }
-
-
-    /*
-     * Affects the list of the reclamations made by the client
-     */
+    
     private void setReclamationListInJSONObject(String jsonArrayName) {
         try {
             allReclamationsList = JSONFileCreator.createListOfIndividualReclamationJSONObject(jsonArrayName, file);
