@@ -1,10 +1,10 @@
 package RefundCalculator;
 
+import InsuranceSoftware.FamilyData;
 import InsuranceSoftware.FamilyMemberData;
 import InsuranceSoftware.ValidationRunner;
-import InsuranceSoftware.familyMemberMonthlyMax;
+import InsuranceSoftware.MonthlyMaxRestriction;
 import Validator.Dollar;
-import java.util.ArrayList;
 
 public class Calculator {
 
@@ -22,8 +22,8 @@ public class Calculator {
     }
 
     static int getIndexOfMaxAmountForNumSoin(int numSoin) {
-        for (int i = 0; i < familyMemberMonthlyMax.numSoinWithMaximum.length; i++) {
-            if (numSoin == (familyMemberMonthlyMax.numSoinWithMaximum[i])) {
+        for (int i = 0; i < MonthlyMaxRestriction.numSoinWithMaximum.length; i++) {
+            if (numSoin == (MonthlyMaxRestriction.numSoinWithMaximum[i])) {
                 return i;
             }
         }
@@ -96,18 +96,18 @@ public class Calculator {
    
 
     private static void setFamilyMemberMonthlyMax(int indexFamilyMember, int index) {
-        if (!familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
+        if (!FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
             ajustToMonthlyMax(indexFamilyMember, index);
         } else {
             refundForThisReclamation = 0;
         }
-        familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] += refundForThisReclamation;
+        FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] += refundForThisReclamation;
     }
     
      private static void ajustToMonthlyMax(int indexFamilyMember, int index) {
-        if ((familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > familyMemberMonthlyMax.monthlyMaxForEachNumSoin[index]) {
-            refundForThisReclamation = familyMemberMonthlyMax.monthlyMaxForEachNumSoin[index] - familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
-            familyMemberMonthlyMax.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
+        if ((FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index] + refundForThisReclamation) > MonthlyMaxRestriction.monthlyMaxForEachNumSoin[index]) {
+            refundForThisReclamation = MonthlyMaxRestriction.monthlyMaxForEachNumSoin[index] - FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).refundDollarForThisMonth[index];
+            FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index] = true;
         }
     }
 }

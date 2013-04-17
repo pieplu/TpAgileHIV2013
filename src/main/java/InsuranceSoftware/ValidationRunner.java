@@ -24,9 +24,9 @@ public class ValidationRunner {
             return false;
         }
 
-        FamilyMemberData.fileNumber = fileToValidate.getjsonFile().getString("dossier");
-        FamilyMemberData.contractType = FamilyMemberData.fileNumber.substring(0,1);
-        FamilyMemberData.month = fileToValidate.getjsonFile().getString("mois");
+        FamilyData.fileNumber = fileToValidate.getjsonFile().getString("dossier");
+        FamilyData.contractType = FamilyData.fileNumber.substring(0,1);
+        FamilyData.month = fileToValidate.getjsonFile().getString("mois");
 
 
         return validateFileContent();
@@ -89,8 +89,7 @@ public class ValidationRunner {
     }
 
     private static boolean isADateValid(int compteur) {
-        System.out.println("La date: " + listOfAllReclamations.get(compteur).getSoin() );
-        if (Validator.Date.isDateValid(FamilyMemberData.month, listOfAllReclamations.get(compteur).getDate())) {
+        if (Validator.Date.isDateValid(FamilyData.month, listOfAllReclamations.get(compteur).getDate())) {
             return true;
         }
         return false;

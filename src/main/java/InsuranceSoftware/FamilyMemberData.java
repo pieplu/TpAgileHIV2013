@@ -1,10 +1,8 @@
 package InsuranceSoftware;
 
-public class FamilyMemberData {
+public class FamilyMemberData extends FamilyData {
 
-    public static String month;
-    public static String fileNumber;
-    public static String contractType;
+    
     private String soin;
     private String date;
     private String dollar;
@@ -33,7 +31,7 @@ public class FamilyMemberData {
         return indexFamilyMember;
     }
     public void setIndexFamilyMember(String code) {
-        indexFamilyMember = familyMemberMonthlyMax.familyCodeList.indexOf(code);
+        indexFamilyMember = FamilyData.familyCodeList.indexOf(code);
     }
     
     public FamilyMemberData(){

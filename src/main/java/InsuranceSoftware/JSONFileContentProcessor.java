@@ -1,24 +1,19 @@
 package InsuranceSoftware;
 
-import java.util.ArrayList;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONArray;
-import java.io.FileWriter;
-import java.io.IOException;
 import RefundCalculator.Calculator;
-import Validator.ContractLetter;
 import Validator.Dollar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
-public class JSONFileValidOutput {
+public class JSONFileContentProcessor {
 
     private JSONFileCreator file;
     private JSONObject outputJSONFile;
     private ArrayList<FamilyMemberData> allReclamationsList;
     private String[] argsFromMain;
 
-    public JSONFileValidOutput(String[] argsFromMain) {
+    public JSONFileContentProcessor(String[] argsFromMain) {
         this.argsFromMain = argsFromMain;
     }
 
@@ -45,7 +40,7 @@ public class JSONFileValidOutput {
             reclamation.accumulate("soin", allReclamationsList.get(i).getSoin());
             reclamation.accumulate("code", allReclamationsList.get(i).getCode());
             reclamation.accumulate("date", allReclamationsList.get(i).getDate());
-            reclamation.accumulate("montant", calculateAmountToRefundInString(allReclamationsList, i));
+            reclamation.accumulate("montant", calculateAmountToRefundConsideringMonthlyMax(allReclamationsList, i));
             reclamationsArray.add(reclamation);
         }
 
@@ -54,8 +49,8 @@ public class JSONFileValidOutput {
         outputJSONFile.accumulate("total", Calculator.getSumOfAllReclamations());
     }
     
-    public static String calculateAmountToRefundInString(ArrayList<FamilyMemberData> clientReclamationList, int countNumber) throws NumberFormatException { 
-        familyMemberMonthlyMax.setFamilyMembersMonthlyMaxReference(clientReclamationList.get(countNumber));
+    public static String calculateAmountToRefundConsideringMonthlyMax(ArrayList<FamilyMemberData> clientReclamationList, int countNumber) throws NumberFormatException { 
+        FamilyData.setAndCreateMonthlyMaxDependingOnNumSoin(clientReclamationList.get(countNumber));
         return Dollar.formatAmountToStandardFormat(Calculator.refundCalculator(clientReclamationList.get(countNumber)));
     }
     

@@ -1,11 +1,10 @@
 package InsuranceSoftware;
 
-import net.sf.json.JSONObject;
-import net.sf.json.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.util.ArrayList;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 public class JSONFileCreator {
 
