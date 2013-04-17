@@ -9,7 +9,14 @@ public class JSONArrayObject {
     private String date;
     private String dollar;
     private String code;
-    private familyMemberMonthlyMax monthlyMaxReference;
+    private int indexFamilyMember;
+
+    public int getIndexFamilyMember() {
+        return indexFamilyMember;
+    }
+    public void setIndexFamilyMember(String code) {
+        indexFamilyMember = familyMemberMonthlyMax.familyCodeList.indexOf(code);
+    }
     
     public JSONArrayObject(){
     }
@@ -20,13 +27,7 @@ public class JSONArrayObject {
         this.contractType = contracType;
     }
 
-    public familyMemberMonthlyMax getMonthlyMaxReference() {
-        return monthlyMaxReference;
-    }
-
-    public void setMonthlyMaxReference(familyMemberMonthlyMax monthlyMaxReference) {
-        this.monthlyMaxReference = monthlyMaxReference;
-    }
+    
     
     
    

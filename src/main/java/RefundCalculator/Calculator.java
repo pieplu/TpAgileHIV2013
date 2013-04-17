@@ -35,9 +35,8 @@ public class Calculator {
         refundForThisReclamation = contractSelector(JSONArrayObject.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
         refundForThisReclamation = ajustRefundIfCodeH(reclamation);
         int index = getIndexOfMaxAmountForNumSoin(Integer.parseInt(reclamation.getSoin()));
-        int indexFamilyMember = familyMemberMonthlyMax.getFamilyMembersMonthlyMaxIndex(reclamation.getCode());
         if (index >= 0) {
-            setFamilyMemberMonthlyMax(indexFamilyMember, index);
+            setFamilyMemberMonthlyMax(reclamation.getIndexFamilyMember(), index);
         }
         sumOfAllReclamations += refundForThisReclamation;
         return refundForThisReclamation;

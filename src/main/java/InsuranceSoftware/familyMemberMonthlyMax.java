@@ -27,6 +27,7 @@ public class familyMemberMonthlyMax {
             familyCodeList.add(reclamation.getCode());
             familyMembersMonthlyMaxList.add(new familyMemberMonthlyMax());
         }
+        reclamation.setIndexFamilyMember(reclamation.getCode());
     }
 
     public static int getFamilyMembersMonthlyMaxIndex(String code) {
