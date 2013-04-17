@@ -18,7 +18,6 @@ public class ValidationRunnerTest {
     JSONFileCreator mockFileToTest;
     JSONObject testJSONObject;
     String ErrorMessage = "";
-    ArrayList<JSONArrayObject> listOfAllReclamations;
 
     @Before
     public void setUp() throws Exception {
@@ -27,7 +26,6 @@ public class ValidationRunnerTest {
                 + "\"code\": \"H1\",\"date\": \"2013-03-02\",\"montant\": \"100,00$"
                 + "\"}]}");
         mockFileToTest = new JSONFileCreator (testJSONObject);
-        listOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamations", mockFileToTest);
     }
     
     @After
