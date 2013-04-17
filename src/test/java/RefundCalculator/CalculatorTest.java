@@ -4,7 +4,7 @@
  */
 package RefundCalculator;
 
-import InsuranceSoftware.JSONArrayObject;
+import InsuranceSoftware.FamilyMemberData;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
     
     private Calculator mock ;
-    private JSONArrayObject client ;
+    private FamilyMemberData client ;
     
     public CalculatorTest() {
     }
@@ -46,14 +46,14 @@ public class CalculatorTest {
     
      @Test
     public void testRefundCalculator_int2() {
-         client = new JSONArrayObject("700", "0.00$", "A");
+         client = new FamilyMemberData("700", "0.00$", "A");
          mock.refundCalculator (client);
         assertEquals(mock.refundCalculator(632), 0);
     }
     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin() {
-         client = new JSONArrayObject("600", "90.00$", "A");
+         client = new FamilyMemberData("600", "90.00$", "A");
          mock.refundCalculator (client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
     }
@@ -61,7 +61,7 @@ public class CalculatorTest {
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin2() {
          
-         client = new JSONArrayObject("600", "90.00$", "A");
+         client = new FamilyMemberData("600", "90.00$", "A");
          mock.refundCalculator (client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100),5);
     }

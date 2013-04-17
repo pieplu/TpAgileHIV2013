@@ -59,12 +59,12 @@ public class JSONFileCreator {
         JSONFileCreator.saveJSONFile(argument1, newError);
     }
 
-    public static ArrayList<JSONArrayObject> createListOfIndividualReclamationJSONObject(String jsonArrayName, JSONFileCreator file) throws Exception {
+    public static ArrayList<FamilyMemberData> createListOfIndividualReclamationJSONObject(String jsonArrayName, JSONFileCreator file) throws Exception {
         try {
-            ArrayList<JSONArrayObject> individualReclamationJSONObjectList = new ArrayList<JSONArrayObject>();
+            ArrayList<FamilyMemberData> individualReclamationJSONObjectList = new ArrayList<FamilyMemberData>();
 
             for (int i = 0; i < file.getJSONArrayByName(jsonArrayName).size(); i++) {
-                individualReclamationJSONObjectList.add(new JSONArrayObject(i, file));
+                individualReclamationJSONObjectList.add(new FamilyMemberData(i, file));
             }
             
             return individualReclamationJSONObjectList;

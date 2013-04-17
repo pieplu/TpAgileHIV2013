@@ -1,6 +1,6 @@
 package RefundCalculator;
 
-import InsuranceSoftware.JSONArrayObject;
+import InsuranceSoftware.FamilyMemberData;
 import InsuranceSoftware.ValidationRunner;
 import InsuranceSoftware.familyMemberMonthlyMax;
 import Validator.Dollar;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-    public static JSONArrayObject getJSONArrayObject(int index) {
+    public static FamilyMemberData getJSONArrayObject(int index) {
         return ValidationRunner.listOfAllReclamations.get(index);
     }
     private static int amountFromJsonFile = 0;
@@ -30,9 +30,9 @@ public class Calculator {
         return -1;
     }
 
-    public static int refundCalculator(JSONArrayObject reclamation) {
+    public static int refundCalculator(FamilyMemberData reclamation) {
         amountFromJsonFile = formatDollar(reclamation);
-        refundForThisReclamation = contractSelector(JSONArrayObject.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
+        refundForThisReclamation = contractSelector(FamilyMemberData.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
         refundForThisReclamation = ajustRefundIfCodeH(reclamation);
         int index = getIndexOfMaxAmountForNumSoin(Integer.parseInt(reclamation.getSoin()));
         if (index >= 0) {
@@ -64,7 +64,7 @@ public class Calculator {
     }
     
     
-    private static int ajustRefundIfCodeH(JSONArrayObject reclamation) {
+    private static int ajustRefundIfCodeH(FamilyMemberData reclamation) {
         if (reclamation.contractType.equals("H")) {
             return refundForThisReclamation / 2;
         } else {
@@ -84,7 +84,7 @@ public class Calculator {
         return (amountFromJsonFile * multiple) / 100;
     }
 
-    private static int formatDollar(JSONArrayObject reclamation) {
+    private static int formatDollar(FamilyMemberData reclamation) {
         String amountWithoutDollarSign = reclamation.getMontant().substring(0, reclamation.getMontant().length() - 1);
         amountWithoutDollarSign = Dollar.removeDotAndCommaFromString(amountWithoutDollarSign);
         int amountAsIntegers = Dollar.returnDollarValueInCents(amountWithoutDollarSign);

@@ -15,7 +15,7 @@ public class JSONFileValidOutput {
 
     private JSONFileCreator file;
     private JSONObject outputJSONFile;
-    private ArrayList<JSONArrayObject> allReclamationsList;
+    private ArrayList<FamilyMemberData> allReclamationsList;
     private String[] argsFromMain;
 
     public JSONFileValidOutput(String[] argsFromMain) {
@@ -54,7 +54,7 @@ public class JSONFileValidOutput {
         outputJSONFile.accumulate("total", Calculator.getSumOfAllReclamations());
     }
     
-    public static String calculateAmountToRefundInString(ArrayList<JSONArrayObject> clientReclamationList, int countNumber) throws NumberFormatException { 
+    public static String calculateAmountToRefundInString(ArrayList<FamilyMemberData> clientReclamationList, int countNumber) throws NumberFormatException { 
         familyMemberMonthlyMax.setFamilyMembersMonthlyMaxReference(clientReclamationList.get(countNumber));
         return Dollar.formatAmountToStandardFormat(Calculator.refundCalculator(clientReclamationList.get(countNumber)));
     }

@@ -1,6 +1,6 @@
 package Validator;
 
-import InsuranceSoftware.JSONArrayObject;
+import InsuranceSoftware.FamilyMemberData;
 import InsuranceSoftware.ValidationRunner;
 import InsuranceSoftware.JSONFileCreator;
 import java.util.ArrayList;

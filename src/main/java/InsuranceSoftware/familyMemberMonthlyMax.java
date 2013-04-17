@@ -22,7 +22,7 @@ public class familyMemberMonthlyMax {
     public int[] refundDollarForThisMonth = new int[]{0, 0, 0, 0, 0};
     public boolean[] isMonthlyMaxAttained = new boolean[]{false, false, false, false, false};
 
-    public static void setFamilyMembersMonthlyMaxReference(JSONArrayObject reclamation) {
+    public static void setFamilyMembersMonthlyMaxReference(FamilyMemberData reclamation) {
         if (!familyCodeList.contains(reclamation.getCode())) {
             familyCodeList.add(reclamation.getCode());
             familyMembersMonthlyMaxList.add(new familyMemberMonthlyMax());
