@@ -11,7 +11,7 @@ public class Calculator {
     public static JSONArrayObject getJSONArrayObject(int index) {
         return ValidationRunner.listOfAllReclamations.get(index);
     }
-    private static int amountFromJsonFile;
+    private static int amountFromJsonFile = 0;
     private static int amountToRefund = 0;
     private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;

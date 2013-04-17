@@ -36,7 +36,7 @@ public class CalculatorTest {
     
     @After
     public void tearDown() {
-        
+        mock = null;
     }
 
 
@@ -47,22 +47,25 @@ public class CalculatorTest {
     
      @Test
     public void testRefundCalculator_int2() {
-        assertEquals(mock.refundCalculator(700), 630);
+        assertEquals(mock.refundCalculator(600), 5400);
     }
     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin() {
          client = new JSONArrayObject("700", "90.00", "A");
          mock.refundCalculator (client);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 9000);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
-     /*
+     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin2() {
          
-         mock.refundCalculator ("A", 30, 700);
+         client = new JSONArrayObject("700", "90.00", "A");
+         mock.refundCalculator (client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100),5);
     }
+     
+     /*
        @Test 
         public void testgetIndexOfMaxAmountForNumSoin3() {
          

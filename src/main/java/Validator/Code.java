@@ -6,7 +6,8 @@ import java.util.ArrayList;
  *
  * @author Mathieu Latour
  */
-public class Code {
+public class Cod
+e {
 
     final static String[] ArrayOfValidCodeLetters = {"A", "C", "E", "H"};
     final static int MAXIMUM_LENGTH_FOR_CODE_A_AND_CODE_C = 1;
