@@ -17,53 +17,67 @@ public class CodeTest {
       
     @Test
     public void testCodeLetterIsValidA() {
-        assertTrue(Code.isCodeValid("A"));
+        Code.listInputCodes.add("A");
+        assertTrue(Code.areAllCodesValid());
     }
     
     @Test
     public void testCodeLetterIsValidC() {
-        assertTrue(Code.isCodeValid("C"));
+        Code.listInputCodes.add("C");
+        assertTrue(Code.areAllCodesValid());
     }
     
     @Test
     public void testCodeLetterIsValidE() {
-        assertTrue(Code.isCodeValid("E1"));
+        Code.listInputCodes.add("E1");
+        assertTrue(Code.areAllCodesValid());
     }
     
     @Test
     public void testCodeLetterIsValidH() {
-        
-        assertTrue(Code.isCodeValid("H1"));
+        Code.listInputCodes.add("H1");
+        assertTrue(Code.areAllCodesValid());
     }
     
     @Test
     public void testCodeLetterIsInvalid() {
-        assertFalse(Code.isCodeValid("1"));
+        Code.listInputCodes.add("1");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("1");
     }
     
     @Test
     public void testCodeLetterIsInvalid2() {
-        assertFalse(Code.isCodeValid("a"));
+        Code.listInputCodes.add("a");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("a");
     }
     
     @Test
     public void testCodeLetterIsInvalid3() {
-        assertFalse(Code.isCodeValid("AA"));
+        Code.listInputCodes.add("AA");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("AA");
     }
     
     @Test
     public void testCodeLetterIsInvalid4() {
-        assertFalse(Code.isCodeValid("HA"));
+        Code.listInputCodes.add("HA");
+        assertFalse(Code.areAllCodesValid());
+         Code.listInputCodes.remove("HA");
     }
     
      @Test
     public void testCodeLetterIsInvalid5() {
-        assertFalse(Code.isCodeValid("EP"));
+        Code.listInputCodes.add("EP");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("EP");
     }
     
     @Test
     public void testCodeLetterIsEmpty() {
-        assertFalse(Code.isCodeValid(""));
+         Code.listInputCodes.add("");
+        assertFalse(Code.areAllCodesValid());
+         Code.listInputCodes.remove("");
     }
-    
 }
