@@ -4,6 +4,7 @@
  */
 package RefundCalculator;
 
+import InsuranceSoftware.JSONArrayObject;
 import RefundCalculator.Calculator;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,112 +16,90 @@ import static org.junit.Assert.*;
  */
 public class ContractATest {
     
-    public ContractATest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    /*
+    private Calculator mock ;
+
     @Test
-    public void refundCalculationForSoin0TypeA(){
-      assertTrue(25.00 == Calculator.refundCalculator("A", 100, 0));
+    public void testSelectNumSoinContrat() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.selectNumSoinContrat(100), 3500);
     }
     
     @Test
-    public void refundCalculationForSoin0TypeAInvalid(){
-      assertFalse(1 == Calculator.refundCalculator("A", 100, 0));
+    public void testSelectNumSoinContratfail() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.selectNumSoinContrat(99), 0);
     }
-    
+  
     @Test
-    public void refundCalculationForSoin100TypeA(){
-      assertTrue(35.00 == Calculator.refundCalculator("A", 100, 100));
+    public void testRefundForContractNumSoin0() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin0(), 2500);
+         
     }
-    
+
     @Test
-    public void refundCalculationForSoin100TypeAInvalid(){
-      assertFalse(1 == Calculator.refundCalculator("A", 100, 100));
+    public void testRefundForContractNumSoin100() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin100(), 3500);
     }
-    
+
     @Test
-    public void refundCalculationForSoin150TypeA(){
-      assertTrue(0.00 == Calculator.refundCalculator("A", 100, 150));
+    public void testRefundForContractNumSoin150() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin150(), 0);
     }
-    
+
     @Test
-    public void refundCalculationForSoin150TypeAInvalid(){
-      assertFalse(1 == Calculator.refundCalculator("A", 100, 150));
+    public void testRefundForContractNumSoin175() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin175(), 5000);
     }
-    
+
     @Test
-    public void refundCalculationForSoin175TypeA(){
-      assertTrue(50.00 == Calculator.refundCalculator("A", 100, 175));
+    public void testRefundForContractNumSoin200() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin200(), 2500);
     }
-    
+
     @Test
-    public void refundCalculationForSoin175TypeAInvalid(){
-      assertFalse(49 == Calculator.refundCalculator("A", 100, 175));
+    public void testRefundForContractNumSoin300() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin300(), 0);
     }
-    
+
     @Test
-    public void refundCalculationForSoin200TypeA(){
-      assertTrue(25.00 == Calculator.refundCalculator("A", 100, 200));
+    public void testRefundForContractNumSoin400() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin400(), 0);
     }
-    
+
     @Test
-    public void refundCalculationForSoin200TypeAInvalid(){
-      assertFalse(49 == Calculator.refundCalculator("A", 100, 200));
+    public void testRefundForContractNumSoin500() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin500(), 2500);
     }
-    
+
     @Test
-    public void refundCalculationForSoin300TypeA(){
-      assertTrue(0.00 == Calculator.refundCalculator("A", 100, 300));
+    public void testRefundForContractNumSoin600() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin600(), 4000);
     }
-    
+
     @Test
-    public void refundCalculationForSoin300TypeAInvalid(){
-      assertFalse(49 == Calculator.refundCalculator("A", 100, 300));
+    public void testRefundForContractNumSoin700() {
+        ContractA contractMock = new ContractA();
+        mock.refundCalculator (new JSONArrayObject("0", "100.00$", "A"));
+        assertEquals(contractMock.refundForContractNumSoin700(), 0);
     }
-    
-     
-    @Test
-    public void refundCalculationForSoin400TypeA(){
-      assertTrue(0.00 == Calculator.refundCalculator("A", 100, 400));
-    }
-    
-    @Test
-    public void refundCalculationForSoin400TypeAInvalid(){
-      assertFalse(49 == Calculator.refundCalculator("A", 100, 400));
-    }
-    
-     @Test
-    public void refundCalculationForSoin500TypeA(){
-      assertTrue(25.00 == Calculator.refundCalculator("A", 100, 500));
-    }
-    
-    @Test
-    public void refundCalculationForSoin500TypeAInvalid(){
-      assertFalse(25.01 == Calculator.refundCalculator("A", 100, 500));
-    }
-    
-     @Test
-    public void refundCalculationForSoin600TypeA(){
-      assertTrue(40.00 == Calculator.refundCalculator("A", 100, 600));
-    }
-    
-    @Test
-    public void refundCalculationForSoin600TypeAInvalid(){
-      assertFalse(25.01 == Calculator.refundCalculator("A", 100, 600));
-    }
-    
-    @Test
-    public void refundCalculationForSoin700TypeA(){
-      assertTrue(0 == Calculator.refundCalculator("A", 100, 700));
-    }
-    
-    @Test
-    public void refundCalculationForSoin700TypeAInvalid(){
-      assertFalse(1 == Calculator.refundCalculator("A", 100, 700));
-    }
-    */
 }

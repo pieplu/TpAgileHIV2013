@@ -47,14 +47,14 @@ public class CalculatorTest {
     
      @Test
     public void testRefundCalculator_int2() {
-         client = new JSONArrayObject("700", "0.00", "A");
+         client = new JSONArrayObject("700", "0.00$", "A");
          mock.refundCalculator (client);
         assertEquals(mock.refundCalculator(632), 0);
     }
     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin() {
-         client = new JSONArrayObject("600", "90.00", "A");
+         client = new JSONArrayObject("600", "90.00$", "A");
          mock.refundCalculator (client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
     }
@@ -62,7 +62,7 @@ public class CalculatorTest {
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin2() {
          
-         client = new JSONArrayObject("600", "90.00", "A");
+         client = new JSONArrayObject("600", "90.00$", "A");
          mock.refundCalculator (client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100),5);
     }
