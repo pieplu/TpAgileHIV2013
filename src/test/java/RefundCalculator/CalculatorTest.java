@@ -6,6 +6,7 @@
 package RefundCalculator;
 
 import InsuranceSoftware.JSONArrayObject;
+import InsuranceSoftware.familyMemberMonthlyMax;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -17,7 +18,6 @@ public class CalculatorTest {
     
     private Calculator mock ;
     private JSONArrayObject client ;
-    
     public CalculatorTest() {
     }
 
@@ -32,7 +32,7 @@ public class CalculatorTest {
     @Before
     public void setUp() {
           mock = new Calculator();
-    }
+         }
     
     @After
     public void tearDown() {
@@ -55,32 +55,33 @@ public class CalculatorTest {
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin() {
          client = new JSONArrayObject("600", "90.00$", "A");
-         mock.refundCalculator (client);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(600), 4);
     }
-     
      @Test 
      public void testgetIndexOfMaxAmountForNumSoin2() {
-         
          client = new JSONArrayObject("600", "90.00$", "A");
-         mock.refundCalculator (client);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100),5);
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(600),4);
     }
      
-     /*
        @Test 
         public void testgetIndexOfMaxAmountForNumSoin3() {
-         
-         mock.refundCalculator ("A", 50, 700);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
+          client  = new JSONArrayObject("700", "50.00$", "A");
+        assertEquals(mock.getIndexOfMaxAmountForNumSoin(700), -1);
     }
        @Test   
        public void testgetIndexOfMaxAmountForNumSoin4() {
-         
-         mock.refundCalculator ("A", 0, 100);
+         client = new JSONArrayObject("100", "0.00$", "A");
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
+       
+       @Test   
+       public void testRefundCalculator() {
+         familyMemberMonthlyMax.familyCodeList.clear();
+         familyMemberMonthlyMax.familyMembersMonthlyMaxList.clear();
+         familyMemberMonthlyMax.familyCodeList.add("A");
+         familyMemberMonthlyMax.familyMembersMonthlyMaxList.add(new familyMemberMonthlyMax() );
+         assertEquals(mock.refundCalculator(new JSONArrayObject("100", "100.00$", "A")), 34);
+    }
 
-*/
      
 }
