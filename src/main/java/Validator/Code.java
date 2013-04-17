@@ -14,13 +14,16 @@ public class Code {
     public static ArrayList<String> listInputCodes = new ArrayList<String>();
 
     public static boolean areAllCodesValid() {
-        boolean isValid = true;
-        for (int i = 0; i < listInputCodes.size() && isValid; i++) {
+        if(listInputCodes.contains("")){
+            return false;
+        } else{
+        for (int i = 0; i < listInputCodes.size(); i++) {
             if (!isCodeValid(listInputCodes.get(i))) {
-                isValid = false;
+                return false;
             }
         }
-        return isValid;
+        return true;
+        }
     }
 
     public static boolean isCodeValid(String code) {
