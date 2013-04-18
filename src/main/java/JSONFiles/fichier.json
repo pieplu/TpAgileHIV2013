@@ -1,27 +1,27 @@
 {
-    "dossier": "B660323",
+    "dossier": "E660323",
     "mois": "2013-03",
     "reclamations": [
     {
-        "soin": "0",
+        "soin": "150",
         "code": "A",
         "date": "2013-03-02",
         "montant": "100,00$"
     },
     {
-        "soin": "0",
+        "soin": "150",
         "code": "A",
         "date": "2013-03-02",
         "montant": "1000,00$"
     },
     {
-        "soin": "0",
+        "soin": "150",
         "code": "H1",
         "date": "2013-03-02",
         "montant": "100,00$"
     },
     {
-        "soin": "0",
+        "soin": "150",
         "code": "H1",
         "date": "2013-03-02",
         "montant": "1000,00$"
