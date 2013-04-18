@@ -44,41 +44,9 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testGetSumInStringInvalid() {
-        System.out.println(Calculator.getSumOfAllReclamations());
-        assertEquals(Calculator.getSumOfAllReclamations(), "50.00$");
-    }
-
-    @Test
     public void testRefundCalculator_int2() {
-        client = new FamilyMemberData("700", "0.00$", "A","A");
+        client = new FamilyMemberData("700", "0.00$", "A", "A");
         mock.refundCalculator(client);
         assertEquals(mock.refundCalculator(632), 0);
     }
-
-    @Test
-    public void testgetIndexOfMaxAmountForNumSoin() {
-        client = new FamilyMemberData("600", "90.00$", "A","A");
-        mock.refundCalculator(client);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
-    }
-
-    @Test
-    public void testgetIndexOfMaxAmountForNumSoin2() {
-
-        client = new FamilyMemberData("600", "90.00$", "A","A");
-        mock.refundCalculator(client);
-        assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
-    }
-    /*
-     * @Test public void testgetIndexOfMaxAmountForNumSoin3() {
-     *
-     * mock.refundCalculator ("A", 50, 700);
-     * assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0); } @Test public
-     * void testgetIndexOfMaxAmountForNumSoin4() {
-     *
-     * mock.refundCalculator ("A", 0, 100);
-     * assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0); }
-     *
-     */
 }

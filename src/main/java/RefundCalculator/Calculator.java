@@ -12,7 +12,8 @@ public class Calculator {
     private static int amountToRefund = 0;
     private static int refundForThisReclamation = 0;
     private static int sumOfAllReclamations = 0;
-    private final static int AMOUNT_MODIFIER_CODE_H = 2;
+    private static boolean applyAmountModifierForCodeH = false;
+    private final static int AMOUNT_MODIFIER_CODE_H = 50;
 
     public static String getSumOfAllReclamations() {
         return Dollar.formatAmountToStandardFormat(sumOfAllReclamations);
@@ -29,7 +30,7 @@ public class Calculator {
 
     public static int refundCalculator(FamilyMemberData reclamation) {
         amountFromJsonFile = formatDollar(reclamation);
-        amountFromJsonFile = willAmountModifierBeUsed(reclamation,amountFromJsonFile);
+        willAmountModifierBeUsed(reclamation);
         refundForThisReclamation = contractSelector(FamilyMemberData.contractType).selectNumSoinContrat(Integer.parseInt(reclamation.getSoin()));
         int index = getIndexOfMaxAmountForNumSoin(Integer.parseInt(reclamation.getSoin()));
         if (index >= 0) {
@@ -59,15 +60,17 @@ public class Calculator {
         return InstanceOfContract;
     }
 
-    private static int willAmountModifierBeUsed(FamilyMemberData reclamation, int amount) {
+    private static void willAmountModifierBeUsed(FamilyMemberData reclamation) {
         if (reclamation.getCode().substring(0, 1).equals("H")) {
-            amount = amount / AMOUNT_MODIFIER_CODE_H;
+            applyAmountModifierForCodeH = true;
+        } else {
+            applyAmountModifierForCodeH = false;
         }
-        return amount;
     }
 
     static int refundCalculator(int multipleToApplyOnAmountToRefund, int maxAmountToRefund) {
-        amountToRefund = (amountFromJsonFile * multipleToApplyOnAmountToRefund) / 100;
+        multipleToApplyOnAmountToRefund = ajustAmountForCodeH(multipleToApplyOnAmountToRefund * 100);
+        amountToRefund = (amountFromJsonFile * multipleToApplyOnAmountToRefund) / (100*100);
         
         if (amountToRefund > (maxAmountToRefund * 100)) {
             amountToRefund = maxAmountToRefund * 100;
@@ -77,7 +80,9 @@ public class Calculator {
     }
 
     static int refundCalculator(int multiple) {
-        amountToRefund = amountFromJsonFile * multiple / 100;
+        //Multiple by 100 to avoid loss of precision since we manipulate integers
+        multiple = ajustAmountForCodeH(multiple * 100) ;
+        amountToRefund = amountFromJsonFile * multiple / (100*100);
         return amountToRefund;
     }
 
@@ -88,7 +93,12 @@ public class Calculator {
         return amountAsIntegers;
     }
 
- 
+    private static int ajustAmountForCodeH(int multiple) {
+        if(applyAmountModifierForCodeH){
+            multiple = multiple * AMOUNT_MODIFIER_CODE_H / 100;
+        }
+        return multiple;
+    }
 
     private static void setFamilyMemberMonthlyMax(int indexFamilyMember, int index) {
         if (!FamilyData.familyMembersMonthlyMaxList.get(indexFamilyMember).isMonthlyMaxAttained[index]) {
