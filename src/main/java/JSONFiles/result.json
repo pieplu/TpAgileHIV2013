@@ -1,31 +1,31 @@
 {
-    "dossier": "A660323",
+    "dossier": "B660323",
     "mois": "2013-03",
     "reclamations":     [
                 {
-            "soin": "100",
+            "soin": "0",
             "code": "A",
             "date": "2013-03-02",
-            "montant": "35.00$"
+            "montant": "40.00$"
         },
                 {
-            "soin": "100",
+            "soin": "0",
             "code": "A",
             "date": "2013-03-02",
-            "montant": "215.00$"
+            "montant": "40.00$"
         },
                 {
-            "soin": "100",
+            "soin": "0",
             "code": "H1",
             "date": "2013-03-02",
-            "montant": "17.50$"
+            "montant": "25.00$"
         },
                 {
-            "soin": "100",
+            "soin": "0",
             "code": "H1",
             "date": "2013-03-02",
-            "montant": "232.50$"
+            "montant": "40.00$"
         }
     ],
-    "total": "500.00$"
+    "total": "145.00$"
 }

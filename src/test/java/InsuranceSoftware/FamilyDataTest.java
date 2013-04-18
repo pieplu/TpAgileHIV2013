@@ -28,7 +28,7 @@ public class FamilyDataTest {
     
     @Test
     public void testRefundCalculator_int() {
-        FamilyMemberData member = new FamilyMemberData("100", "2000", "A");
+        FamilyMemberData member = new FamilyMemberData("100", "2000", "A","A");
         FamilyData.setAndCreateMonthlyMaxDependingOnNumSoin(member);
         assertTrue(FamilyData.familyCodeList.size() == 1 && FamilyData.familyMembersMonthlyMaxList.size() == 1);
     }

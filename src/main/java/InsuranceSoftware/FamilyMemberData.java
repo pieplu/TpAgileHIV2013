@@ -8,10 +8,11 @@ public class FamilyMemberData extends FamilyData {
     private String code;
     private int indexFamilyMember;
 
-    public FamilyMemberData(String soin, String dollar, String contracType) {
+    public FamilyMemberData(String soin, String dollar, String contracType, String code) {
         this.soin = soin;
         this.dollar = dollar;
         this.contractType = contracType;
+        this.code = code;
     }
 
     public FamilyMemberData(int index, JSONFileCreator file) throws Exception {

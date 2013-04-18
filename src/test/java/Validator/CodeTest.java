@@ -74,12 +74,6 @@ public class CodeTest {
         Code.listInputCodes.remove("EP");
     }
      
-      @Test
-    public void testNonLinearCodeLetters() {
-        Code.listInputCodes.add("E2");
-        assertFalse(Code.areAllCodesValid());
-        Code.listInputCodes.remove("E2");
-    }
     
     @Test
     public void testCodeLetterIsEmpty() {

@@ -51,14 +51,14 @@ public class CalculatorTest {
 
     @Test
     public void testRefundCalculator_int2() {
-        client = new FamilyMemberData("700", "0.00$", "A");
+        client = new FamilyMemberData("700", "0.00$", "A","A");
         mock.refundCalculator(client);
         assertEquals(mock.refundCalculator(632), 0);
     }
 
     @Test
     public void testgetIndexOfMaxAmountForNumSoin() {
-        client = new FamilyMemberData("600", "90.00$", "A");
+        client = new FamilyMemberData("600", "90.00$", "A","A");
         mock.refundCalculator(client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
     }
@@ -66,7 +66,7 @@ public class CalculatorTest {
     @Test
     public void testgetIndexOfMaxAmountForNumSoin2() {
 
-        client = new FamilyMemberData("600", "90.00$", "A");
+        client = new FamilyMemberData("600", "90.00$", "A","A");
         mock.refundCalculator(client);
         assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 5);
     }
