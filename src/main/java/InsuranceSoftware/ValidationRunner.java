@@ -48,7 +48,7 @@ public class ValidationRunner {
         return testValidFileFormat;
     }
 
-    private static boolean isFileToValidateInValidFormat() {
+    protected static boolean isFileToValidateInValidFormat() {
         try {
             listOfAllReclamations = JSONFileCreator.createListOfIndividualReclamationJSONObject("reclamations", fileToValidate);
         } catch (Exception e) {

@@ -45,13 +45,15 @@ public class ValidationRunnerTest {
         assertEquals("test", ValidationRunner.getErrorMessage());
     }
 
-    /**
-     * Test of runValidationProcess method, of class ValidationRunner.
-     */
     @Test
     public void testRunValidationProcess() throws Exception {
-        boolean expResult = true;
-        boolean result = ValidationRunner.runValidationProcess(mockFileToTest);
-        assertEquals(expResult, result);
+        assertTrue(ValidationRunner.runValidationProcess(mockFileToTest));
     }
+    
+    @Test
+    public void testIsFileToValidateInValidFormat() {
+        assertFalse(ValidationRunner.isFileToValidateInValidFormat());
+        //verifie que rien ne traine dans fileToValidate
+    }
+
 }
