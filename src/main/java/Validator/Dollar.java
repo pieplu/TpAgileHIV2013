@@ -42,7 +42,7 @@ public class Dollar {
 
     public static int returnDollarValueInCents(String amountInDollars) {
         int amountAsIntegers = Integer.parseInt(amountInDollars);
-        return amountAsIntegers;
+        return amountAsIntegers ;
     }
 
     public static String formatAmountToStandardFormat(int ammountToFormat) {

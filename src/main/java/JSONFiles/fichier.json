@@ -1,5 +1,5 @@
 {
-    "dossier": "B660323",
+    "dossier": "A660323",
     "mois": "2013-03",
     "reclamations": [
     {
@@ -24,7 +24,7 @@
         "soin": "0",
         "code": "H1",
         "date": "2013-03-02",
-        "montant": "10000,00$"
+        "montant": "1000,00$"
     },
     ]
 }
