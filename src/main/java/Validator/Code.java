@@ -2,10 +2,6 @@ package Validator;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Mathieu Latour
- */
 public class Code {
 
     final static String[] ArrayOfValidCodeLetters = {"A", "C", "E", "H"};

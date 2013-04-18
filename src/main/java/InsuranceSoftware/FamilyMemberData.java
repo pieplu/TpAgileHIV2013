@@ -8,6 +8,19 @@ public class FamilyMemberData extends FamilyData {
     private String code;
     private int indexFamilyMember;
 
+    public FamilyMemberData(String soin, String dollar, String contracType) {
+        this.soin = soin;
+        this.dollar = dollar;
+        this.contractType = contracType;
+    }
+
+    public FamilyMemberData(int index, JSONFileCreator file) throws Exception {
+        soin = JSONArrayObjectDataExtractor.getSoinFromJSONArrayObject(file, index);
+        date = JSONArrayObjectDataExtractor.getDateFromJSONArrayObject(file, index);
+        dollar = JSONArrayObjectDataExtractor.getDollarFromJSONArrayObject(file, index);
+        code = JSONArrayObjectDataExtractor.getCodeFromJSONArrayObject(file, index);
+    }
+
     public String getSoin() {
 
         return soin;
@@ -31,21 +44,5 @@ public class FamilyMemberData extends FamilyData {
 
     public void setIndexFamilyMember(String code) {
         indexFamilyMember = FamilyData.familyCodeList.indexOf(code);
-    }
-
-    public FamilyMemberData() {
-    }
-
-    public FamilyMemberData(String soin, String dollar, String contracType) {
-        this.soin = soin;
-        this.dollar = dollar;
-        this.contractType = contracType;
-    }
-
-    public FamilyMemberData(int index, JSONFileCreator file) throws Exception {
-        soin = JSONArrayObjectDataExtractor.getSoinFromJSONArrayObject(file, index);
-        date = JSONArrayObjectDataExtractor.getDateFromJSONArrayObject(file, index);
-        dollar = JSONArrayObjectDataExtractor.getDollarFromJSONArrayObject(file, index);
-        code = JSONArrayObjectDataExtractor.getCodeFromJSONArrayObject(file, index);
     }
 }

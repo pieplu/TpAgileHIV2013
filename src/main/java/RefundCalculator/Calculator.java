@@ -8,7 +8,6 @@ import Validator.Dollar;
 
 public class Calculator {
 
-    
     private static int amountFromJsonFile = 0;
     private static int amountToRefund = 0;
     private static int refundForThisReclamation = 0;
@@ -60,7 +59,7 @@ public class Calculator {
     }
 
     private static int ajustRefundIfCodeH(FamilyMemberData reclamation) {
-        if (reclamation.contractType.equals("H")) {
+        if (reclamation.getCode().substring(0,1).equals("H")) {
             return refundForThisReclamation / 2;
         } else {
             return refundForThisReclamation;

@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package InsuranceSoftware;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Mathieu Latour
- */
 public class MonthlyMaxRestriction {
 
     final public static int[] numSoinWithMaximum = new int[]{100, 175, 200, 500, 600};

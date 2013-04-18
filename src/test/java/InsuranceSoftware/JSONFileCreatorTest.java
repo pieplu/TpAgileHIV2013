@@ -15,19 +15,19 @@ import static org.junit.Assert.*;
  * @author fe291196
  */
 public class JSONFileCreatorTest {
-    
+
     JSONFileCreator mockFileToTest;
     JSONObject testJSONObject;
-    
+
     @Before
     public void setUp() throws Exception {
         testJSONObject = JSONObject.fromObject("{\"dossier\": \"A660323"
                 + "\",\"mois\": \"2013-03\",\"reclamations\": [{\"soin\": \"175\","
                 + "\"code\": \"H1\",\"date\": \"2013-03-02\",\"montant\": \"100,00$"
                 + "\"}]}");
-        mockFileToTest = new JSONFileCreator (testJSONObject);
+        mockFileToTest = new JSONFileCreator(testJSONObject);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -45,5 +45,4 @@ public class JSONFileCreatorTest {
         String result = mockFileToTest.obtainJSONStringContent("dossier");
         assertEquals("A660323", result);
     }
-
 }

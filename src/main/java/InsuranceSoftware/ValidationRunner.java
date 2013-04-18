@@ -67,7 +67,7 @@ public class ValidationRunner {
             ValidationRunner.setErrorMessage("Erreur: Un soin n'est pas valide.");
             testAJSONArrayObject = false;
         }
-        if (!areAllMontantsValid()) {
+        if (!areAllAmountsValid()) {
             ValidationRunner.setErrorMessage("Erreur: Un montant n'est pas valide.");
             testAJSONArrayObject = false;
         }
@@ -112,7 +112,7 @@ public class ValidationRunner {
         return false;
     }
 
-    private static boolean areAllMontantsValid() {
+    private static boolean areAllAmountsValid() {
         for (int i = 0; i < listOfAllReclamations.size(); i++) {
             if (!isAMontantValid(i)) {
                 return false;

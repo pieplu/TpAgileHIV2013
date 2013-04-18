@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package InsuranceSoftware;
 
-/**
- *
- * @author ff291104
- */
 public class JSONArrayObjectDataExtractor {
 
     public static String getCodeFromJSONArrayObject(JSONFileCreator file, int index) throws Exception {

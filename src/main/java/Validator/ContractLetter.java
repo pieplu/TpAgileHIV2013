@@ -3,8 +3,6 @@ package Validator;
 public class ContractLetter {
 
     private static String contractLetter = "";
-
-    
     final static String[] ArrayOfValidContractLetters = {"A", "B", "C", "D", "E"};
 
     public static boolean isContractLetterValid(String contractLetter) {

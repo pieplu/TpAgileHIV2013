@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package InsuranceSoftware;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author ff291104
- */
 public class FamilyData {
 
     public static String month;

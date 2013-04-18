@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  * @author fe291196
  */
 public class ValidationRunnerTest {
-    
+
     JSONFileCreator mockFileToTest;
     JSONObject testJSONObject;
     String ErrorMessage = "";
@@ -25,14 +25,14 @@ public class ValidationRunnerTest {
                 + "\",\"mois\": \"2013-03\",\"reclamations\": [{\"soin\": \"175\","
                 + "\"code\": \"H1\",\"date\": \"2013-03-02\",\"montant\": \"100,00$"
                 + "\"}]}");
-        mockFileToTest = new JSONFileCreator (testJSONObject);
+        mockFileToTest = new JSONFileCreator(testJSONObject);
     }
-    
+
     @After
-    public void tearDown(){
+    public void tearDown() {
         String ErrorMessage = "";
     }
-    
+
     @Test
     public void testSetErrorMessage() {
         ValidationRunner.setErrorMessage("test");

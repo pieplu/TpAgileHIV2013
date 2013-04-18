@@ -29,7 +29,6 @@ public class ContractCTest {
         mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
         assertEquals(contractMock.refundForContractNumSoin100(), 9500);
     }
-    
 
     @Test
     public void testRefundForContractNumSoin150() {
@@ -44,7 +43,6 @@ public class ContractCTest {
         mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
         assertEquals(contractMock.refundForContractNumSoin175(), 9000);
     }
-   
 
     @Test
     public void testRefundForContractNumSoin200() {
@@ -52,8 +50,6 @@ public class ContractCTest {
         mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
         assertEquals(contractMock.refundForContractNumSoin200(), 9000);
     }
-    
-   
 
     @Test
     public void testRefundForContractNumSoin300() {
@@ -82,7 +78,6 @@ public class ContractCTest {
         mock.refundCalculator(new FamilyMemberData("0", "100.00$", "C"));
         assertEquals(contractMock.refundForContractNumSoin600(), 7500);
     }
-    
 
     @Test
     public void testRefundForContractNumSoin700() {
