@@ -18,6 +18,7 @@ public class ValidationRunnerTest {
     JSONFileCreator mockFileToTest;
     JSONObject testJSONObject;
     String ErrorMessage = "";
+    ValidationRunner mock;
 
     @Before
     public void setUp() throws Exception {
@@ -51,8 +52,14 @@ public class ValidationRunnerTest {
     }
     
     @Test
-    public void testIsFileToValidateInValidFormat() {
-        assertFalse(ValidationRunner.isFileToValidateInValidFormat());
+    public void testRunValidationProcessNull() throws Exception{
+        assertFalse(mock.runValidationProcess(null));
+    }
+    
+    @Test
+    public void testIsFileToValidateInValidFormat() throws Exception{
+        mock.runValidationProcess(null);
+        assertFalse(mock.isFileToValidateInValidFormat());
         //verifie que rien ne traine dans fileToValidate
     }
 
