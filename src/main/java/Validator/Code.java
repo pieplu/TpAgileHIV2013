@@ -35,7 +35,7 @@ public class Code {
         }
     }
 
-    private static int findCodeLetterIndex(String code) {
+    protected static int findCodeLetterIndex(String code) {
         try {
             for (int i = 0; i < ArrayOfValidCodeLetters.length; i++) {
                 if (code.substring(0, 1).equals(ArrayOfValidCodeLetters[i])) {

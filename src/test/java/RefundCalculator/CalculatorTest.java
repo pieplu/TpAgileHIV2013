@@ -17,17 +17,6 @@ public class CalculatorTest {
     private Calculator mock;
     private FamilyMemberData client;
 
-    public CalculatorTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
     @Before
     public void setUp() {
         mock = new Calculator();
@@ -48,5 +37,10 @@ public class CalculatorTest {
         client = new FamilyMemberData("700", "0.00$", "A", "A");
         mock.refundCalculator(client);
         assertEquals(mock.refundCalculator(632), 0);
+    }
+    
+    @Test
+    public void testGetIndexOfMaxAmountForNumSoin() {
+    assertEquals(mock.getIndexOfMaxAmountForNumSoin(100), 0);
     }
 }

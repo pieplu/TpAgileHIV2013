@@ -27,18 +27,20 @@ public class CodeTest {
         assertTrue(Code.areAllCodesValid());
     }
     
+    
     @Test
     public void testCodeLetterIsValidE() {
         Code.listInputCodes.add("E1");
         assertTrue(Code.areAllCodesValid());
     }
     
+    
     @Test
     public void testCodeLetterIsValidH() {
         Code.listInputCodes.add("H1");
         assertTrue(Code.areAllCodesValid());
     }
-    
+
     @Test
     public void testCodeLetterIsInvalid() {
         Code.listInputCodes.add("1");
@@ -74,6 +76,26 @@ public class CodeTest {
         Code.listInputCodes.remove("EP");
     }
      
+    @Test
+    public void testCodeLetterIsInvalid6() {
+        Code.listInputCodes.add("H3");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("H3");
+    }
+      
+    @Test
+    public void testCodeLetterIsInvalid7() {
+        Code.listInputCodes.add("h1");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("h1");
+    }
+    
+    @Test
+    public void testCodeLetterIsInvalid10() {
+        Code.listInputCodes.add("e13");
+        assertFalse(Code.areAllCodesValid());
+        Code.listInputCodes.remove("e13");
+    }
     
     @Test
     public void testCodeLetterIsEmpty() {
@@ -81,4 +103,10 @@ public class CodeTest {
         assertFalse(Code.areAllCodesValid());
          Code.listInputCodes.remove("");
     }
+    
+    @Test
+    public void testfindCodeLetterIndex(){
+       assertEquals(Code.findCodeLetterIndex(null), -1);
+    }
+    
 }
