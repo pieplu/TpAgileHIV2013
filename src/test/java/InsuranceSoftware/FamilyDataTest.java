@@ -15,17 +15,6 @@ import org.junit.BeforeClass;
  */
 public class FamilyDataTest {
     
-    public FamilyDataTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
     @Test
     public void testRefundCalculator_int() {
         FamilyMemberData member = new FamilyMemberData("100", "2000", "A","A");
